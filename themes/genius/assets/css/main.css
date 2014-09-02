@@ -1,0 +1,84 @@
+
+.input-append{display:table;}
+/*-----------------------table tuzi_cms_video  start----------------------------------*/
+.tv-new-table td{
+	 
+}
+.tv-new-table td input{
+	margin-bottom : 4px;
+	vertical-align: middle;
+
+}
+.buttons {
+	text-align:center;
+	margin-bottom:5px;
+}
+.tuzi_cms_video{
+	width:100%;
+}
+.tuzi_cms_video tbody tr td{
+	height:35px;
+	padding: 5px 8px;
+}
+.tuzi_cms_video tbody tr td .t_select_list_table tr td{
+	height:30px;
+	width:240px;
+	padding: 0;
+}
+.tuzi_cms_video tbody tr td .t_select_list_table tr td input{
+	vertical-align: middle;
+	margin-right:80px;
+	margin-left:50px;
+	width:auto;
+}
+.tuzi_cms_video tbody tr td .t_select_list_table tr td span{
+	vertical-align: middle;
+}
+.tuzi_cms_video .drop_list{
+	text-align:center;
+}
+.tuzi_cms_video  input{
+	
+	margin-bottom:0px;
+}
+.tuzi_cms_video_info{
+	width:100%;
+	vertical-align: middle;
+	margin-bottom:20px;
+}
+.tuzi_cms_video_info td{
+	width:50px;
+	height:35px;
+	padding: 5px 8px;
+	border: 1px solid #CCCCCC;
+}
+
+.upload_area{
+	
+}
+#uploadFile{
+	width:120px;
+	float: left;
+	margin-left:40px;
+	
+}
+.qq-upload-fail{
+	padding-left:-5px;
+}
+.upload_desc{
+	padding-top:5px;
+}
+.hidden{
+	display: none;
+}
+/*-----------------------table tuzi_cms_video  end----------------------------------*/
+.tuzi_cms_video th,.tuzi_cms_video td{border:1px solid #ccc;}
+.nav > li > a{color:#7C848B;}
+.config_add{background:#39B3D7;display:block;padding:5px;margin-top:3px;display:none;}
+.config_add li{float:left;width:150px;margin:3px;list-style-type: none;}
+.summary{text-align:right;}
+
+.box .box-content {
+	min-height:100px;
+}
+

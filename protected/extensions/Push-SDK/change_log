@@ -1,0 +1,12 @@
+version - 2.0.0
+1. 统一推送消息接口为pushMessag
+2. 调整group相关功能，修改为：setTag， fetchTag, deleteTag, queryUserTag
+
+version - 2.0.1
+1. 修改sample，添加推送通知的例子
+
+version - 2.0.2
+1. 修复pushMessage 与tag相关方法指定channel_id无效的bug
+
+version - 2.0.3
+1. 增加和修改ios推送相关接口和sample

@@ -1,0 +1,62 @@
+/**
+ * CSS styles for CLinkPager.
+ *
+ * @author Qiang Xue <qiang.xue@gmail.com>
+ * @link http://www.yiiframework.com/
+ * @copyright Copyright &copy; 2008-2010 Yii Software LLC
+ * @license http://www.yiiframework.com/license/
+ * @version $Id: pager.css 1678 2010-01-07 21:02:00Z qiang.xue $
+ * @since 1.0
+ */
+
+ul.punicaPager
+{
+	border:0;
+	margin:0;
+	padding:0;
+	line-height:100%;
+	margin: 13px 0 0;
+}
+
+ul.punicaPager li
+{
+	display:inline;
+}
+
+ul.punicaPager a:link,
+ul.punicaPager a:visited
+{
+	font-weight:normal;
+	color:#727271;
+	padding:1px 6px;
+	text-decoration:none;
+}
+
+ul.punicaPager .page a
+{
+	font-weight:normal;
+}
+
+ul.punicaPager a:hover
+{
+}
+
+ul.punicaPager .selected a
+{
+	color:#1e8ee4;
+	font-weight:normal;
+}
+
+ul.punicaPager .hidden a
+{
+	color:#727271;
+}
+
+/**
+ * Hide first and last buttons by default.
+ */
+ul.punicaPager .first,
+ul.punicaPager .last
+{
+	
+}

@@ -1,0 +1,76 @@
+<?php
+return array (
+  'createProject' => 
+  array (
+    'type' => 0,
+    'description' => 'create a project',
+    'bizRule' => NULL,
+    'data' => NULL,
+  ),
+  'editPorject' => 
+  array (
+    'type' => 0,
+    'description' => 'edit a project',
+    'bizRule' => NULL,
+    'data' => NULL,
+  ),
+  'deleteProject' => 
+  array (
+    'type' => 0,
+    'description' => 'delete a project',
+    'bizRule' => NULL,
+    'data' => NULL,
+  ),
+  'cloneProject' => 
+  array (
+    'type' => 0,
+    'description' => 'clone project',
+    'bizRule' => NULL,
+    'data' => NULL,
+  ),
+  'modifyOwnProject' => 
+  array (
+    'type' => 1,
+    'description' => 'update a project by author himself',
+    'bizRule' => 'return Yii::app()->user->id==$params["post"]->authID;',
+    'data' => NULL,
+    'children' => 
+    array (
+      0 => 'createProject',
+      1 => 'editPorject',
+      2 => 'deleteProject',
+    ),
+  ),
+  'author' => 
+  array (
+    'type' => 2,
+    'description' => '',
+    'bizRule' => NULL,
+    'data' => NULL,
+    'children' => 
+    array (
+      0 => 'createProject',
+      1 => 'editPorject',
+      2 => 'deleteProject',
+    ),
+    'assignments' => 
+    array (
+      'yanpeipan' => 
+      array (
+        'bizRule' => NULL,
+        'data' => NULL,
+      ),
+    ),
+  ),
+  'contributer' => 
+  array (
+    'type' => 2,
+    'description' => '',
+    'bizRule' => NULL,
+    'data' => NULL,
+    'children' => 
+    array (
+      0 => 'cloneProject',
+    ),
+  ),
+);

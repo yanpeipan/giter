@@ -1,0 +1,18 @@
+<?php
+class WebUser extends CWebUser  
+{
+	public function getEncrypt()
+	{
+		$model = Admin::model() -> findByPk(Yii::app()->user->id);
+		if (is_null($model)) {
+			throw new Exception("Cannot found user", 1);
+		}
+		return $model ? $model ->  encrypt : null;
+	}
+
+	public function getUsername()
+	{
+		$model = Admin::model() -> findByPk(Yii::app()->user->id);
+		return $model ? $model ->  username : null;
+	}
+}
