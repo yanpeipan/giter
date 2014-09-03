@@ -28,11 +28,7 @@
 					'name' => 'name',
 					'header' => 'Project Name',
 					),
-				array(
-					'type'=>'raw', 
-					'name' => 'ctime',
-					'header' => 'Create At'
-					),
+				
 				array(
 					'type'=>'raw', 
 					'name' => 'remote_url',
@@ -40,6 +36,11 @@
 				array(
 					'type'=>'raw',
 					'name'=>'domain_url'
+					),
+				array(
+					'type'=>'raw', 
+					'name' => 'ctime',
+					'header' => 'Create At'
 					),
 				array(
 					'class'=>'bootstrap.widgets.TbButtonColumn',
@@ -105,16 +106,16 @@
 					),
 				array(
 					'type'=>'raw', 
-					'name' => 'ctime',
-					'header' => 'Create At'
-					),
-				array(
-					'type'=>'raw', 
 					'name' => 'remote_url',
 					),
 				array(
 					'type'=>'raw',
 					'name'=>'domain_url'
+					),
+				array(
+					'type'=>'raw', 
+					'name' => 'ctime',
+					'header' => 'Create At'
 					),
 				array(
 					'class'=>'bootstrap.widgets.TbButtonColumn',

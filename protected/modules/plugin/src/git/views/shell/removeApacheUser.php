@@ -8,5 +8,5 @@ apache_group_file=<?php echo $apache_group_file; ?>
 if [ -f ${apache_group_file} -a -w ${apache_group_file} ];then
 	sed -i \"/^${group_name}:/s/ ${username} / /g\" ${apache_group_file}
 else
-	exit_error "Error:"${group_name}" is not writable"
+	error_exit "Error:"${group_name}" is not writable"
 fi

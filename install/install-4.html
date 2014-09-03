@@ -1,0 +1,74 @@
+
+
+</head>
+
+<script>
+
+	
+	$(document).ready(function(){
+		//alert('dd');
+		
+	});
+	
+	//给#process添加动态信息
+	function new_info(info){			
+		$('#process').append(info+"\n");
+		var d = document.getElementById("process").scrollHeight;
+		document.getElementById("process").scrollTop = d;
+	}
+	//跳转到成功页面
+	function next_step(){
+		var next_url=window.location.href;
+	    	new_url=next_url.replace(/step=4/,'step=5');
+	    	window.location.href=new_url;
+	}
+</script>
+
+<body>
+<div class="container">
+  <div class="nav">
+    <div class="logo"></div>
+    <h1>安装步骤</h1>
+    <ul>
+      <li><span class="nav-icon1"></span>许可协议</li>
+      <li><span class="nav-icon2"></span>环境检测</li> 
+      <li><span class="nav-icon3"></span>参数配置</li>
+      <li class="selected"><span class="nav-icon4"></span>正在安装</li> 
+      <li><span class="nav-icon5"></span>安装完成</li>
+    </ul>
+  </div>
+  
+  <div class="main">
+    <div class="main-menu">
+      <div class="menu-btn hidden">
+        <p><span></span></p>
+        <p><strong></strong></p>
+      </div>
+      <a href="#">官方网站</a> <a href="#">技术支持</a> <a href="#">帮助</a>
+    </div>
+    
+    <div class="main-scroll">
+      <div class="main-content">
+        <div class="agreement">
+          <div class="title">正在安装</div>
+          <textarea class="installing" id="process"></textarea>
+        </div>
+      </div>
+    </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>
+<script>
+	resize();
+</script>
+<?php
+	$base->install_process();
+	//最后一步结束
+	echo '<script> next_step(); </script>';
+	flush();
+	ob_flush();
+	ob_clean();
+?>
+

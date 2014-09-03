@@ -1,0 +1,410 @@
+@charset "utf-8";
+/* CSS Document */
+
+html {
+	-webkit-text-size-adjust:100%;
+	-ms-text-size-adjust:100%;
+	_text-overflow:ellipsis;
+}
+body {
+	background:#f0f0f0;
+	color: #747474;
+	font-family:'微软雅黑', '黑体', Helvetica, Arial, Sans-Serif;
+	font-size: 14px;
+	padding: 0;
+	margin: 0;
+}
+img {
+	border:0;
+	vertical-align:top;
+}
+ol, ul, dl, p, h2, dl, dd, dt, h3 {
+	list-style:none;
+	padding:0;
+	margin:0;
+}
+h1 {
+	font-weight: normal;
+	font-size: 16px;
+	border-top: 1px #2e2e2e solid;
+	border-bottom: 1px #2e2e2e solid;
+	height: 38px;
+	line-height: 38px;
+	padding: 0 0 0 27px;
+	margin: 0;
+	color: #6e6e6e;
+	text-shadow: 0 0 3px #000;
+}
+a {
+	color:#6c6c6c;
+	text-decoration:none;
+	outline:none;
+}
+input[type=text], textarea {
+	display:inline-block;
+	*display:inline;
+	*zoom:1;
+	height:26px;
+	line-height:26px;
+	outline:none;
+	font-size:14px;
+	font-family:'微软雅黑', '黑体';
+	color: #474747;
+	border: 1px #efefef solid;
+	resize: none;
+	padding: 0 5px;
+}
+
+table td {
+	padding: 5px 0;
+}
+
+.input-280 {
+	width: 270px;
+}
+
+.input-60 {
+	width: 50px;
+}
+
+.input-184 {
+	width: 174px;
+}
+
+.hidden {
+	display: none;
+}
+
+.clear {
+	clear: both;
+}
+
+.font1 {
+	color: #858585;
+}
+
+.container {
+	width: 980px;
+	margin: 0 auto;
+}
+
+.nav {
+	background: #232323;
+	width: 153px;
+	float: left;
+}
+
+.logo {
+	height: 94px;
+	background: url(../images/logo.png) no-repeat center center;
+}
+
+.nav li {
+	height: 36px;
+	line-height: 36px;
+	padding-left: 28px;
+	color: #757575;
+	text-shadow: 0 0 3px #000;
+}
+
+.nav li.selected {
+	background: #141414;
+	color: #fff;
+}
+
+.nav li span {
+	display: block;
+	float: left;
+	margin-top: 10px;
+	width: 14px;
+	height: 17px;
+	vertical-align: middle;
+	background: url(../images/nav-icon.png) no-repeat;
+	margin-right: 5px;
+}
+
+.nav li span.nav-icon1 {
+	background-position: -12px -16px;
+}
+
+.nav li span.nav-icon2 {
+	background-position: -12px -52px;
+}
+
+.nav li span.nav-icon3 {
+	background-position: -12px -92px;
+}
+
+.nav li span.nav-icon4 {
+	background-position: -12px -130px;
+}
+
+.nav li span.nav-icon5 {
+	background-position: -12px -167px;
+}
+
+.nav li.selected span.nav-icon1 {
+	background-position: -41px -16px;
+}
+
+.nav li.selected span.nav-icon2 {
+	background-position: -41px -52px;
+}
+
+.nav li.selected span.nav-icon3 {
+	background-position: -41px -92px;
+}
+
+.nav li.selected span.nav-icon4 {
+	background-position: -41px -130px;
+}
+
+.nav li.selected span.nav-icon5 {
+	background-position: -41px -167px;
+}
+
+.main {
+	background: #f6f6f6;
+	float: right;
+	width: 820px;
+	border-left: 1px #e4e1e1 solid;
+	border-right: 1px #e4e1e1 solid;
+	overflow: hidden;
+}
+
+.main-menu {
+	height: 50px;
+	background: #fff;
+	border-bottom: 1px #e4e1e1 solid;
+	line-height: 50px;
+	text-align: right;
+	padding-right: 10px;
+}
+
+.main-menu a {
+	padding: 0 5px;
+	color: #acacac;
+}
+
+.main-menu .menu-btn {
+	width: 162px;
+	height: 50px;
+	overflow: hidden;
+	float: left;
+}
+
+.main-menu .menu-btn p {
+	width: 80px;
+	height: 50px;
+	border-right: 1px #e4e1e1 solid;
+	text-align: center;
+	float: left;
+}
+
+.main-menu .menu-btn p span,
+.main-menu .menu-btn p strong {
+	display: inline-block;
+	height: 23px;
+	width: 23px;
+	vertical-align: middle;
+	background: url(../images/icons.png);
+	cursor: pointer;
+}
+
+.main-menu .menu-btn p span {
+	background-position: -11px -11px;
+}
+
+.main-menu .menu-btn p strong {
+	background-position: -46px -11px;
+}
+
+.main-scroll {
+	overflow: hidden;
+	overflow-y: auto;
+	padding-top: 30px;
+}
+
+.main-content {
+	width: 740px;
+	margin: 0 auto;
+}
+
+.title {
+	padding: 15px 15px 0;
+	height: 30px;
+	line-height: 30px;
+	font-size: 16px;
+	color: #434343;
+	border-bottom: 1px #efefef solid;
+}
+
+.tit {
+	color: #545454;
+}
+
+.install-btn {
+	padding: 30px 0;
+	height: 39px;
+	text-align: center;
+}
+
+.install-btn p {
+	display: inline-block;
+	height: 39px;
+	width: 130px;
+	margin: 0 5px;
+	line-height: 39px;
+	text-align: center;
+	background: #fff;
+	border: 1px #efefef solid;
+	border-radius: 3px;
+	cursor: pointer;
+	color: #6c6c6c;
+}
+
+.install-btn p.selected {
+	background: #00830c;
+	border: #00830c;
+	color: #fff;
+}
+
+.install-btn p span {
+	display: inline-block;
+	vertical-align: middle;
+	height: 23px;
+	width: 23px;
+	background: url(../images/icons.png);
+	margin-left: 8px;
+}
+
+.install-btn p span.left-btn {
+	background-position: -11px -11px;
+}
+
+.install-btn p span.right-btn {
+	background-position: -46px -11px;
+}
+
+.install-btn p.selected span.left-btn {
+	background-position: -11px -43px;
+}
+
+.install-btn p.selected span.right-btn {
+	background-position: -46px -43px;
+}
+
+/*----------------许可协议---------------*/
+.agreement {
+	background: #fff;
+	border: 1px #efefef solid;
+	border-radius: 3px;
+}
+
+.agreement .agreement-content {
+	padding: 8px 15px;
+	line-height: 26px;
+	border-bottom: 1px #efefef solid;
+	overflow: hidden;
+	overflow-y: auto;
+}
+
+.agreement .agree-agreement {
+	height: 51px;
+	line-height: 51px;
+	padding: 0 15px;
+}
+
+.agreement .agree-agreement input {
+	margin: 0 6px 0 0;
+	vertical-align: middle;
+}
+
+.installing {
+	border: 0;
+	width: 708px;
+	padding: 8px 15px;
+}
+
+/*----------------环境检测---------------*/
+.detect-left,
+.detect-right {
+	width: 363px;
+	float: left;
+	background: #fff;
+	border: 1px #efefef solid;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.detect-right {
+	float: right;
+}
+
+.detect-con {
+	padding: 5px 15px 10px;
+	border-bottom: 1px #efefef solid;
+}
+
+.detect-con label {
+	margin-right: 15px;
+}
+
+.prompt img{
+	float: left;
+	margin: 6px 8px 0 0
+}
+
+.detect-bottom {
+	clear: both;
+	background: #fff;
+	border: 1px #efefef solid;
+	border-radius: 3px;
+	margin-bottom: 10px;
+}
+
+.detect-bottom-con {
+	padding: 8px 15px;
+}
+
+.detect-bottom-prompt {
+	border-top: 1px #efefef solid;
+	height: 60px;
+	line-height: 60px;
+	padding: 0 15px;
+}
+
+.detect-bottom-prompt img {
+	vertical-align: middle;
+	margin-right: 8px;
+}
+
+.last {
+	border-bottom: 0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

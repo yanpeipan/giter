@@ -1,0 +1,281 @@
+
+
+<script>
+	$(document).ready(function(){
+		$('#dbhost,#dbuser,#dbpsw').change(function(){
+			var dbhost=$('#dbhost').val();
+			var dbuser=$('#dbuser').val();
+			var dbpsw=$('#dbpsw').val();
+			
+			$('#result_test_db').html('正在尝试连接数据库....');
+                  	
+			if(dbhost && dbuser && dbpsw){
+				$.get(
+					"", 
+					{	
+						'action':'test_db',
+						'dbhost':dbhost,
+						'dbuser':dbuser,
+						'dbpsw':dbpsw
+					},
+				   	function(data){
+					    if(data.status==1){
+					    	//alert(data.info);
+					    	$('#result_test_db').html('数据库连接成功....');
+					    }else{
+					    	$('#result_test_db').html('<font color="#F00" font-weight="bolder">数据库连接失败....</font>');
+					    }
+				   }, 
+				   "json"
+				 );
+			}
+		});
+	});
+	
+	function DoInstall(){
+		var install_value=new Array();
+		
+		$('input').each(function(){
+			
+			var input_id=$(this).attr('id');
+			var input_name=$(this).attr('name');
+			var input_val=$(this).val();
+			var input_type=$(this).attr('type');
+			
+			if(input_id && input_val && input_type!='button'){	
+						
+				var tmp=new Object();
+				tmp.key=input_id;
+				tmp.val=input_val;
+				install_value.push(tmp);
+			}else{
+				
+				//alert(input_id+' '+input_val+'  >'+input_type);
+			}			
+		});
+		
+		var tmp=new Object();
+		tmp.key='charset';
+		tmp.val=$('input:radio:checked').val();
+		install_value.push(tmp);
+				
+		if(install_value.length>1){
+			var value=JSON.stringify(install_value);
+			$.get(
+				"", 
+				{	
+					'action':'install',
+					'value':value,
+				},
+			   	function(data){
+			   		
+				    if(data.status==1){
+				    	
+				    	$('#result_test_db').html('成功....');
+				    //	window.location.href='index.php?step=3;
+				    	var next_url=window.location.href;
+				    	new_url=next_url.replace(/step=3/,'step=4');
+		
+				    	window.location.href=new_url;
+				    }else{
+				    	alert(data.info);
+				    	$('#result_test_db').html('失败....');
+				    }
+			   }, 
+			   "json"
+			 );
+		}else{
+			alert('请完全填写');
+		}
+	}
+</script>
+
+</head>
+
+<body>
+<div class="container">
+  <div class="nav">
+    <div class="logo"></div>
+    <h1>安装步骤</h1>
+    <ul>
+      <li><span class="nav-icon1"></span>许可协议</li>
+      <li><span class="nav-icon2"></span>环境检测</li> 
+      <li class="selected"><span class="nav-icon3"></span>参数配置</li>
+      <li><span class="nav-icon4"></span>正在安装</li> 
+      <li><span class="nav-icon5"></span>安装完成</li>
+    </ul>
+  </div>
+  
+  <div class="main">
+    <div class="main-menu">
+      <div class="menu-btn">
+        <p onclick="window.location.href='index.php?step=2'"><span></span></p>
+        <p onclick="DoInstall();"><strong></strong></p>
+      </div>
+      <a href="#">官方网站</a> <a href="#">技术支持</a> <a href="#">帮助</a>
+    </div>
+    
+    <div class="main-scroll">
+      <div class="main-content">
+      <form name="form1" method="post" action="">
+        <div class="detect-left">
+          <div class="title">数据库设定</div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" class="tit">数据库主机</td>
+              </tr>
+              <tr>
+                <td height="28" align="left"><input type="text" class="input-280" value="localhost" name="dbhost" id="dbhost" ></td>
+                </tr>
+              <tr>
+                <td height="28" align="left" class="font1">一般为loscahost</td>
+                </tr>
+            </table>
+          </div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">数据库用户</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left"><input type="text" class="input-280" value="root" name="dbuser" id="dbuser" ></td>
+              </tr>
+              </table>
+          </div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" class="tit">数据库密码</td>
+              </tr>
+              <tr>
+                <td height="28" align="left"><input type="text" class="input-280" name="dbpwd" id="dbpsw"></td>
+                </tr>
+              <tr>
+                <td height="28" align="left" class="font1" id="result_test_db">数据库连接失败 </td>
+                </tr>
+            </table>
+          </div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" class="tit">数据表前缀</td>
+              </tr>
+              <tr>
+                <td height="28" align="left"><input type="text" class="input-280" value="pre_" name="dbprefix" id="dbprefix"  ></td>
+                </tr>
+              <tr>
+                <td height="28" align="left" class="font1">如无特殊需要，请不要修改</td>
+                </tr>
+            </table>
+          </div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">数据库名称</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left"><input type="text" class="input-280" name="dbname" id="dbname" value="vo"></td>
+              </tr>
+              </table>
+          </div>
+          <div class="detect-con last">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">数据库编码</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left">
+                  <label><input type="radio"  name="charset"  value="utf8" checked="checked">UTF8</label>
+                  <!--
+                  <label><input type="radio" name="charset"  value="gb2312"  checked="checked">gb2312</label>
+                  -->
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <div class="detect-right">
+          <div class="title">管理员初始密码</div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" class="tit">用户名</td>
+              </tr>
+              <tr>
+                <td height="28" align="left"><input type="text" class="input-280" value="admin" name="adminuser" id="adminuser"></td>
+                </tr>
+              <tr>
+                <td height="28" align="left" class="font1">只能用0-9,a-z,A-Z,.,@,_,-,!以内范围的字符</td>
+                </tr>
+            </table>
+          </div>
+          <div class="detect-con last">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">密码</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left"><input type="text" class="input-280" value="admin" name="adminpwd" id="adminpsw" ></td>
+              </tr>
+              </table>
+          </div>
+        </div>
+        
+        <div class="detect-right">
+        	<!---
+          <div class="title">网站设置</div>
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">网站名称</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left"><input type="text" class="input-280" value="admin" name="webname" id="webname"></td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">管理员邮箱</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left"><input type="text" class="input-280" value="admin@163.com" name="adminmail" id="adminmail"></td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="detect-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="20" colspan="2" class="tit">网站网址</td>
+              </tr>
+              <tr>
+                <td height="28" colspan="2" align="left"><input type="text" class="input-280" value="www.admin.com" name="baseurl" id="baseurl" ></td>
+              </tr>
+            </table>
+          </div>
+          
+          <div class="detect-con last">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td height="77" colspan="2" class="tit">&nbsp;</td>
+              </tr>
+            </table>
+          </div>
+          -->
+        </div>
+        <div class="clear"></div>
+        </form>
+      </div>
+      <div class="install-btn">
+        <p onclick="window.location.href='index.php?step=2'">后退<span class="left-btn"></span></p>
+        <p class="selected" onclick="DoInstall();">继续<span class="right-btn"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

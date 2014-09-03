@@ -46,10 +46,59 @@ return array(
 		),
 //sql
 	'execsql' => array(
+		"CREATE TABLE `pre_projects` (
+			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+			`name` varchar(45) NOT NULL,
+			`uid` int(11) NOT NULL,
+			`ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+			`remote_url` varchar(255) NOT NULL,
+			`domain` varchar(45) NOT NULL,
+			`status` varchar(45) DEFAULT NULL,
+			PRIMARY KEY (`id`),
+			UNIQUE KEY `name_UNIQUE` (`name`),
+			UNIQUE KEY `domain_UNIQUE` (`domain`)
+			) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-	)
+"CREATE TABLE `pre_projects_members` (
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`pid` int(10) unsigned NOT NULL,
+	`uid` int(10) unsigned NOT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `uniqe` (`pid`,`uid`)
+	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
+
+"CREATE TABLE `pre_repositories` (
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(45) NOT NULL,
+	`description` text NOT NULL,
+	`root_path` varchar(3841) NOT NULL COMMENT 'The root path of repositorie',
+	`apache_group_file` varchar(4096) NOT NULL,
+	`apache_user_file` varchar(4096) NOT NULL,
+	`ip` int(10) unsigned NOT NULL,
+	`ssh_port` smallint(5) unsigned NOT NULL,
+	`apache_bin` varchar(4096) NOT NULL,
+	`url_port` smallint(5) unsigned NOT NULL,
+	`htpasswd_bin` varchar(4096) NOT NULL,
+	`git_config_path` varchar(45) NOT NULL,
+	PRIMARY KEY (`id`)
+	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
+
+"CREATE TABLE `pre_projects` (
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(45) NOT NULL,
+	`uid` int(11) NOT NULL,
+	`ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+	`remote_url` varchar(255) NOT NULL,
+	`domain` varchar(45) NOT NULL,
+	`status` varchar(45) DEFAULT NULL,
+	PRIMARY KEY (`id`),
+	UNIQUE KEY `name_UNIQUE` (`name`),
+	UNIQUE KEY `domain_UNIQUE` (`domain`)
+	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+
+)
 
 
 
 
-	);
+);

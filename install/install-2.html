@@ -1,0 +1,122 @@
+
+<body>
+<div class="container">
+  <div class="nav">
+    <div class="logo"></div>
+    <h1>安装步骤</h1>
+    <ul>
+      <li><span class="nav-icon1"></span>许可协议</li>
+      <li class="selected"><span class="nav-icon2"></span>环境检测</li> 
+      <li><span class="nav-icon3"></span>参数配置</li>
+      <li><span class="nav-icon4"></span>正在安装</li> 
+      <li><span class="nav-icon5"></span>安装完成</li>
+    </ul>
+  </div>
+  
+  <div class="main">
+    <div class="main-menu">
+      <div class="menu-btn">
+        <p onclick="window.location.href='index.php?step=1'"><span></span></p>
+        <p onclick="window.location.href='index.php?step=3'"><strong></strong></p>
+      </div>
+      <a href="#">官方网站</a> <a href="#">技术支持</a> <a href="#">帮助</a>
+    </div>
+    
+    <div class="main-scroll">
+      <div class="main-content">
+      <form name="form1" method="post" action="">
+        <div class="detect-bottom">
+          <div class="title">服务器信息</div>
+          <div class="detect-bottom-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td>项目</td>
+                <td width="25%" align="left">建议</td>
+                <td align="left">检测结果</td>
+              </tr>
+              <tr>
+                <td width="50%">服务器域名</td>
+                <td align="left">无</td>
+                <td align="left"><?php echo $base->getDomain(); ?></td>
+              </tr>
+              <tr>
+                <td>服务器操作系统</td>
+                <td align="left">LINUX</td>
+                <td align="left"><?php echo $base->getOsInfo(); ?></td>
+              </tr>
+              <tr>
+                <td>服务器解译引擎</td>
+                <td align="left">APACHE/NGINX</td>
+                <td align="left"><?php echo $base->getSever(); ?></td>
+              </tr>
+              <tr>
+                <td>PHP版本</td>
+                <td align="left">5.3</td>
+                <td align="left"><?php echo $base->getPhpVer(); ?></td>
+              </tr>
+              <tr>
+                <td>系统安装目录</td>
+                <td align="left">是</td>
+                <td align="left"><?php echo $base->getRootDir(); ?></td>
+              </tr>
+            </table>
+          </div>
+      </div>
+        <div class="detect-bottom">
+          <div class="title">系统环境检测</div>
+          <div class="detect-bottom-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="50%">需开启的变量或函数</td>
+                <td width="25%" align="left">要求</td>
+                <td align="left">实际状态及建议</td>
+              </tr>
+              
+              	<?php	
+			foreach($info1 as $item){
+				if(isset($item['result'])){
+					$item['result'].='/';
+				}
+				echo '<tr class="status'.$item['status'].'"><td>'.$item['item'].'</td><td align="left">'.$item['allow'].'</td><td align="left">'.$item['result'].$item['message'].'</td></tr>';
+			}
+		?>
+            </table>
+          </div>
+        </div>
+        <div class="detect-bottom">
+          <div class="title">目录权限检测</div>
+          <div class="detect-bottom-con">
+            <table width="100%" border="0" cellspacing="0" cellpadding="0">
+              <tr>
+                <td width="50%">目录名</td>
+                <td width="25%" align="left">读取权限</td>
+                <td align="left">写入权限</td>
+              </tr>
+              <?php
+			foreach($info2 as $key=>$wr){
+				$w='<font color="#F00">否</font>';
+				if($wr['w']){
+					$w='是';
+				}
+				$r='<font color="#F00">否</font>';
+				if($wr['r']){
+					$r='是';
+				}
+				echo '<tr><td>'.$key.'</td><td align="left" >'.$r.'</td><td align="left">'.$w.'</td></tr>';
+			}s
+		?>
+            </table>
+          </div>
+          <div class="detect-bottom-prompt"><img src="images/icon-prompt_03.png" width="32" height="32" align="middle">系统环境要求必须满足下列所有条件，否则系统或系统部分功能将无法使用。</div>
+        </div>
+        </form>
+      </div>
+      <div class="install-btn">
+        <p onclick="window.location.href='index.php?step=1'">后退<span class="left-btn"></span></p>
+        <p class="selected" onclick="window.location.href='index.php?step=3'">继续<span class="right-btn"></span></p>
+      </div>
+    </div>
+  </div>
+</div>
+</body>
+</html>

@@ -4,5 +4,5 @@ nginx=<?php echo $ngixn_bin;?>
 if [ -x ${nginx} ];then
 	${nginx} -s reload
 else
-	exit_error "Error:"${nginx}" is not executable"
+	error_exit "Error:"${nginx}" is not executable"
 fi

@@ -8,8 +8,8 @@ if [ -d ${htdocs} -a -x ${htdocs} ];then
 	if [ -d ${domain} -a -w {$domain} ];then
 		rm -rf ${domain} 
 	else
-		exit_error "Error:"${htdocs}${domain}" is not exists or writable"
+		error_exit "Error:"${htdocs}${domain}" is not exists or writable"
 	fi
 else
-	exit_error "Error:"${htdocs}" is not exists or executable"
+	error_exit "Error:"${htdocs}" is not exists or executable"
 fi

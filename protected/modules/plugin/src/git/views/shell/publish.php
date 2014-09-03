@@ -5,6 +5,8 @@ htdocs=<?php echo $htdocs; ?>
 
 origin=<?php echo $origin; ?>
 
+<?php $this->renderPartial('shell/errorExit'); ?>
+
 if [ -d ${project_dir} ];then
 	cd ${project_dir}  ||  error_exit "Error:Cannot change directory"${project_dir}
 	git pull

@@ -272,6 +272,7 @@ $result = stream_get_contents($stream);
 
     public function publish($domain, $id = null)
     {
+
         $server = $this -> getVirtualServerInfo($id); 
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
         ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
@@ -286,7 +287,7 @@ EOD;
         if [ ! -d ${project_dir} ];then
             error_exit "Cannot found htdocs"
         fi
-        cd ${htdocs}/${domain} && git pull
+        cd ${htdocs}/${domain} && git pull origin master
 EOT;
 
 $stream = ssh2_exec($ssh, $command);
@@ -294,8 +295,6 @@ $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
          //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
 stream_set_blocking($stream, true);
 $result = stream_get_contents($stream);
-var_dump($result);
-die;
  
 
     }
