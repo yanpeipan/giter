@@ -95,8 +95,22 @@ return array(
 	UNIQUE KEY `name_UNIQUE` (`name`),
 	UNIQUE KEY `domain_UNIQUE` (`domain`)
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+),
 
-)
+"CREATE TABLE `pre_virtual_servers` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` text NOT NULL,
+  `htdocs_path` varchar(3841) NOT NULL,
+  `nginx_config_path` varchar(3841) NOT NULL,
+  `ngixn_bin` varchar(4096) NOT NULL,
+  `ip` int(10) unsigned NOT NULL,
+  `ssh_port` smallint(5) unsigned NOT NULL,
+  `url_port` smallint(5) unsigned NOT NULL,
+  `url_host` varchar(256) NOT NULL,
+  `url_schema` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
 
 
 
