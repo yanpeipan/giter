@@ -97,7 +97,7 @@ return array(
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
 ),
 
-"CREATE TABLE `pre_virtual_servers` (
+"CREATE TABLE   IF NOT EXISTS  `pre_virtual_servers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `description` text NOT NULL,
