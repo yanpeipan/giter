@@ -46,7 +46,7 @@ return array(
 		),
 //sql
 	'execsql' => array(
-		"CREATE TABLE `pre_projects` (
+		"CREATE TABLE  IF NOT EXISTS `pre_projects` (
 			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 			`name` varchar(45) NOT NULL,
 			`uid` int(11) NOT NULL,
@@ -59,7 +59,7 @@ return array(
 			UNIQUE KEY `domain_UNIQUE` (`domain`)
 			) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE `pre_projects_members` (
+"CREATE TABLE  IF NOT EXISTS `pre_projects_members` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`pid` int(10) unsigned NOT NULL,
 	`uid` int(10) unsigned NOT NULL,
@@ -67,7 +67,7 @@ return array(
 	UNIQUE KEY `uniqe` (`pid`,`uid`)
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE `pre_repositories` (
+"CREATE TABLE  IF NOT EXISTS  `pre_repositories` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`name` varchar(45) NOT NULL,
 	`description` text NOT NULL,
@@ -83,7 +83,7 @@ return array(
 	PRIMARY KEY (`id`)
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE `pre_projects` (
+"CREATE TABLE  IF NOT EXISTS `pre_projects` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`name` varchar(45) NOT NULL,
 	`uid` int(11) NOT NULL,

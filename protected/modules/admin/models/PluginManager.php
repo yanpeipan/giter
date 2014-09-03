@@ -275,6 +275,11 @@ class PluginManager
 	 */
 	static public function PluginExecSQL(array $conf)
 	{
+		if(isset($conf['execsql']) && is_array($conf['execsql'])){
+			foreach ($conf['execsql'] as $key => $value) {
+				Yii::app()->db->createCommand($value)->execute();
+			}
+		}
 		return true;
 	}
 	
