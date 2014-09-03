@@ -1,9 +1,7 @@
 <?php
-
-//ini_set("display_errors",1);
-// change the following paths if necessary
-$yii=dirname(__FILE__).'/yii/yii.php';
-$yii='/home/yan/yii-1.1.15.022a51/framework/yii.php';
+error_reporting(E_ALL);
+ini_set("display_errors",1);
+$yii=dirname(__FILE__).'/yii/framework/yii.php';
 $config=dirname(__FILE__).'/protected/config/main.php';
 
 // remove the following lines when in production mode
