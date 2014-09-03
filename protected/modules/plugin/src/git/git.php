@@ -94,8 +94,7 @@ return array(
 	PRIMARY KEY (`id`),
 	UNIQUE KEY `name_UNIQUE` (`name`),
 	UNIQUE KEY `domain_UNIQUE` (`domain`)
-	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
-),
+	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
 "CREATE TABLE   IF NOT EXISTS  `pre_virtual_servers` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -110,7 +109,43 @@ return array(
   `url_host` varchar(256) NOT NULL,
   `url_schema` varchar(45) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;"
+) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
+
+"INSERT INTO `pre_virtual_servers`
+(`id`,
+`name`,
+`description`,
+`htdocs_path`,
+`nginx_config_path`,
+`ngixn_bin`,
+`ip`,
+`ssh_port`,
+`url_port`,
+`url_host`,
+`url_schema`)
+VALUES
+(null, 'test', 'desc', '/var', '/etc/nginx', 'nginx', '127.0.0.1', 22, 80, 'test.com', 'http');",
+
+"INSERT INTO `pre_repositories`
+(`id`,
+`name`,
+`description`,
+`root_path`,
+`apache_group_file`,
+`apache_user_file`,
+`ip`,
+`ssh_port`,
+`apache_bin`,
+`url_port`,
+`htpasswd_bin`,
+`git_config_path`)
+VALUES
+(null, 'test', 'desc', '/repo', 'group_file', 'user_file', '127.0.0.1', 22, 'apache2', '80', 'htpasswd', 'git');
+"
+
+),
+
+
 
 
 
