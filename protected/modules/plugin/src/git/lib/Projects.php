@@ -173,7 +173,7 @@ class Projects extends CActiveRecord
     {
     	$server = $this -> getRepositoryServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-    	ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+    	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
 
     	if (!$psw) {
@@ -211,7 +211,7 @@ EOT;
     {
         $server = $this -> getRepositoryServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
        $command =<<<"EOD"
        group_file={$server->apache_group_file}
        group_name={$group}
@@ -235,7 +235,7 @@ $result = stream_get_contents($stream);
     {
         $server = $this -> getRepositoryServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
         $command = "sed -i \"/^${group}:/d\" {$server->apache_group_file}";
         $stream = ssh2_exec($ssh, $command);
     }
@@ -244,7 +244,7 @@ $result = stream_get_contents($stream);
     {
         $server = $this -> getRepositoryServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
         $command  =<<<"EOD"
         sed -i "/^{$project}:/{s/ $usr / /g;s/$/&$usr /g;s/[ ]\{2,\}/ /g}"  {$server->apache_group_file}
@@ -261,7 +261,7 @@ $this -> htpasswd($usr, $psw);
     {
                     $server = $this -> getRepositoryServerInfo();
                     $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-                    ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+                    ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
                     $command = "sed -i \"/^{$project}:/s/ $usr / /g\" {$server->apache_group_file}";
                     $stream = ssh2_exec($ssh, $command);
                     $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
@@ -275,7 +275,7 @@ $result = stream_get_contents($stream);
 
         $server = $this -> getVirtualServerInfo($id); 
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
         $domain =  escapeshellarg($domain);
         $command =<<<"EOD"
@@ -305,7 +305,7 @@ $result = stream_get_contents($stream);
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-    	ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+    	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
     	$command =<<<"EOD"
     	htdocs={$server->htdocs_path}
@@ -331,7 +331,7 @@ EOT;
     {
         	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-    	ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');	
+    	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);	
     }
 
     /**
@@ -341,7 +341,7 @@ EOT;
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-    	ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+    	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
     	$config =<<<"EOD"
     server
@@ -404,7 +404,7 @@ EOD;
     {
         $server = $this -> getVirtualServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
         $filename = $server->nginx_config_path . $this ->domain . '.conf';
         $sftp = ssh2_sftp($ssh);
         ssh2_sftp_unlink ($sftp, $filename);
@@ -434,7 +434,7 @@ EOD;
     {
     	$server = $this -> getRepositoryServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-    	ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+    	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
     	//append .git to domain
     	$domain = strpos($this->domain, '.git') ? $this -> domain : $this->domain . '.git';
 
@@ -493,7 +493,7 @@ EOT;
     {
         $server = $this -> getRepositoryServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, 'root', '/home/yan/.ssh/id_rsa.pub',  '/home/yan/.ssh/id_rsa.pem');
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
                 $domain = strpos($this->domain, '.git') ? $this -> domain : $this->domain . '.git';
         $filename = $server->git_config_path . $this ->domain . '.conf';

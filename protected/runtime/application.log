@@ -9316,3 +9316,491 @@ in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (182)
 in /home/yan/giter/themes/genius/views/layouts/main.php (76)
 in /home/yan/giter/themes/genius/views/layouts/column2.php (36)
 in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (182)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "booster" application component
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (420)
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (212)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "assetManager" application component
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (413)
+in /home/yan/giter/protected/extensions/booster/components/packages.php (14)
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (260)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (413)
+in /home/yan/giter/protected/extensions/booster/components/packages.php (14)
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (260)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.base.CModule] Loading "plugin" module
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/protected/modules/plugin/PluginModule.php (13)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/protected/modules/plugin/components/PluginBaseController.php (13)
+2014/09/03 16:00:42 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/CDbConnectionExt.php (209)
+in /home/yan/giter/protected/components/CDbConnectionExt.php (314)
+in /home/yan/giter/protected/components/CDbCommandExt.php (19)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_projects`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (21)
+2014/09/03 16:00:42 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_projects`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (21)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (24)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:42 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (24)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] Projects.count()
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `pre_projects` `projects`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (398)
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] Projects.findAll()
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_projects` `projects` LIMIT 10
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "coreMessages" application component
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbButtonColumn.php (37)
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (108)
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "bootstrap" application component
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (83)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "format" application component
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_virtual_servers`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_virtual_servers`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (71)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] Projects.count()
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT COUNT(*) FROM `pre_projects` `projects` left join pre_projects_members on pre_projects_members.pid=projects.id
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (398)
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] Projects.findAll()
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (35)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT `projects`.`id`, `projects`.`name`, `projects`.`uid`, `projects`.`ctime`, `projects`.`remote_url`, `projects`.`domain`, `projects`.`status` FROM `pre_projects` `projects` left join pre_projects_members on pre_projects_members.pid=projects.id LIMIT 10
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (140)
+in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (135)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/src/git/lib/Projects.php (163)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "booster" application component
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (420)
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (212)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "assetManager" application component
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (413)
+in /home/yan/giter/protected/extensions/booster/components/packages.php (14)
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (260)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (413)
+in /home/yan/giter/protected/extensions/booster/components/packages.php (14)
+in /home/yan/giter/protected/extensions/booster/components/Booster.php (260)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.base.CModule] Loading "plugin" module
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/protected/modules/plugin/PluginModule.php (13)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/protected/modules/plugin/components/PluginBaseController.php (13)
+2014/09/03 16:00:43 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/CDbConnectionExt.php (209)
+in /home/yan/giter/protected/components/CDbConnectionExt.php (314)
+in /home/yan/giter/protected/components/CDbCommandExt.php (19)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_repositories`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (178)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_repositories`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (178)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_virtual_servers`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (361)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (179)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_virtual_servers`
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (179)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] Repositories.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (180)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_repositories` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (180)
+2014/09/03 16:00:43 [trace] [system.db.ar.CActiveRecord] VirtualServers.findByAttributes()
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (181)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_virtual_servers` `t` WHERE name<>"" LIMIT 1
+in /home/yan/giter/protected/components/CDbCommandExt.php (448)
+in /home/yan/giter/protected/components/CDbCommandExt.php (380)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (181)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (183)
+in /home/yan/giter/index.php (15)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/plugin/src/git/views/manage/virtualServer.php (23)
+in /home/yan/giter/protected/modules/plugin/src/git/views/manage/index.php (2)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (183)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "coreMessages" application component
+in /home/yan/giter/protected/extensions/booster/widgets/TbActiveForm.php (1249)
+in /home/yan/giter/protected/extensions/booster/widgets/TbActiveForm.php (1148)
+in /home/yan/giter/protected/extensions/booster/widgets/TbActiveForm.php (389)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/themes/genius/views/layouts/main.php (76)
+in /home/yan/giter/themes/genius/views/layouts/column2.php (36)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (183)
+2014/09/03 16:00:43 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/themes/genius/views/layouts/main.php (76)
+in /home/yan/giter/themes/genius/views/layouts/column2.php (36)
+in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (183)

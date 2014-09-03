@@ -70,8 +70,8 @@ $common_config = array(
 
       ),
       */
-    'plugin',
-    ),
+  'plugin',
+  ),
 
   // application components
   'components'=>array (   
@@ -200,6 +200,9 @@ $common_config = array(
   'adminEmail'=>'webmaster@example.com', 
     'imgUrl' => 'http://vo.tuziv.com/',//'http://img1tuzi.b0.upaiyun.com/',//封面路径配置
     'yunimg'=> 'http://img1tuzi.b0.upaiyun.com/',
+    'user' => 'root',
+    'pubkeyfile' => '/root/.ssh/id_rsa.pub',
+    'pemkeyfile' => '/root/.ssh/id_rsa.pem',
     ),
 );
 
@@ -222,9 +225,9 @@ if(defined("YII_DEBUG") && true == YII_DEBUG){
           // If removed, Gii defaults to localhost only. Edit carefully to taste.
           'ipFilters'=>false,
           //'ipFilters'=>array('127.0.0.1','::1'),
+          ),
         ),
-      ),
-    )
-  );
+      )
+    );
 }
 return $common_config;
