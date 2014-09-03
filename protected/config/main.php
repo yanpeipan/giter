@@ -44,6 +44,7 @@ $common_config = array(
       'defaultController'=>'video',
       'class'=>'application.modules.admin.AdminModule',
       ),
+      'install',
     /*
     'srbac' => array(
       'userclass'=>'Admin', 
