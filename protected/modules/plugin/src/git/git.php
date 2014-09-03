@@ -111,7 +111,7 @@ return array(
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"INSERT INTO `pre_virtual_servers`
+"INSERT IGNORE INTO  `pre_virtual_servers`
 (`id`,
 `name`,
 `description`,
@@ -124,9 +124,9 @@ return array(
 `url_host`,
 `url_schema`)
 VALUES
-(null, 'test', 'desc', '/var', '/etc/nginx', 'nginx', '127.0.0.1', 22, 80, 'test.com', 'http');",
+(1, 'test', 'desc', '/var', '/etc/nginx', 'nginx', '127.0.0.1', 22, 80, 'test.com', 'http');",
 
-"INSERT INTO `pre_repositories`
+"INSERT IGNORE INTO `pre_repositories`
 (`id`,
 `name`,
 `description`,
@@ -140,8 +140,9 @@ VALUES
 `htpasswd_bin`,
 `git_config_path`)
 VALUES
-(null, 'test', 'desc', '/repo', 'group_file', 'user_file', '127.0.0.1', 22, 'apache2', '80', 'htpasswd', 'git');
-"
+(1, 'test', 'desc', '/repo', 'group_file', 'user_file', '127.0.0.1', 22, 'apache2', '80', 'htpasswd', 'git');",
+
+//"ALTER TABLE {{admin}} ADD encrypt varchar(255) NOT NULL;",
 
 ),
 

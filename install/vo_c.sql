@@ -51,6 +51,7 @@ CREATE TABLE IF NOT EXISTS `pt_admin` (
   `username` varchar(255) NOT NULL COMMENT '用户名',
   `password` varchar(255) NOT NULL COMMENT '密码',
   `is_super_admin` int(1) NOT NULL DEFAULT '0' COMMENT '是否为超级管理员',
+  `encrypt` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`),
   KEY `password` (`password`)

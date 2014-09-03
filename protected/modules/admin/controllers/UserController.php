@@ -51,10 +51,6 @@ class UserController extends AdminBaseController
     	$this->layout = "//layouts/main"; 
         $model=new Admin;
 
-        if(!Yii::app()->user->isGuest)
-        {
-            $this->redirect('/');
-        }
         if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
         {
             echo CActiveForm::validate($model);
@@ -73,7 +69,8 @@ class UserController extends AdminBaseController
                 Yii::app()->request->cookies[sha1('vo_auth')]=$cookie;
                 
                 $cookie = Yii::app()->request->getCookies();
-                $this->redirect(Yii::app()->createUrl('/plugin/git'));die;
+                $this->redirect(Yii::app()->createUrl('admin/pluginManager/local'));
+                Yii::app()->end();
             }
         }
         $this->render('login',array('model'=>$model));
