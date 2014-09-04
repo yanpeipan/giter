@@ -10,7 +10,7 @@
 	</div>
 	<div class="box-content">
 		<?php 
-		$form=$this->beginWidget('CActiveForm', array(
+		$form=$this->beginWidget('booster.widgets.TbActiveForm', array(
 			'id'=>'create_project_form',
 			'enableAjaxValidation'=>true,
 			'enableClientValidation'=>true,
@@ -23,35 +23,40 @@
 		); 
 		?>
 		<!--  Project Name Input-->
-		<div class="form-group">
-			<?php echo $form->labelEx($model,'name', array(
-				'class' => 'control-label'
+		<?php echo $form->textFieldGroup($model, 'name');?>
+		<!-- Project type -->
+		<?php 
+		echo $form->dropDownListGroup(
+			$model,
+			'type',
+			array(
+				'select' => 'local',
+				'onchange' => 'js:alert();',
+				'widgetOptions' => array(
+					'htmlOptions' => array(
+						'select' => 'local',
+						'onChange' => 'js:$("#Projects_domain_group").toggle()',
+						),
+					'select' => 'local',
+					'asDropDownList' => true,
+					'data' => array( 'local' => 'local', 'php-web' => 'php-web',),
+					),
 				)
-			); 
-			?>
-			<div class="controls">
-				<div class="input-group">
-					<?php echo $form->textField($model,'name', array('class' => 'focused')); ?>
-				</div>
-				<span class="help-block"><?php echo $form->error($model,'name'); ?></span>
-			</div>
-		</div>
-
+		);?>
 		<!--  Project Domain Input-->
-		<div class="form-group">
-			<?php echo $form->labelEx($model,'domain', array(
-				'class' => 'control-label'
+		<?php
+		echo $form->textFieldGroup(
+			$model, 
+			'domain', 
+			array(
+				'append' => '.red16.com', 
+				'groupOptions' => array(
+					'id' => 'Projects_domain_group',
+					'style' => 'display: none'	
+					),
 				)
-			); 
+			);
 			?>
-			<div class="controls">
-				<div class="input-group">
-					<?php echo $form->textField($model,'domain'); ?>
-					<span class="input-group-addon">.red16.com</span>
-				</div>
-				<span class="help-block"><?php echo $form->error($model,'domain'); ?></span>
-			</div>
-		</div>
 
 		<div class="form-actions">
 			<?php echo CHtml::submitButton('Submit'); ?>

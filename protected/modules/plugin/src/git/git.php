@@ -46,7 +46,7 @@ return array(
 		),
 //sql
 	'execsql' => array(
-		"CREATE TABLE  IF NOT EXISTS `{{projects}}` (
+		"CREATE TABLE `{{projects}}` (
 			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 			`name` varchar(45) NOT NULL,
 			`uid` int(11) NOT NULL,
@@ -54,9 +54,9 @@ return array(
 			`remote_url` varchar(255) NOT NULL,
 			`domain` varchar(45) NOT NULL,
 			`status` varchar(45) DEFAULT NULL,
+			`type` varchar(45) NOT NULL,
 			PRIMARY KEY (`id`),
-			UNIQUE KEY `name_UNIQUE` (`name`),
-			UNIQUE KEY `domain_UNIQUE` (`domain`)
+			UNIQUE KEY `name_UNIQUE` (`name`)
 			) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
 "CREATE TABLE  IF NOT EXISTS `{{projects_members}}` (
@@ -97,48 +97,48 @@ return array(
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
 "CREATE TABLE   IF NOT EXISTS  `{{virtual_servers}}` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(45) NOT NULL,
-  `description` text NOT NULL,
-  `htdocs_path` varchar(3841) NOT NULL,
-  `nginx_config_path` varchar(3841) NOT NULL,
-  `ngixn_bin` varchar(4096) NOT NULL,
-  `ip` int(10) unsigned NOT NULL,
-  `ssh_port` smallint(5) unsigned NOT NULL,
-  `url_port` smallint(5) unsigned NOT NULL,
-  `url_host` varchar(256) NOT NULL,
-  `url_schema` varchar(45) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
+	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+	`name` varchar(45) NOT NULL,
+	`description` text NOT NULL,
+	`htdocs_path` varchar(3841) NOT NULL,
+	`nginx_config_path` varchar(3841) NOT NULL,
+	`ngixn_bin` varchar(4096) NOT NULL,
+	`ip` int(10) unsigned NOT NULL,
+	`ssh_port` smallint(5) unsigned NOT NULL,
+	`url_port` smallint(5) unsigned NOT NULL,
+	`url_host` varchar(256) NOT NULL,
+	`url_schema` varchar(45) NOT NULL,
+	PRIMARY KEY (`id`)
+	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
 "INSERT IGNORE INTO  `{{virtual_servers}}`
 (`id`,
-`name`,
-`description`,
-`htdocs_path`,
-`nginx_config_path`,
-`ngixn_bin`,
-`ip`,
-`ssh_port`,
-`url_port`,
-`url_host`,
-`url_schema`)
+	`name`,
+	`description`,
+	`htdocs_path`,
+	`nginx_config_path`,
+	`ngixn_bin`,
+	`ip`,
+	`ssh_port`,
+	`url_port`,
+	`url_host`,
+	`url_schema`)
 VALUES
 (1, 'test', 'desc', '/var', '/etc/nginx', 'nginx', '127.0.0.1', 22, 80, 'test.com', 'http');",
 
 "INSERT IGNORE INTO `{{repositories}}`
 (`id`,
-`name`,
-`description`,
-`root_path`,
-`apache_group_file`,
-`apache_user_file`,
-`ip`,
-`ssh_port`,
-`apache_bin`,
-`url_port`,
-`htpasswd_bin`,
-`git_config_path`)
+	`name`,
+	`description`,
+	`root_path`,
+	`apache_group_file`,
+	`apache_user_file`,
+	`ip`,
+	`ssh_port`,
+	`apache_bin`,
+	`url_port`,
+	`htpasswd_bin`,
+	`git_config_path`)
 VALUES
 (1, 'test', 'desc', '/repo', 'group_file', 'user_file', '127.0.0.1', 22, 'apache2', '80', 'htpasswd', 'git');",
 

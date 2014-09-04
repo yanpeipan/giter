@@ -20,8 +20,7 @@
 				array(
 					'type'=>'raw', 
 					'name' => 'id',
-					'value'=>'CHtml::checkBox($data->id,0,array("rel"=>"orders[]",));', 
-					'htmlOptions'=>array('style'=>'width:2%;'),
+					//'value'=>'CHtml::checkBox($data->id,0,array("rel"=>"orders[]",));', 
 					),
 				array(
 					'type'=>'raw', 
@@ -34,17 +33,14 @@
 					'name' => 'remote_url',
 					),
 				array(
-					'type'=>'raw',
-					'name'=>'domain_url'
-					),
-				array(
 					'type'=>'raw', 
 					'name' => 'ctime',
 					'header' => 'Create At'
 					),
 				array(
 					'class'=>'bootstrap.widgets.TbButtonColumn',
-					'template'=>'{delete}{publish}{manage}',
+					'htmlOptions' => array('class' => 'col-md-2'),
+					'template'=>'{delete} {publish} {manage} {visit}',
 					'header'=>'操作',
 					'buttons'=>array(
 						'delete'=>array(
@@ -63,7 +59,15 @@
 							'label'=>'成员',
 							'icon'=>'info',
 							'url'=>'Yii::app()->createUrl("plugin/git/members/id/$data->id")'
-							)
+							),
+						'visit'=>array(
+							'options' => array(
+								'title' => '访问',
+								),
+							'label'=>'访问',
+							'icon'=>'',
+							'url'=>'$data->domainurl'
+							),
 						),
 					)
 )
@@ -97,7 +101,6 @@
 					'type'=>'raw', 
 					'name' => 'id',
 					'value'=>'CHtml::checkBox($data->id,0,array("rel"=>"orders[]",));', 
-					'htmlOptions'=>array('style'=>'width:2%;'),
 					),
 				array(
 					'type'=>'raw', 
@@ -110,7 +113,7 @@
 					),
 				array(
 					'type'=>'raw',
-					'name'=>'domain_url'
+					'name'=>'domainurl'
 					),
 				array(
 					'type'=>'raw', 
@@ -119,6 +122,7 @@
 					),
 				array(
 					'class'=>'bootstrap.widgets.TbButtonColumn',
+					'htmlOptions' => array('class' => 'col-md-2'),
 					'template'=>'{publish}',
 					'header'=>'操作',
 					'buttons'=>array(

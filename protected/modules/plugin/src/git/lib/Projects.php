@@ -16,6 +16,7 @@ class Projects extends CActiveRecord
 {
 
     public $mid;
+    public $type;
 
     /**
      * @return string the associated database table name
@@ -33,7 +34,7 @@ class Projects extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
     	return array(
-    		array('name, domain', 'required'),
+    		array('name, domain, type', 'required'),
     		array('name, domain', 'unique'),
     		array('domain',  'domainValidator'),
     		array('uid', 'numerical', 'integerOnly'=>true),
@@ -41,7 +42,7 @@ class Projects extends CActiveRecord
     		array('remote_url', 'length', 'max'=>255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-    		array('id, name, uid, ctime, remote_url, domain, status', 'safe', 'on'=>'search'),
+    		array('id, name, type, uid, ctime, remote_url, domain, status', 'safe', 'on'=>'search'),
     		);
     }
 
@@ -51,7 +52,7 @@ class Projects extends CActiveRecord
     public function domainValidator($attributes, $params)
     {
     	//special chars validator
-    	if (empty($this ->domain) || $this -> domain !== trim(escapeshellarg($this -> domain), "'")) {
+    	if ( $this -> domain !== trim(escapeshellarg($this -> domain), "'")) {
     		$this->addError('domain', 'contains special chars');
     	} 
     }
@@ -131,14 +132,31 @@ class Projects extends CActiveRecord
     	return parent::model($className);
     }
 
+    public function getDomainButtonStyle()
+    {
+        return $this->domain ? '' : 'display:none';
+    }
+
     /**
      * Returns the url of domain, for example: http://yourname.test.com
      * @return String
      */
-    public function getDomain_url()
+    public function getDomainUrl()
     {
-        $server = $this->getVirtualServerInfo();
-        return "{$server->url_schema}://{$this->domain}.{$server->url_host}". ($server->url_port == 80 ? '' : ":{$server->url_port}");
+        if ($this->needVirtualServer()) {
+            $server = $this->getVirtualServerInfo();
+            return "{$server->url_schema}://{$this->domain}.{$server->url_host}". ($server->url_port == 80 ? '' : ":{$server->url_port}");
+        } else {
+            return '#';
+        }
+    }
+
+    public function needVirtualServer()
+    {
+        if (isset($this->type) && in_array($this->type, array('php-web'))) {
+            return true;
+        }
+        return false;
     }
 
     public function getRepositoryServerInfo($id = null)
@@ -521,8 +539,10 @@ EOT;
     		$usr = Yii::app() -> user -> name;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
     		$this -> htpasswd($usr, $psw);
-    		$this  -> createVirtualServer();
-    		$this -> cloneRepository();
+                          if ($this->needVirtualServer()) {
+                            $this  -> createVirtualServer();
+                            $this -> cloneRepository();
+                          }
     		return true;
     	} else {
     		$this -> addError('domain', 'exception when create repository');
@@ -533,7 +553,9 @@ EOT;
     {
         $this->destroyRepository();
         $this->destroyGroup($this->name);
-        $this->destroyVirtualServer();
+        if ($this->needVirtualServer()) {
+            $this->destroyVirtualServer();
+        }
     }
 
     public function test()

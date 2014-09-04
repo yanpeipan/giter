@@ -2,8 +2,8 @@
 return array (
   'dbhost' => 'localhost',
   'dbuser' => 'root',
-  'dbprefix' => 'pr_',
-  'dbname' => 'vo-test',
+  'dbprefix' => 'pre_',
+  'dbname' => 'vo',
   'adminuser' => 'admin',
   'adminpsw' => 'admin',
   'charset' => 'utf8',
