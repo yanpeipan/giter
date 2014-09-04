@@ -129,6 +129,12 @@ Class Base{
 		//获取全部路径权限
 	public function getAllDir(){
 		$dir=array();
+		if(!is_dir($this->getRootDir() . '/assets')) {
+			mkdir($this->getRootDir() . '/assets');
+		}
+		if(!is_dir($this->getRootDir() . 'protected/runtime')) {
+			mkdir($this->getRootDir() . '/assets');
+		}
 		foreach($this->config['dir'] as $val){			
 
 			$dir[$this->getRootDir().$val]=$this->getRW($this->getRootDir().$val);
