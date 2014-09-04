@@ -84,13 +84,11 @@ table td {
 }
 
 .container {
-	width: 980px;
 	margin: 0 auto;
 }
 
 .nav {
 	background: #232323;
-	width: 153px;
 	float: left;
 }
 
@@ -165,8 +163,7 @@ table td {
 
 .main {
 	background: #f6f6f6;
-	float: right;
-	width: 820px;
+	float: left;
 	border-left: 1px #e4e1e1 solid;
 	border-right: 1px #e4e1e1 solid;
 	overflow: hidden;

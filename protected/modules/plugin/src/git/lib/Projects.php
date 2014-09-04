@@ -348,7 +348,7 @@ EOT;
         {
                 listen 80;
                 server_name {$this->domain}.{$server->url_host};
-    	root {$server->htdocs_path}{$this->domain}/;
+                root {$server->htdocs_path}{$this->domain}/;
                 access_log  /var/web-logs/{$this->domain}.{$server->url_host}-access.log  access;
 EOD;
 	$config .= PHP_EOL;

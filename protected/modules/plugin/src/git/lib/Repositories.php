@@ -44,6 +44,8 @@ class Repositories extends CActiveRecord
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, description, root_path, apache_group_file, apache_user_file, ip, apache_bin, ssh_port, url_port, htpasswd_bin', 'safe', 'on'=>'search'),
+			//The following rule is used by path
+			//array('apache_group_file, apache_user_file', 'application.modules.plugin.src.git.lib.Filename'),
 		);
 	}
 

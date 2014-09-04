@@ -46,7 +46,7 @@ return array(
 		),
 //sql
 	'execsql' => array(
-		"CREATE TABLE  IF NOT EXISTS `pre_projects` (
+		"CREATE TABLE  IF NOT EXISTS `{{projects}}` (
 			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 			`name` varchar(45) NOT NULL,
 			`uid` int(11) NOT NULL,
@@ -59,7 +59,7 @@ return array(
 			UNIQUE KEY `domain_UNIQUE` (`domain`)
 			) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE  IF NOT EXISTS `pre_projects_members` (
+"CREATE TABLE  IF NOT EXISTS `{{projects_members}}` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`pid` int(10) unsigned NOT NULL,
 	`uid` int(10) unsigned NOT NULL,
@@ -67,7 +67,7 @@ return array(
 	UNIQUE KEY `uniqe` (`pid`,`uid`)
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE  IF NOT EXISTS  `pre_repositories` (
+"CREATE TABLE  IF NOT EXISTS  `{{repositories}}` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`name` varchar(45) NOT NULL,
 	`description` text NOT NULL,
@@ -83,7 +83,7 @@ return array(
 	PRIMARY KEY (`id`)
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE  IF NOT EXISTS `pre_projects` (
+"CREATE TABLE  IF NOT EXISTS `{{projects}}` (
 	`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 	`name` varchar(45) NOT NULL,
 	`uid` int(11) NOT NULL,
@@ -96,7 +96,7 @@ return array(
 	UNIQUE KEY `domain_UNIQUE` (`domain`)
 	) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"CREATE TABLE   IF NOT EXISTS  `pre_virtual_servers` (
+"CREATE TABLE   IF NOT EXISTS  `{{virtual_servers}}` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
   `description` text NOT NULL,
@@ -111,7 +111,7 @@ return array(
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;",
 
-"INSERT IGNORE INTO  `pre_virtual_servers`
+"INSERT IGNORE INTO  `{{virtual_servers}}`
 (`id`,
 `name`,
 `description`,
@@ -126,7 +126,7 @@ return array(
 VALUES
 (1, 'test', 'desc', '/var', '/etc/nginx', 'nginx', '127.0.0.1', 22, 80, 'test.com', 'http');",
 
-"INSERT IGNORE INTO `pre_repositories`
+"INSERT IGNORE INTO `{{repositories}}`
 (`id`,
 `name`,
 `description`,

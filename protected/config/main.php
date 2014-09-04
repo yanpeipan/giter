@@ -1,5 +1,6 @@
 <?php
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/yii-bootstrap');
+$db=include dirname(__FILE__)."/db.php";
 require_once(dirname(__FILE__)."/config.php");
 $common_config = array(
   'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
@@ -44,7 +45,7 @@ $common_config = array(
       'defaultController'=>'video',
       'class'=>'application.modules.admin.AdminModule',
       ),
-      'install',
+      //'install',
     /*
     'srbac' => array(
       'userclass'=>'Admin', 
@@ -138,18 +139,7 @@ $common_config = array(
       ),
     //end  
     //==============================DB config===============================================
-    'db'=>array(
-      'class'=>'CDbConnectionExt',
-      'connectionString' => 'mysql:host='.LUXTONE_DBHOST_WRITE.';port=3306;dbname='.LUXTONE_DBNAME,
-      'emulatePrepare' => true,
-      'username' => LUXTONE_DBUSER,
-      'password' => LUXTONE_DBPW,
-      'charset' => LUXTONE_DBCHARSET,
-      'tablePrefix'=>LUXTONE_DBTABLEPRE,
-        /*'slaveConfig'=>array(
-              array('connectionString'=>'mysql:host='.LUXTONE_DBHOST_READ.';dbname='.LUXTONE_DBNAME.';port=3306','username'=>LUXTONE_DBUSER,'password'=>LUXTONE_DBPW),
-              ),*/
-    ),
+    'db'=> is_array($db) ? $db : array(),
     //=================================End DB config======================================================
 
     //start
