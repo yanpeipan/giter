@@ -1,10 +1,15 @@
-Install
+# 安装 #
 =====
+## 克隆代码 ##
 ```
 git clone https://github.com/yanpeipan/giter.git
 cd giter
 git submodule init
 git submodule update
+```
+## 创建keygen ##
+```
+openssl rsa -in ssh/id_rsa -outform pem > ssh/id_rsa.pem
 ```
 # git仓库server搭建 #
 ## 环境介绍 ##
