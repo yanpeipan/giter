@@ -11,7 +11,7 @@
 	<div class="box-content">
 		<?php 
 		$form = $this->beginWidget(
-			'booster.widgets.TbActiveForm',
+			'bootstrap.widgets.TbActiveForm',
 			array(
 				'id' => 'Repositories',
 				'type' => 'horizontal',
@@ -22,17 +22,17 @@
 				)
 			);
 		echo $form->hiddenField($repository, 'id');
-		echo $form->textFieldGroup($repository, 'name');
-		echo $form->textAreaGroup($repository, 'description');
-		echo $form->textFieldGroup($repository, 'root_path');
-		echo $form->textFieldGroup($repository, 'git_config_path');
-		echo $form->textFieldGroup($repository, 'apache_group_file');
-		echo $form->textFieldGroup($repository, 'apache_user_file');
-		echo $form->textFieldGroup($repository, 'ipper');
-		echo $form->textFieldGroup($repository, 'apache_bin');
-		echo $form->textFieldGroup($repository, 'ssh_port');
-		echo $form->textFieldGroup($repository, 'url_port');
-		echo $form->textFieldGroup($repository, 'htpasswd_bin');
+		echo $form->textFieldRow($repository, 'name');
+		echo $form->textAreaRow($repository, 'description');
+		echo $form->textFieldRow($repository, 'root_path');
+		echo $form->textFieldRow($repository, 'git_config_path');
+		echo $form->textFieldRow($repository, 'apache_group_file');
+		echo $form->textFieldRow($repository, 'apache_user_file');
+		echo $form->textFieldRow($repository, 'ipper');
+		echo $form->textFieldRow($repository, 'apache_bin');
+		echo $form->textFieldRow($repository, 'ssh_port');
+		echo $form->textFieldRow($repository, 'url_port');
+		echo $form->textFieldRow($repository, 'htpasswd_bin');
 
 		$this->widget(
 			'booster.widgets.TbButton',

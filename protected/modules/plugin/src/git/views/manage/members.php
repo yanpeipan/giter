@@ -11,7 +11,7 @@
 	</div>
 	<div class="box-content">
 		<?php
-		$this->widget('booster.widgets.TbExtendedGridView', array(
+		$this->widget('bootstrap.widgets.TbExtendedGridView', array(
 			'type'=>'striped bordered condensed',
 			'dataProvider'=>$members->search(),	
 			//'pager' => array('class'=>'bootstrap.widgets.TbPager','displayFirstAndLast'=>true,'htmlOptions'=>array('class'=>'pagination')),

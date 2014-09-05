@@ -14,6 +14,7 @@ class Admin extends CActiveRecord
     public $password;
     public $rememberMe;
 
+
     //public $encrypt;
     private $_identity;
 
@@ -91,8 +92,22 @@ class Admin extends CActiveRecord
             'username' => '用户名',
             'password' => '密码',
             'rememberMe' =>'记住我',
-        	//'is_super_admin'=>'编辑类型',
+        	'is_super_admin'=>'类型',
             );
+    }
+
+    public function getAdminLevel($is_super_admin = null)
+    {
+        $adminLevel = array(
+            3 => AdminModule::t('超级管理员'),
+            2 => AdminModule::t('项目管理员'),
+            0 => AdminModule::t('开发者'),
+            );
+        if (isset($adminLevel[$is_super_admin])) {
+            return $adminLevel[$is_super_admin];
+        } else {
+           return $adminLevel; 
+        }
     }
 
     public function setEncrypt($value='')
@@ -159,11 +174,7 @@ class Admin extends CActiveRecord
     }
     
     public function getisadmin(){
-        if($this->is_super_admin==3){
-         return $this->is_super_admin = AdminModule::t('超级管理员');
-     }else{
-        return $this->is_super_admin = AdminModule::t('普通管理员');
-    }
+            return $this->getAdminLevel($this->is_super_admin);
 }
 public function getMyself(){
   $criteria=new CDbCriteria;

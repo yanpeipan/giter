@@ -11,7 +11,7 @@
 	<div class="box-content">
 		<?php 
 		$form = $this->beginWidget(
-			'booster.widgets.TbActiveForm',
+			'bootstrap.widgets.TbActiveForm',
 			array(
 				'id' => 'addMember',
 				'type' => 'horizontal',
@@ -21,29 +21,14 @@
 				//'action' => Yii::app()->createUrl('')
 				)
 			);
-		echo $form->select2Group(
-			$members,
-			'uid',
-			array(
-				'wrapperHtmlOptions' => array(
-					),
-				'options' => array(
-					),
-				'widgetOptions' => array(
-					'asDropDownList' => true,
-					'data' => array($usernames),
-					'options' => array(
-						)
-					),
-				)
-			);
 		?>
+		 <?php echo $form->dropDownListRow($members, 'uid', array($usernames)); ?>
 
 		<div class="form-actions">
 			<?php echo $form->hiddenField($members, 'pid', array('value' => $members->pid));?>
 			<?php 
 			$this->widget(
-				'booster.widgets.TbButton',
+				'bootstrap.widgets.TbButton',
 				array('buttonType' => 'submit', 'label' => 'save')
 				);
 			?>

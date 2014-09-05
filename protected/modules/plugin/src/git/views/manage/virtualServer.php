@@ -11,7 +11,7 @@
 	<div class="box-content">
 		<?php 
 		$form = $this->beginWidget(
-			'booster.widgets.TbActiveForm',
+			'bootstrap.widgets.TbActiveForm',
 			array(
 				'id' => 'VirtualServers',
 				'type' => 'horizontal',
@@ -22,16 +22,16 @@
 				)
 			);
 		echo $form->hiddenField($virtualserver, 'id');
-		echo $form->textFieldGroup($virtualserver, 'name');
-		echo $form->textAreaGroup($virtualserver, 'description');
-		echo $form->textFieldGroup($virtualserver, 'htdocs_path');
-		echo $form->textFieldGroup($virtualserver, 'nginx_config_path');
-		echo $form->textFieldGroup($virtualserver, 'ngixn_bin');
-		echo $form->textFieldGroup($virtualserver, 'ipper');
-		echo $form->textFieldGroup($virtualserver, 'ssh_port');
-		echo $form->textFieldGroup($virtualserver, 'url_port');
-		echo $form->textFieldGroup($virtualserver, 'url_host');
-		echo $form->select2Group(
+		echo $form->textFieldRow($virtualserver, 'name');
+		echo $form->textFieldRow($virtualserver, 'description');
+		echo $form->textFieldRow($virtualserver, 'htdocs_path');
+		echo $form->textFieldRow($virtualserver, 'nginx_config_path');
+		echo $form->textFieldRow($virtualserver, 'ngixn_bin');
+		echo $form->textFieldRow($virtualserver, 'ipper');
+		echo $form->textFieldRow($virtualserver, 'ssh_port');
+		echo $form->textFieldRow($virtualserver, 'url_port');
+		echo $form->textFieldRow($virtualserver, 'url_host');
+		echo $form->dropDownListRow(
 			$virtualserver,
 			'url_schema',
 			array(
@@ -49,7 +49,7 @@
 			);
 
 		$this->widget(
-			'booster.widgets.TbButton',
+			'bootstrap.widgets.TbButton',
 			array('buttonType' => 'submit', 'label' => 'save')
 			);
 

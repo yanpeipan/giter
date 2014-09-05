@@ -10,11 +10,12 @@
 	</div>
 	<div class="box-content">
 		<?php 
-		$form=$this->beginWidget('booster.widgets.TbActiveForm', array(
+		$form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 			'id'=>'create_project_form',
 			'enableAjaxValidation'=>true,
 			'enableClientValidation'=>true,
 			'action' =>  '#',
+			'type'=>'horizontal',
 			'htmlOptions'=>array(
 				'class' => 'form-horizontal',
 				'enctype'=>'multipart/form-data',
@@ -23,40 +24,32 @@
 		); 
 		?>
 		<!--  Project Name Input-->
-		<?php echo $form->textFieldGroup($model, 'name');?>
+		<?php echo $form->textFieldRow($model, 'name');?>
 		<!-- Project type -->
 		<?php 
-		echo $form->dropDownListGroup(
+		echo $form->dropDownListRow(
 			$model,
 			'type',
+			array( 'local' => 'local', 'php-web' => 'php-web',),
 			array(
 				'select' => 'local',
-				'onchange' => 'js:alert();',
-				'widgetOptions' => array(
-					'htmlOptions' => array(
-						'select' => 'local',
-						'onChange' => 'js:$("#Projects_domain_group").toggle()',
-						),
-					'select' => 'local',
-					'asDropDownList' => true,
-					'data' => array( 'local' => 'local', 'php-web' => 'php-web',),
-					),
+				'onChange' => 'js:$("#Projects_domain_group").toggle()',
+				
 				)
-		);?>
+		);
+		?>
 		<!--  Project Domain Input-->
+		<div id='Projects_domain_group' style="display:none;">
 		<?php
-		echo $form->textFieldGroup(
+		echo $form->textFieldRow(
 			$model, 
 			'domain', 
 			array(
 				'append' => '.red16.com', 
-				'groupOptions' => array(
-					'id' => 'Projects_domain_group',
-					'style' => 'display: none'	
-					),
 				)
 			);
 			?>
+		</div>
 
 		<div class="form-actions">
 			<?php echo CHtml::submitButton('Submit'); ?>

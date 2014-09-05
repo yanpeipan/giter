@@ -46,7 +46,7 @@ return array(
 		),
 //sql
 	'execsql' => array(
-		"CREATE TABLE `{{projects}}` (
+		"CREATE TABLE  IF NOT EXISTS  `{{projects}}` (
 			`id` int(10) unsigned NOT NULL AUTO_INCREMENT,
 			`name` varchar(45) NOT NULL,
 			`uid` int(11) NOT NULL,
@@ -143,7 +143,6 @@ VALUES
 (1, 'test', 'desc', '/repo', 'group_file', 'user_file', '127.0.0.1', 22, 'apache2', '80', 'htpasswd', 'git');",
 
 //"ALTER TABLE {{admin}} ADD encrypt varchar(255) NOT NULL;",
-
 ),
 
 

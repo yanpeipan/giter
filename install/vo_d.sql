@@ -1,17 +1,6 @@
 
 
 --
--- 转存表中的数据 `pt_background_image`
---
-
-INSERT INTO `pt_background_image` (`id`, `pic`, `status`, `sort`, `big_pic`) VALUES
-(0, NULL, '1', 500, NULL),
-(1, NULL, '1', 500, NULL),
-(2, NULL, '1', 500, NULL),
-(3, NULL, '1', 500, NULL);
-
-
---
 -- 转存表中的数据 `pt_china`
 --
 
@@ -5971,3 +5960,33 @@ INSERT INTO `tz_items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 ('BoxUpdate', 0, NULL, NULL, 'N;'),
 ('BoxDelete', 0, NULL, NULL, 'N;'),
 ('BoxUpload', 0, NULL, NULL, 'N;');
+
+--
+-- 转存表中的数据 `pt_s_config`
+--
+
+INSERT INTO `pt_s_config` (`id`, `cfg_name`, `cfg_value`, `cfg_order`, `cfg_pid`, `ctime`, `cfg_type`, `cfg_comment`) VALUES
+(17, 'MAINMENU', '/admin/system/view', 1, 0, 0, 'USER', '基本设置'),
+(21, 'MAINMENU', '/admin/user/view', 9, 0, 0, 'USER', '用户管理'),
+(23, 'MAINMENU', '/admin/pluginManager/view', 11, 0, 0, 'USER', '插件管理'),
+(24, 'ICONS', '基本设置', 0, 0, 0, 'USER', 'fa-cogs'),
+(28, 'ICONS', '用户管理', 0, 0, 0, 'USER', 'fa-users'),
+(29, 'ICONS', '插件管理', 0, 0, 0, 'USER', 'fa-flask'),
+(102, 'SUBMENU', '/admin/system/view', 0, 17, 0, 'USER', '系统设置'),
+(123, 'SYSTEM_CDN_CONFIG', '{"add":"your_add.ypyun.com","user":"user.ypyun.com","psw":"psw","path":"img.ypyun.com"}', 0, 17, 0, 'USER', NULL),
+(107, 'SYSTEM_TOKEN_KEY', '2287502e830700edd2a2829b8e7c1404', 0, 17, 0, 'USER', '系统授权码'),
+(108, 'SYSTEM_DOMAIN', 'vo.tuziv.com.cn', 0, 17, 0, 'USER', '系统域名'),
+(109, 'SYSTEM_WEBSITE_NAME', '兔子VO1', 0, 17, 0, 'USER', '网站名称'),
+(110, 'SYSTEM_IS_CACHE', '1', 0, 17, 0, 'USER', '是否缓存'),
+(111, 'SYSTEM_CACHE_TYPE', '1', 0, 17, 0, 'USER', '缓存类型'),
+(112, 'SYSTEM_CACHE_SEVER', '[{"ip":"192.168.1.16","port":"3306"},{"ip":"192.168.1.17","port":"3306"},{"ip":"192.168.1.18","port":"3306"},{"ip":"192.168.1.19","port":"3306"},{"ip":"192.168.1.20","port":"3302"},{"ip":"192.168.1.21","port":"3333"}]', 0, 17, 0, 'USER', '缓存服务器'),
+(113, 'SYSTEM_IS_CDN', '0', 0, 17, 0, 'USER', '是否使用CDN'),
+(114, 'SYSTEM_CDN_TYPE', '1', 0, 17, 0, 'USER', 'CDN类型'),
+(121, 'SYSTEM_CACHE_TYPE_LIST', '{"1":"memcache","0":"\\u65e0\\u76f8\\u5173\\u4fe1\\u606f"}', 0, 17, 0, 'USER', '缓存服务器可选类型表'),
+(122, 'SYSTEM_CDN_TYPE_LIST', '{"1":"upyun","0":"\\u65e0\\u76f8\\u5173\\u4fe1\\u606f"}', 0, 17, 0, 'USER', 'CDN可选类型表'),
+(148, 'THIRDMENU', '/admin/pluginManager/local/tab/setuped', 1, 145, 0, 'USER', '已安装'),
+(147, 'THIRDMENU', '/admin/pluginManager/local/tab/all', 0, 145, 0, 'USER', '全部'),
+(145, 'SUBMENU', '/admin/pluginManager/local', 0, 23, 0, 'USER', '本地插件'),
+(146, 'SUBMENU', '/admin/pluginManager/shop', 0, 23, 0, 'USER', '插件商城'),
+(149, 'THIRDMENU', '/admin/pluginManager/local/tab/new', 2, 145, 0, 'USER', '未安装'),
+(646, 'SYSTEM_BOSS_DOMAIN', '', 0, 17, 0, 'USER', 'BOSS网址');

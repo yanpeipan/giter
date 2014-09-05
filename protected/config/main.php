@@ -1,15 +1,15 @@
 <?php
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/yii-bootstrap');
 $db=include dirname(__FILE__)."/db.php";
-require_once(dirname(__FILE__)."/config.php");
 $common_config = array(
   'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
   'name'=>'视频后台管理',
   'language'=>'zh_cn',
   'defaultController'=>'admin/user',
   'theme'=>'genius',
+
   // preloading 'log' component
-  'preload'=>array('log', 'booster'),
+  'preload'=>array('log', 'yii-bootstrap'),
 
   // autoloading model and component classes
   'import'=>array(
@@ -130,7 +130,6 @@ $common_config = array(
       'urlFormat'=>'path',
       'showScriptName'=>false,
       'rules'=>array(
-
         '/api' => '/apis',
         '<controller:\w+>/<id:\d+>'=>'<controller>/view',
         '<controller:\w+>/<action:\w+>/<id:\d+>'=>'<controller>/<action>',
@@ -168,7 +167,6 @@ $common_config = array(
       ),
     'booster' => array(
       'class' => 'ext.booster.components.Booster',
-      //'class' => 'ext.yii-bootstrap.components.Bootstrap'
       ),
     'filecache'=>array(
       'class'=>'system.caching.CFileCache',    
@@ -197,14 +195,10 @@ $common_config = array(
     ),
 );
 
-
-//$db_config = require_once 'db_config.php';
-//$common_config['components'] = array_merge($common_config['components'],$db_config);
-
-
 if(defined("YII_DEBUG") && true == YII_DEBUG){
   ini_set("display_errors",1);
-  ini_set("error_reporting",2047);
+  ini_set("error_reporting", E_ALL);
+  ini_set('html_errors', 1);
   $common_config = CMap::mergeArray(
     $common_config,
     array(

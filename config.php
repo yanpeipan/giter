@@ -3,7 +3,7 @@ return array (
   'dbhost' => 'localhost',
   'dbuser' => 'root',
   'dbprefix' => 'pre_',
-  'dbname' => 'vo',
+  'dbname' => 'vo-abc',
   'adminuser' => 'admin',
   'adminpsw' => 'admin',
   'charset' => 'utf8',
@@ -11,4 +11,4 @@ return array (
   'webname' => '',
   'adminmail' => '',
   'baseurl' => '',
-)?>
+);?>

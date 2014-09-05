@@ -121,6 +121,7 @@
 	</header>
 	<!-- end: Header -->
 <?php endif;?>
+
 	<?php echo $content;?>
 		
 	

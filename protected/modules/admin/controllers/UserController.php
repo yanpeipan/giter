@@ -48,9 +48,8 @@ class UserController extends AdminBaseController
      */
     public function actionLogin()
     {
-    	$this->layout = "//layouts/main"; 
+        $this->layout = "//layouts/main"; 
         $model=new Admin;
-
         if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
         {
             echo CActiveForm::validate($model);
@@ -146,7 +145,7 @@ public function actionadd(){
    $model    = new Admin();
         //保存视频信息
    if(isset($_POST['Admin']))
-        {   //var_dump($_POST);die;
+        {  
             $model->attributes = $_POST['Admin'];
             $model->password = substr(md5($_POST['Admin']['password']),8,16);
             $model ->encrypt = Admin::encrypt($_POST['Admin']['password']);
@@ -154,7 +153,8 @@ public function actionadd(){
             {
                 if($model->save())
                 {
-                    $this->redirect(Yii::app()->createUrl("/admin/user/view"));die;
+                    $this->redirect(Yii::app()->createUrl("/admin/user/view"));
+                    Yii::app()->end();
                 }
             }
         }
