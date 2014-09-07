@@ -3,7 +3,7 @@ return array (
   'dbhost' => 'localhost',
   'dbuser' => 'root',
   'dbprefix' => 'pre_',
-  'dbname' => 'vo-abc',
+  'dbname' => 'vo',
   'adminuser' => 'admin',
   'adminpsw' => 'admin',
   'charset' => 'utf8',

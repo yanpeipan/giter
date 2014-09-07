@@ -3712,3 +3712,484 @@ in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (51)
 in /home/yan/giter/protected/extensions/yii-bootstrap/widgets/TbGridView.php (53)
 in /home/yan/giter/protected/modules/plugin/src/git/views/index.php (139)
 in /home/yan/giter/protected/modules/plugin/controllers/GitController.php (51)
+2014/09/07 21:55:31 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:31 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:31 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:31 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:31 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:31 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:31 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: could not find driver' in /home/yan/giter/yii/framework/db/CDbConnection.php:399
+Stack trace:
+#0 /home/yan/giter/yii/framework/db/CDbConnection.php(347): CDbConnection->open()
+#1 /home/yan/giter/yii/framework/db/CDbConnection.php(325): CDbConnection->setActive(true)
+#2 /home/yan/giter/yii/framework/base/CModule.php(393): CDbConnection->init()
+#3 /home/yan/giter/yii/framework/base/CModule.php(103): CModule->getComponent('db')
+#4 /home/yan/giter/protected/components/Controller.php(31): CModule->__get('db')
+#5 /home/yan/giter/protected/modules/admin/components/AdminBaseController.php(15): Controller->init()
+#6 /home/yan/giter/yii/framework/web/CWebApplication.php(281): AdminBaseController->init()
+#7 /home/yan/giter/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('')
+#8 /home/yan/giter/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#9 /home/yan/giter/index.php(9): CApplication->run()
+#10 {main}
+REQUEST_URI=/
+---
+2014/09/07 21:55:31 [trace] [system.CModule] Loading "errorHandler" application component
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "themeManager" application component
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "coreMessages" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 21:55:32 [error] [exception.CHttpException.404] exception 'CHttpException' with message '无法解析请求 "favicon.ico"。' in /home/yan/giter/yii/framework/web/CWebApplication.php:286
+Stack trace:
+#0 /home/yan/giter/yii/framework/web/CWebApplication.php(141): CWebApplication->runController('favicon.ico')
+#1 /home/yan/giter/yii/framework/base/CApplication.php(184): CWebApplication->processRequest()
+#2 /home/yan/giter/index.php(9): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "errorHandler" application component
+2014/09/07 21:55:32 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+2014/09/07 21:55:32 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (22)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (25)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (28)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (47)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (55)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:47 [trace] [system.web.filters.CFilterChain] Running filter UserController.filteraccessControl()
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (14)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:47 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (39)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (22)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (25)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (28)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (47)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (55)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:29:54 [trace] [system.web.filters.CFilterChain] Running filter UserController.filteraccessControl()
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.db.ar.CActiveRecord] Admin.find()
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:29:54 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_admin` `t` WHERE username=? LIMIT 1
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (14)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:29:54 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (39)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (22)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (25)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (28)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (47)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (55)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:00 [trace] [system.web.filters.CFilterChain] Running filter UserController.filteraccessControl()
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.db.ar.CActiveRecord] Admin.find()
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:30:00 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_admin` `t` WHERE username=? LIMIT 1
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (14)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:00 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (39)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (22)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (25)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (28)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (47)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (55)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:35 [trace] [system.web.filters.CFilterChain] Running filter UserController.filteraccessControl()
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.db.ar.CActiveRecord] Admin.find()
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:30:35 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_admin` `t` WHERE username=? LIMIT 1
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (14)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:35 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (39)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "log" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "request" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "urlManager" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.base.CModule] Loading "admin" module
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "db" application component
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.db.CDbConnection] Opening DB connection
+in /home/yan/giter/protected/components/Controller.php (31)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (15)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (22)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (25)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (28)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (47)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/modules/admin/components/AdminBaseController.php (55)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_pid=:pid AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM pre_s_config WHERE  cfg_name=:name AND cfg_type=:type  ORDER BY cfg_order ASC
+in /home/yan/giter/protected/components/SystemConfig.php (162)
+in /home/yan/giter/protected/components/SystemConfig.php (53)
+in /home/yan/giter/protected/components/SystemConfig.php (19)
+2014/09/07 22:30:37 [trace] [system.web.filters.CFilterChain] Running filter UserController.filteraccessControl()
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "user" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "session" application component
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SHOW FULL COLUMNS FROM `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SHOW CREATE TABLE `pre_admin`
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (52)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.db.ar.CActiveRecord] Admin.find()
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:30:37 [trace] [system.db.CDbCommand] Querying SQL: SELECT * FROM `pre_admin` `t` WHERE username=? LIMIT 1
+in /home/yan/giter/protected/components/UserIdentity.php (27)
+in /home/yan/giter/protected/modules/admin/models/Admin.php (129)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (61)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "themeManager" application component
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "widgetFactory" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (14)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
+2014/09/07 22:30:37 [trace] [system.CModule] Loading "clientScript" application component
+in /home/yan/giter/protected/modules/admin/views/user/login.php (39)
+in /home/yan/giter/protected/modules/admin/controllers/UserController.php (75)
+in /home/yan/giter/index.php (9)
