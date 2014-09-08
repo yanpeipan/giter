@@ -1,6 +1,6 @@
 <div class="box">
 	<div class="box-header">
-		<h2><i class="fa fa-edit"></i>Create Project</h2>
+		<h2><i class="fa fa-edit"></i>创建项目</h2>
 		<div class="box-icon">
 			<a href="<?php echo Yii::app()->createUrl("plugin/git/");?>" class="btn-adding"><i class="fa fa-chevron-left"></i></a>
 			<a href="form-dropzone.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
@@ -52,7 +52,7 @@
 		</div>
 
 		<div class="form-actions">
-			<?php echo CHtml::submitButton('Submit'); ?>
+			<?php echo CHtml::submitButton('创建'); ?>
 		</div>
 
 		<?php $this->endWidget(); ?> 

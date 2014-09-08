@@ -3,7 +3,7 @@ Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/yii-bootstrap
 $db=include dirname(__FILE__)."/db.php";
 $common_config = array(
   'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-  'name'=>'视频后台管理',
+  'name'=>'项目管理',
   'language'=>'zh_cn',
   'defaultController'=>'admin/user',
   'theme'=>'genius',

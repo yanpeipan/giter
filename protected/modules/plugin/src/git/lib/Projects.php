@@ -75,12 +75,13 @@ class Projects extends CActiveRecord
     {
     	return array(
     		'id' => 'ID',
-    		'name' => 'Name',
+    		'name' => '名称',
     		'uid' => 'Uid',
-    		'ctime' => 'Ctime',
-    		'remote_url' => 'Remote Url',
-    		'domain' => 'Domain',
-    		'status' => 'Status',
+    		'ctime' => '创建时间',
+    		'remote_url' => '访问地址',
+    		'domain' => '域名',
+    		'status' => '状态',
+        'type' => '类型',
     		);
     }
 

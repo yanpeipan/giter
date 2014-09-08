@@ -1,6 +1,6 @@
 <div class="box">
 	<div class="box-header">
-		<h2><i class="fa fa-edit"></i>Add Member</h2>
+		<h2><i class="fa fa-edit"></i>添加成员</h2>
 		<div class="box-icon">
 			<a href="<?php echo Yii::app()->createUrl("plugin/git/members", array('id' => $members->pid));?>" class="btn-adding"><i class="fa fa-chevron-left"></i></a>
 			<a href="form-dropzone.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
@@ -29,7 +29,7 @@
 			<?php 
 			$this->widget(
 				'bootstrap.widgets.TbButton',
-				array('buttonType' => 'submit', 'label' => 'save')
+				array('buttonType' => 'submit', 'label' => '添加')
 				);
 			?>
 		</div>

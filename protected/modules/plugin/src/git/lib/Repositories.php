@@ -67,17 +67,17 @@ class Repositories extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
-			'root_path' => 'The root path of repositorie',
-			'apache_group_file' => 'Apache Group File',
-			'apache_user_file' => 'Apache User File',
+			'name' => '名称',
+			'description' => '描述',
+			'root_path' => '版本库根目录',
+			'apache_group_file' => 'Group文件',
+			'apache_user_file' => 'User文件',
 			'ip' => 'Ip',
 			'ipper' => 'Ip',
-			'apache_bin' => 'Apache Bin',
-			'ssh_port' => 'Ssh Port',
-			'url_port' => 'Url Port',
-			'htpasswd_bin' => 'Htpasswd Bin',
+			'apache_bin' => 'Apache命令文件',
+			'ssh_port' => 'Ssh端口',
+			'url_port' => 'HTTP(s)端口',
+			'htpasswd_bin' => 'Htpasswd命令文件',
 		);
 	}
 
