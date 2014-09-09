@@ -80,7 +80,8 @@ class AdminBaseController extends SBaseController
 	public static function menuVisible($value='')
 	{
 		if(is_string($value)) {
-			$values = explode('/', $value);
+			
+			$values = explode('/', trim($value, '/'));
 			if (isset($values[0], $values[1], $values[2])) {
 				$module = ucfirst($values[0]);
 				$controller = ucfirst($values[1])	;
