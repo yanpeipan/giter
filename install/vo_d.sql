@@ -5968,7 +5968,7 @@ INSERT INTO `tz_items` (`name`, `type`, `description`, `bizrule`, `data`) VALUES
 INSERT INTO `pt_s_config` (`id`, `cfg_name`, `cfg_value`, `cfg_order`, `cfg_pid`, `ctime`, `cfg_type`, `cfg_comment`) VALUES
 (17, 'MAINMENU', '/admin/system/view', 1, 0, 0, 'USER', '基本设置'),
 (21, 'MAINMENU', '/admin/user/view', 9, 0, 0, 'USER', '用户管理'),
-(23, 'MAINMENU', '/admin/pluginManager/view', 11, 0, 0, 'USER', '插件管理'),
+(23, 'MAINMENU', '/admin/pluginManager/local', 11, 0, 0, 'USER', '插件管理'),
 (24, 'ICONS', '基本设置', 0, 0, 0, 'USER', 'fa-cogs'),
 (28, 'ICONS', '用户管理', 0, 0, 0, 'USER', 'fa-users'),
 (29, 'ICONS', '插件管理', 0, 0, 0, 'USER', 'fa-flask'),
