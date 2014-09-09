@@ -77,4 +77,16 @@ class AdminBaseController extends SBaseController
 		Yii::app()->params['ICONS']      = SystemConfig::GetArrayValue("ICONS",null,'USER');
 	}
 
+	public static function menuVisible($value='')
+	{
+		if(is_string($value)) {
+			$values = explode('/', $value);
+			if (isset($values[0], $values[1], $values[2]) {
+				$access = "{$values[0]}@{$values[1]}{$values[2]}";
+				return Yii::app()->user->checkAccess($access);	
+			}
+		}
+		return false;
+	}
+
 }

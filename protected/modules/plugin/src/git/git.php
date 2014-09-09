@@ -38,7 +38,7 @@ return array(
 					),
 				array(
 					'cfg_value' => '/plugin/git/manage',
-					'cfg_comment' => '系统配置',
+					'cfg_comment' => '项目配置',
 					'cfg_order' => 1,
 					),
 				),
