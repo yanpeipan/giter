@@ -5,7 +5,7 @@
  */
 
 //class AdminBaseController extends SBaseController
-class AdminBaseController extends Controller
+class AdminBaseController extends SBaseController
 {
 	
 	protected $config = array();
