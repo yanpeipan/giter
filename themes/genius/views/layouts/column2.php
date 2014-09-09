@@ -7,16 +7,26 @@
 								
 				<div class="sidebar-nav nav-collapse collapse navbar-collapse">
 					<ul class="nav main-menu">
-						<?php if(Yii::app()->params['MAINMENU'])foreach(Yii::app()->params['MAINMENU'] as $menu):?>
-						<li <?php if(strpos($menu['cfg_value'], Yii::app()->controller->id)):?>class="active"<?php endif;?>><a  <?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?>class="dropmenu"<?php endif;?> href="<?php echo Yii::app()->createUrl($menu['cfg_value']);?>"><i class="fa <?php echo isset(Yii::app()->params['ICONS'][$menu['cfg_comment']]) ? Yii::app()->params['ICONS'][$menu['cfg_comment']] : 'fa-ellipsis-h';?>"></i><span class="hidden-sm text"> <?php echo $menu['cfg_comment'];?></span> <?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?><span class="chevron closed"></span><?php endif;?></a>	
-						<?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?>
-						<ul>
+						<?php if(Yii::app()->params['MAINMENU'])
+							foreach(Yii::app()->params['MAINMENU'] as $menu):?>
+							<li <?php if(strpos($menu['cfg_value'], Yii::app()->controller->id)):?>class="active"<?php endif;?>>
+							<a  <?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?>class="dropmenu"<?php endif;?> href="<?php echo Yii::app()->createUrl($menu['cfg_value']);?>">
+							<i class="fa <?php echo isset(Yii::app()->params['ICONS'][$menu['cfg_comment']]) ? Yii::app()->params['ICONS'][$menu['cfg_comment']] : 'fa-ellipsis-h';?>"></i>
+							<span class="hidden-sm text"> <?php echo $menu['cfg_comment'];?></span>
+							<?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?><span class="chevron closed"></span><?php endif;?>
+							</a>	
+							<?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?>
+							<ul>
 							<?php foreach(Yii::app()->params['SUBMENU'][$menu['id']] as $k1=>$v1):?>
-							<li <?php if(strpos($k1, $this->getAction()->getId()) && strpos($k1, Yii::app()->controller->id)):?>class="active"<?php endif;?>><a class="submenu" href="<?php echo Yii::app()->createUrl($k1);?>"><i class="fa fa-chevron-right"></i><span class="hidden-sm text"> <?php echo $v1;?></span></a></li>
+							<li <?php if(strpos($k1, $this->getAction()->getId()) && strpos($k1, Yii::app()->controller->id)):?>class="active"<?php endif;?>>
+							<a class="submenu" href="<?php echo Yii::app()->createUrl($k1);?>"><i class="fa fa-chevron-right"></i>
+							<span class="hidden-sm text"> <?php echo $v1;?></span>
+							</a>
+							</li>
 							<?php endforeach;?>
-						</ul>
-						<?php endif;?>
-						</li>
+							</ul>
+							<?php endif;?>
+							</li>
 						<?php endforeach;?>
 					</ul>
 				</div>
