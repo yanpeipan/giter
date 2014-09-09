@@ -35,7 +35,7 @@ $common_config = array(
     'ext.highcharts.*',
     'application.extensions.KEmail.KEmail',
     'application.modules.admin.extensions.*',
-    //'application.modules.srbac.controllers.SBaseController',
+    'application.modules.srbac.controllers.SBaseController',
     'ext.file.*',
     ),
 
@@ -46,7 +46,7 @@ $common_config = array(
       'class'=>'application.modules.admin.AdminModule',
       ),
       //'install',
-    /*
+
     'srbac' => array(
       'userclass'=>'Admin', 
       'userid'=>'id', 
@@ -69,9 +69,7 @@ $common_config = array(
       'showHeader'=>true, 
       'showFooter'=>true, 
       'alwaysAllowedPath'=>'srbac.components',
-
       ),
-      */
   'plugin',
   ),
 
