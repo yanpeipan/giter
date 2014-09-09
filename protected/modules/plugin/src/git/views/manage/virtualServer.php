@@ -21,6 +21,9 @@ $form = $this->beginWidget(
     'action' => Yii::app()->createUrl('plugin/git/editvirtualserver')
   )
 );
+?>
+<fieldset>
+<?php
 echo $form->hiddenField($virtualserver, 'id');
 echo $form->textFieldRow($virtualserver, 'name');
 echo $form->textAreaRow($virtualserver, 'description');
@@ -38,12 +41,17 @@ echo $form->dropDownListRow(
     'http' => 'http', 'https' => 'https'
   )
 );
-
+?>
+</fieldset>
+<div class="form-actions">
+<?php
 $this->widget(
   'bootstrap.widgets.TbButton',
   array('buttonType' => 'submit', 'label' => '保存')
 );
-
+?>
+</div>
+<?php
 $this->endWidget();
 unset($form);
 ?>
