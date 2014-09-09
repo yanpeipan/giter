@@ -82,7 +82,10 @@ class AdminBaseController extends SBaseController
 		if(is_string($value)) {
 			$values = explode('/', $value);
 			if (isset($values[0], $values[1], $values[2])) {
-				$access = "{$values[0]}@{$values[1]}{$values[2]}";
+				$module = ucfirst($values[0]);
+				$controller = ucfirst($values[1])	;
+				$action = ucfirst($values[2]);
+				$access = "{$module}@{$controller}{$action}";
 				return Yii::app()->user->checkAccess($access);	
 			}
 		}
