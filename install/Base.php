@@ -235,7 +235,7 @@ Class Base{
 			}
 		}	
 
-		$inputString='<?php\nreturn '.var_export($config,true).';?>';
+		$inputString='<?php return '.var_export($config,true).';?>';
 
 		$isSetYiiDbSuccess=$this->setYiiDb($config);
 
