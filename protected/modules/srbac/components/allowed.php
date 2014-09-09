@@ -1,6 +1,6 @@
 <?php 
  return array(
-	'admin@DashboardIndex',
-	'admin@UserLogin'
+	'admin@UserLogin',
+	'admin@UserLogout'
 );
 ?>

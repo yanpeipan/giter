@@ -5,7 +5,7 @@ $common_config = array(
   'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
   'name'=>'项目管理',
   'language'=>'zh_cn',
-  'defaultController'=>'/plugin/git/index',
+  'defaultController'=>'plugin/git',
   'theme'=>'genius',
 
   // preloading 'log' component
