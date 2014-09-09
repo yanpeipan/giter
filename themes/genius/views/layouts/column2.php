@@ -16,7 +16,7 @@
 							<?php if(isset(Yii::app()->params['SUBMENU'][$menu['id']])):?>
 								<ul>
 									<?php foreach(Yii::app()->params['SUBMENU'][$menu['id']] as $k1=>$v1):?>
-										<?php if(AdminBaseController::menuVisible($menu['cfg_value'])):?>
+										<?php if(AdminBaseController::menuVisible($k1)):?>
 											<li <?php if(strpos($k1, $this->getAction()->getId()) && strpos($k1, Yii::app()->controller->id)):?>class="active"<?php endif;?>><a class="submenu" href="<?php echo Yii::app()->createUrl($k1);?>"><i class="fa fa-chevron-right"></i><span class="hidden-sm text"> <?php echo $v1;?></span></a></li>
 										<?php endif;?>
 									<?php endforeach;?>
