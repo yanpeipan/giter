@@ -51,7 +51,7 @@ $common_config = array(
       'userclass'=>'Admin', 
       'userid'=>'id', 
       'username'=>'username',
-      'debug'=>TRUE, 
+      'debug'=>false, 
       'delimeter'=>'@',
       'pageSize'=>20, 
       'superUser' =>'admin', 
@@ -116,9 +116,9 @@ $common_config = array(
       //'authFile'=>dirname(__FILE__).'/authFile',
       'class' => 'CDbAuthManager',
       'connectionID' => 'db',
-      //'itemTable'=>'tz_items',
-      //'assignmentTable'=>'tz_assignments',
-      //'itemChildTable'=>'tz_itemchildren',
+      'itemTable'=>'AuthItem',
+      'assignmentTable'=>'AuthAssignment',
+      'itemChildTable'=>'AuthItemChild',
       ),	   
     //end
 
