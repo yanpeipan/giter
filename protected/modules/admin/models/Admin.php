@@ -49,6 +49,7 @@ class Admin extends CActiveRecord
                 array('username, password, encrypt', 'required'),
                 array('username','unique'),
                 array('username, password', 'length', 'max'=>255),
+                array('is_super_admin', 'length', 'max' => 11),
                 // The following rule is used by search().
                 // Please remove those attributes that should not be searched.
                 array('id, username, password, encrypt', 'safe', 'on'=>'search'),
@@ -61,6 +62,7 @@ class Admin extends CActiveRecord
                 array('username, password', 'required'),
                 array('username','unique','on'=>'update'),
                 array('username, password, encrypt', 'length', 'max'=>255),
+                array('is_super_admin', 'length', 'max' => 11),
                 // The following rule is used by search().
                 // Please remove those attributes that should not be searched.
                 array('id, username, password,is_super_admin, encrypt', 'safe', 'on'=>'search'),
