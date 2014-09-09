@@ -547,7 +547,7 @@ EOT;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
     		$this -> htpasswd($usr, $psw);
                           if ($this->needVirtualServer()) {
-                            $this  -> createVirtualServer();
+                            $this  -> createVirtualServer($this->domain);
                             $this -> cloneRepository();
                           }
     		return true;
@@ -558,7 +558,7 @@ EOT;
 
     public function destory()
     {
-        $this->destroyRepository();
+        $this->destroyRepository($this->id);
         $this->destroyGroup($this->name);
         if ($this->needVirtualServer()) {
             $this->destroyVirtualServer();
