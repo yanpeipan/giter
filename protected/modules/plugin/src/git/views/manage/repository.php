@@ -21,24 +21,28 @@
 				 'action' => Yii::app()->createUrl('plugin/git/editRepostory')
 				)
 			);
-		echo $form->hiddenField($repository, 'id');
-		echo $form->textFieldRow($repository, 'name');
-		echo $form->textAreaRow($repository, 'description');
-		echo $form->textFieldRow($repository, 'root_path');
-		echo $form->textFieldRow($repository, 'git_config_path');
-		echo $form->textFieldRow($repository, 'apache_group_file');
-		echo $form->textFieldRow($repository, 'apache_user_file');
-		echo $form->textFieldRow($repository, 'ipper');
-		echo $form->textFieldRow($repository, 'apache_bin');
-		echo $form->textFieldRow($repository, 'ssh_port');
-		echo $form->textFieldRow($repository, 'url_port');
-		echo $form->textFieldRow($repository, 'htpasswd_bin');
-
+		echo $form->hiddenField($repository, 'id', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'name', array('class' => 'form-control'));
+		echo $form->textAreaRow($repository, 'description', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'root_path', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'git_config_path', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'apache_group_file', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'apache_user_file', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'ipper', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'apache_bin', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'ssh_port', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'url_port', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'htpasswd_bin', array('class' => 'form-control'));
+		?>
+		<div class="form-actions" style="margin-top:20px">
+		<?php
 		$this->widget(
-			'booster.widgets.TbButton',
-			array('buttonType' => 'submit', 'label' => '保存')
-			);
-
+				'booster.widgets.TbButton',
+				array('buttonType' => 'submit', 'label' => '保存', 'type' => 'primary')
+			     );
+		?>
+		</div>
+		<?php
 		$this->endWidget();
 		unset($form);
 		?>

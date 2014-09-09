@@ -25,29 +25,31 @@ $form = $this->beginWidget(
 <fieldset>
 <?php
 echo $form->hiddenField($virtualserver, 'id');
-echo $form->textFieldRow($virtualserver, 'name');
-echo $form->textAreaRow($virtualserver, 'description');
-echo $form->textFieldRow($virtualserver, 'htdocs_path');
-echo $form->textFieldRow($virtualserver, 'nginx_config_path');
-echo $form->textFieldRow($virtualserver, 'ngixn_bin');
-echo $form->textFieldRow($virtualserver, 'ipper');
-echo $form->textFieldRow($virtualserver, 'ssh_port');
-echo $form->textFieldRow($virtualserver, 'url_port');
-echo $form->textFieldRow($virtualserver, 'url_host');
+echo $form->textFieldRow($virtualserver, 'name', array('class' => 'form-control'));
+echo $form->textAreaRow($virtualserver, 'description', array('style' => 'width: 100%; overflow: hidden; word-wrap: break-word; resize: horizontal; height: 126px;'));
+echo $form->textFieldRow($virtualserver, 'htdocs_path', array('class' => 'form-control'));
+echo $form->textFieldRow($virtualserver, 'nginx_config_path', array('class' => 'form-control'));
+echo $form->textFieldRow($virtualserver, 'ngixn_bin', array('class' => 'form-control'));
+echo $form->textFieldRow($virtualserver, 'ipper', array('class' => 'form-control'));
+echo $form->textFieldRow($virtualserver, 'ssh_port', array('class' => 'form-control'));
+echo $form->textFieldRow($virtualserver, 'url_port', array('class' => 'form-control'));
+echo $form->textFieldRow($virtualserver, 'url_host', array('class' => 'form-control'));
 echo $form->dropDownListRow(
   $virtualserver,
   'url_schema',
   array(
     'http' => 'http', 'https' => 'https'
-  )
+  ),
+  array('class' => 'form-control')
+
 );
 ?>
 </fieldset>
-<div class="form-actions">
+<div class="form-actions" style="margin-top:20px">
 <?php
 $this->widget(
   'bootstrap.widgets.TbButton',
-  array('buttonType' => 'submit', 'label' => '保存')
+  array('buttonType' => 'submit', 'label' => '保存', 'type' => 'primary')
 );
 ?>
 </div>
