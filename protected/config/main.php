@@ -35,6 +35,7 @@ $common_config = array(
     'ext.highcharts.*',
     'application.extensions.KEmail.KEmail',
     'application.modules.admin.extensions.*',
+    'application.modules.admin.components.*',
     'application.modules.srbac.controllers.SBaseController',
     'ext.file.*',
     ),
