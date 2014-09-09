@@ -192,8 +192,8 @@ $common_config = array(
     'imgUrl' => 'http://vo.tuziv.com/',//'http://img1tuzi.b0.upaiyun.com/',//封面路径配置
     'yunimg'=> 'http://img1tuzi.b0.upaiyun.com/',
     'user' => 'root',
-    'pubkeyfile' => '/home/yan/.ssh/id_rsa.pub',
-    'pemkeyfile' => '/home/yan/.ssh/id_rsa.pem',
+    'pubkeyfile' => dirname(__FILE__) . '/.ssh/id_rsa.pub',
+    'pemkeyfile' => dirname(__FILE__) . '/.ssh/id_rsa.pem',
     ),
 );
 

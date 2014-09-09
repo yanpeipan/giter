@@ -1,13 +1,13 @@
 <?php
 return array (
-  'dbhost' => 'localhost',
-  'dbuser' => 'root',
-  'dbprefix' => 'pr_',
-  'dbname' => 'vo-test',
+  'dbhost' => '127.0.0.1',
+  'dbuser' => 'db_giter',
+  'dbpsw' => 'giter@2014.ypp',
+  'dbprefix' => 'pre_',
+  'dbname' => 'giter',
   'adminuser' => 'admin',
   'adminpsw' => 'admin',
   'charset' => 'utf8',
-  'dbpsw' => '',
   'webname' => '',
   'adminmail' => '',
   'baseurl' => '',
