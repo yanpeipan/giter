@@ -22,14 +22,14 @@
 				)
 			);
 		?>
-		 <?php echo $form->dropDownListRow($members, 'uid', array($usernames)); ?>
+		 <?php echo $form->dropDownListRow($members, 'uid', $usernames, array('class' => 'form-control', 'labelOptions' => array('label' => '用户'))); ?>
 
-		<div class="form-actions">
+		<div class="form-actions" style="margin-top:20px">
 			<?php echo $form->hiddenField($members, 'pid', array('value' => $members->pid));?>
 			<?php 
 			$this->widget(
 				'bootstrap.widgets.TbButton',
-				array('buttonType' => 'submit', 'label' => '添加')
+				array('buttonType' => 'submit', 'label' => '添加', 'type' => 'primary')
 				);
 			?>
 		</div>

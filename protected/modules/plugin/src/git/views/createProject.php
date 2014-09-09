@@ -24,7 +24,7 @@
 		); 
 		?>
 		<!--  Project Name Input-->
-		<?php echo $form->textFieldRow($model, 'name');?>
+		<?php echo $form->textFieldRow($model, 'name', array('class' => 'form-control'));?>
 		<!-- Project type -->
 		<?php 
 		echo $form->dropDownListRow(
@@ -34,6 +34,7 @@
 			array(
 				'select' => 'local',
 				'onChange' => 'js:$("#Projects_domain_group").toggle()',
+				'class' => 'form-control',
 				
 				)
 		);
@@ -45,14 +46,20 @@
 			$model, 
 			'domain', 
 			array(
+				'class' => 'form-control',
 				'append' => '.red16.com', 
 				)
 			);
 			?>
 		</div>
 
-		<div class="form-actions">
-			<?php echo CHtml::submitButton('创建'); ?>
+		<div class="form-actions" style="margin-top:20px">
+			<?php 
+			$this->widget(
+				'bootstrap.widgets.TbButton',
+				array('buttonType' => 'submit', 'label' => '创建', 'type' => 'primary')
+				);
+			?>
 		</div>
 
 		<?php $this->endWidget(); ?> 
