@@ -404,8 +404,7 @@ EOD;
                         {
                                 expires      30d;
                         }
-
-                location ~ .*\.(js|css)?$
+location ~ .*\.(js|css)?$
                         {
                                 expires      12h;
                         }
@@ -548,7 +547,7 @@ EOT;
     		$this -> htpasswd($usr, $psw);
                           if ($this->needVirtualServer()) {
                             $this  -> createVirtualServer($this->domain);
-                            $this -> cloneRepository();
+                            $this -> cloneRepository($this->domain);
                           }
     		return true;
     	} else {
