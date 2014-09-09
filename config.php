@@ -1,5 +1,4 @@
-<?php
-return array (
+<?php\nreturn array (
   'dbhost' => '127.0.0.1',
   'dbuser' => 'db_giter',
   'dbpsw' => 'giter@2014.ypp',
@@ -11,4 +10,4 @@ return array (
   'webname' => '',
   'adminmail' => '',
   'baseurl' => '',
-)?>
+);?>

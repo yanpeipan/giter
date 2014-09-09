@@ -1,6 +1,10 @@
 <?php
 class Mcrypter
 {
+	public function __construct()
+	{
+		if(function_exists('mcrypt_encrypt')) {}
+	}
 	private  static  function key()
 	{
 		return pack('H*', "bcb04b7e103a0cd8b54763051cef08bc55abe029fdebae5e1d417e2ffb2a00a3"); 
@@ -8,6 +12,7 @@ class Mcrypter
 	
 	public  static function encrypt($data)
 	{
+		if(!function_exists('mcrypt_encrypt')) {return $data;}
 		$cipher  = MCRYPT_RIJNDAEL_128;
 		$key = self::key();
 		$model = MCRYPT_MODE_CBC;
@@ -18,7 +23,7 @@ class Mcrypter
 
 	public static function decrypt($ciphertext)
 	{
-
+		if(!function_exists('mcrypt_decrypt')) {return $ciphertext;}
 		$ciphertext_dec = base64_decode($ciphertext);
 		$key = self::key();
 		$model = MCRYPT_MODE_CBC;

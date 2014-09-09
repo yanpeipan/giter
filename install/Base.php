@@ -235,7 +235,7 @@ Class Base{
 			}
 		}	
 
-		$inputString="<?php\nreturn ".var_export($config,true)."?>";
+		$inputString='<?php\nreturn '.var_export($config,true).';?>';
 
 		$isSetYiiDbSuccess=$this->setYiiDb($config);
 
@@ -403,7 +403,6 @@ Class Base{
 	public function setYiiDb($config){
 		$yiiPath=$this->getRootDir().'/protected/config/db.php';
 		$yiiDbConfig=array(
-			'class'=>'CDbConnectionExt',
 			'connectionString' => 'mysql:host='.$config['dbhost'].';port=3306;dbname='.$config['dbname'],
 			'emulatePrepare' => true,
 			'username' => $config['dbuser'],
@@ -415,7 +414,7 @@ Class Base{
 
 		$inputString=
 		'<?php
-		return '.var_export($yiiDbConfig,true).' 
+		return '.var_export($yiiDbConfig,true).'; 
 		?>';
 
 		$is_success=0;

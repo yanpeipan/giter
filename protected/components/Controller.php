@@ -29,7 +29,8 @@ class Controller extends CController
     
         parent::init();
         $this->db=Yii::app()->db;
-		$cookie = Yii::app()->request->getCookies();
+
+        $cookie = Yii::app()->request->getCookies();
         if(!(isset($cookie[sha1('vo_auth')]) && !empty($cookie[sha1('vo_auth')]->value))){
         	if('user'!==$this->getId()){
         		//$this->redirect(Yii::app()->user->loginUrl);

@@ -1,6 +1,6 @@
 /assets/*
 css/*
 .svn
-protected/runtime/*
+runtime/*
 config.php
 protected/config/db.php

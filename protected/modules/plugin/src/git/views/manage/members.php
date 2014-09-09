@@ -1,6 +1,6 @@
 <div class="box">
 	<div class="box-header">
-		<h2><i class="fa fa-edit"></i>Members</h2>
+		<h2><i class="fa fa-edit"></i>成员</h2>
 		<div class="box-icon">
 			<a href="<?php echo Yii::app()->createUrl("plugin/git/addMember", array('id' => $members->pid));?>" class="btn-adding"><i class="fa fa-plus"></i></a>
 			<a href="<?php echo Yii::app()->createUrl("plugin/git/");?>" class="btn-adding"><i class="fa fa-chevron-left"></i></a>
@@ -11,7 +11,7 @@
 	</div>
 	<div class="box-content">
 		<?php
-		$this->widget('booster.widgets.TbExtendedGridView', array(
+		$this->widget('bootstrap.widgets.TbExtendedGridView', array(
 			'type'=>'striped bordered condensed',
 			'dataProvider'=>$members->search(),	
 			//'pager' => array('class'=>'bootstrap.widgets.TbPager','displayFirstAndLast'=>true,'htmlOptions'=>array('class'=>'pagination')),

@@ -66,17 +66,17 @@ class VirtualServers extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'name' => 'Name',
-			'description' => 'Description',
-			'htdocs_path' => 'Htdocs Path',
-			'nginx_config_path' => 'Nginx Config Path',
-			'ngixn_bin' => 'Ngixn Bin',
+			'name' => '名称',
+			'description' => '描述',
+			'htdocs_path' => 'Htdocs根目录',
+			'nginx_config_path' => 'Nginx配置目录',
+			'ngixn_bin' => 'Nginx命令',
 			'ip' => 'Ip',
 			'ipper' => 'Ip',
-			'ssh_port' => 'Ssh Port',
-			'url_port' => 'Url Port',
-			'url_host' => 'Url Host',
-			'url_schema' => 'Url Schema',
+			'ssh_port' => 'Ssh端口',
+			'url_port' => 'HTTP(s)端口',
+			'url_host' => 'HTTP(s)域名',
+			'url_schema' => 'HTTP/HTTPS',
 		);
 	}
 

@@ -20,27 +20,27 @@ class AdminBaseController extends Controller
 	public function GetSystemConfig(){
 		//获取域名
 		$domain = SystemConfig::Get('SYSTEM_DOMAIN',null,'USER');
-		Yii::app()->params['domain'] = $domain[0]['cfg_value'];
+		//Yii::app()->params['domain'] = $domain[0]['cfg_value'];
 		//获取boss系统域名
 		$boss = SystemConfig::Get('SYSTEM_BOSS_DOMAIN',null,'USER');
-		Yii::app()->params['boss'] = $boss[0]['cfg_value'];
+		//Yii::app()->params['boss'] = $boss[0]['cfg_value'];
 		//获取token
 		$token = SystemConfig::Get('SYSTEM_TOKEN_KEY',null,'USER');
-		Yii::app()->params['token'] = $token[0]['cfg_value'];
+		//Yii::app()->params['token'] = $token[0]['cfg_value'];
 		//视频状态 是否完结
-		Yii::app()->params['isend']     = SystemConfig::GetArrayValue('VIDEO_ISEND');
+		//Yii::app()->params['isend']     = SystemConfig::GetArrayValue('VIDEO_ISEND');
 		//视频清晰度
-		Yii::app()->params['resolution'] = SystemConfig::GetArrayValue('VIDEO_CLARITY');
+		//Yii::app()->params['resolution'] = SystemConfig::GetArrayValue('VIDEO_CLARITY');
 		//是否授权
-		Yii::app()->params['status']    = SystemConfig::GetArrayValue('VIDEO_ISSHOW');
+		//Yii::app()->params['status']    = SystemConfig::GetArrayValue('VIDEO_ISSHOW');
 		//是否有视频封面
-		Yii::app()->params['is_pic']     = SystemConfig::GetArrayValue('VIDEO_HASCOVER');
+		//Yii::app()->params['is_pic']     = SystemConfig::GetArrayValue('VIDEO_HASCOVER');
 		//是否正片
-		Yii::app()->params['playtype']    = SystemConfig::GetArrayValue('VIDEO_PLAYTYPE');
+		//Yii::app()->params['playtype']    = SystemConfig::GetArrayValue('VIDEO_PLAYTYPE');
 		//是否免费
-		Yii::app()->params['free']    = SystemConfig::GetArrayValue('VIDEO_CHARGE');
+		//Yii::app()->params['free']    = SystemConfig::GetArrayValue('VIDEO_CHARGE');
 		//适合年龄
-		Yii::app()->params['ages']    = SystemConfig::GetArrayValue('VIDEO_AGE');
+		//Yii::app()->params['ages']    = SystemConfig::GetArrayValue('VIDEO_AGE');
 		//获取接入源
 		Yii::app()->params['source']  = SystemConfig::GetArrayValue('VIDEO_SOURCE',null,'USER');
 		//获取主菜单

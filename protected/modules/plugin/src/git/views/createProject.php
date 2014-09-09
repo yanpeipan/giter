@@ -1,6 +1,6 @@
 <div class="box">
 	<div class="box-header">
-		<h2><i class="fa fa-edit"></i>Create Project</h2>
+		<h2><i class="fa fa-edit"></i>创建项目</h2>
 		<div class="box-icon">
 			<a href="<?php echo Yii::app()->createUrl("plugin/git/");?>" class="btn-adding"><i class="fa fa-chevron-left"></i></a>
 			<a href="form-dropzone.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
@@ -10,11 +10,12 @@
 	</div>
 	<div class="box-content">
 		<?php 
-		$form=$this->beginWidget('CActiveForm', array(
+		$form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 			'id'=>'create_project_form',
 			'enableAjaxValidation'=>true,
 			'enableClientValidation'=>true,
 			'action' =>  '#',
+			'type'=>'horizontal',
 			'htmlOptions'=>array(
 				'class' => 'form-horizontal',
 				'enctype'=>'multipart/form-data',
@@ -23,38 +24,35 @@
 		); 
 		?>
 		<!--  Project Name Input-->
-		<div class="form-group">
-			<?php echo $form->labelEx($model,'name', array(
-				'class' => 'control-label'
+		<?php echo $form->textFieldRow($model, 'name');?>
+		<!-- Project type -->
+		<?php 
+		echo $form->dropDownListRow(
+			$model,
+			'type',
+			array( 'local' => 'local', 'php-web' => 'php-web',),
+			array(
+				'select' => 'local',
+				'onChange' => 'js:$("#Projects_domain_group").toggle()',
+				
 				)
-			); 
-			?>
-			<div class="controls">
-				<div class="input-group">
-					<?php echo $form->textField($model,'name', array('class' => 'focused')); ?>
-				</div>
-				<span class="help-block"><?php echo $form->error($model,'name'); ?></span>
-			</div>
-		</div>
-
+		);
+		?>
 		<!--  Project Domain Input-->
-		<div class="form-group">
-			<?php echo $form->labelEx($model,'domain', array(
-				'class' => 'control-label'
+		<div id='Projects_domain_group' style="display:none;">
+		<?php
+		echo $form->textFieldRow(
+			$model, 
+			'domain', 
+			array(
+				'append' => '.red16.com', 
 				)
-			); 
+			);
 			?>
-			<div class="controls">
-				<div class="input-group">
-					<?php echo $form->textField($model,'domain'); ?>
-					<span class="input-group-addon">.red16.com</span>
-				</div>
-				<span class="help-block"><?php echo $form->error($model,'domain'); ?></span>
-			</div>
 		</div>
 
 		<div class="form-actions">
-			<?php echo CHtml::submitButton('Submit'); ?>
+			<?php echo CHtml::submitButton('创建'); ?>
 		</div>
 
 		<?php $this->endWidget(); ?> 

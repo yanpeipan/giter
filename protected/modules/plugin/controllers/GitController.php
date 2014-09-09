@@ -11,7 +11,23 @@ Yii::import('application.modules.admin.models.*');
 class GitController extends PluginBaseController
 {
 	public $layout = '//layouts/column2';
+	public $errors;
 
+	public function filters()
+	{
+        		// return the  filter configuration for this controller, e.g.:
+		return array(
+			'accessControl',
+			);
+	}
+
+	public function accessRules()
+	{
+		return array
+		(
+			array('deny', 'actions'=>array('*'), 'users'=>array('?'),),
+			);
+	}	
 	/**
 	 * Index
 	 */
@@ -40,6 +56,12 @@ class GitController extends PluginBaseController
 	 */
 	public function actionCreateProject()
 	{
+		if(Yii::app()->user->is_super_admin < 2)
+		{
+			Yii::app()->user->setFlash('danger', 'You do not have permission to perform this operation.');
+			Yii::app()->getController()->actionIndex();
+			Yii::app()->end();
+		}
 		$model = new Projects;
 
 		// Ajax Validate
@@ -89,6 +111,10 @@ class GitController extends PluginBaseController
 	 */
 	public function actionDeleteProject()
 	{
+		if(Yii::app()->user->is_super_admin < 2)
+		{
+			$this->redirect('/plugin/git/');
+		}
 		$id = Yii::app() -> request -> getparam('id', null);
 		if (is_numeric($id)) {
 			$project = Projects::model()->findByPk($id);
@@ -175,6 +201,10 @@ class GitController extends PluginBaseController
 	 */
 	public function actionManage()
 	{
+		if(Yii::app()->user->is_super_admin < 3)
+		{
+			$this->redirect('/plugin/git/');
+		}
 		$repositories = new Repositories();
 		$virtualServers = new VirtualServers();
 		$repository = $repositories->findByAttributes(array(), 'name<>""', array('order'=>'id asc', 'limit'=>1 ));
@@ -186,6 +216,10 @@ class GitController extends PluginBaseController
 
 	public function actionEditVirtualServer()
 	{
+		if(Yii::app()->user->is_super_admin < 3)
+		{
+			$this->redirect('/plugin/git/');
+		}
 		$virtualServer = new VirtualServers();
 
 		if(isset($_POST['ajax']) && $_POST['ajax']==='VirtualServers')
@@ -212,6 +246,10 @@ class GitController extends PluginBaseController
 
 	public function actionEditRepostory()
 	{
+		if(Yii::app()->user->is_super_admin < 3)
+		{
+			$this->redirect('/plugin/git/');
+		}
 		$repositories = new Repositories();
 
 		if(isset($_POST['ajax']) && $_POST['ajax']==='Repositories')
@@ -236,7 +274,7 @@ class GitController extends PluginBaseController
 
 	public function actionTest()
 	{
-		$project = new Projects();
+		$project = new Shell();
 
 		$project -> test();
 		return;

@@ -16,6 +16,7 @@ class Projects extends CActiveRecord
 {
 
     public $mid;
+    public $type;
 
     /**
      * @return string the associated database table name
@@ -33,15 +34,15 @@ class Projects extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
     	return array(
-    		array('name, domain', 'required'),
-    		array('name, domain', 'unique'),
+    		array('name, type', 'required'),
+    		array('name', 'unique'),
     		array('domain',  'domainValidator'),
     		array('uid', 'numerical', 'integerOnly'=>true),
     		array('name, domain, status', 'length', 'max'=>45),
     		array('remote_url', 'length', 'max'=>255),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
-    		array('id, name, uid, ctime, remote_url, domain, status', 'safe', 'on'=>'search'),
+    		array('id, name, type, uid, ctime, remote_url, domain, status', 'safe', 'on'=>'search'),
     		);
     }
 
@@ -51,7 +52,7 @@ class Projects extends CActiveRecord
     public function domainValidator($attributes, $params)
     {
     	//special chars validator
-    	if (empty($this ->domain) || $this -> domain !== trim(escapeshellarg($this -> domain), "'")) {
+    	if ( $this -> domain !== trim(escapeshellarg($this -> domain), "'")) {
     		$this->addError('domain', 'contains special chars');
     	} 
     }
@@ -74,12 +75,13 @@ class Projects extends CActiveRecord
     {
     	return array(
     		'id' => 'ID',
-    		'name' => 'Name',
+    		'name' => '名称',
     		'uid' => 'Uid',
-    		'ctime' => 'Ctime',
-    		'remote_url' => 'Remote Url',
-    		'domain' => 'Domain',
-    		'status' => 'Status',
+    		'ctime' => '创建时间',
+    		'remote_url' => '访问地址',
+    		'domain' => '域名',
+    		'status' => '状态',
+        'type' => '类型',
     		);
     }
 
@@ -131,14 +133,36 @@ class Projects extends CActiveRecord
     	return parent::model($className);
     }
 
+    public function getDomainButtonStyle()
+    {
+        return $this->domain ? '' : 'display:none';
+    }
+
     /**
      * Returns the url of domain, for example: http://yourname.test.com
      * @return String
      */
-    public function getDomain_url()
+    public function getDomainUrl()
     {
-        $server = $this->getVirtualServerInfo();
-        return "{$server->url_schema}://{$this->domain}.{$server->url_host}". ($server->url_port == 80 ? '' : ":{$server->url_port}");
+        if ($this->needVirtualServer()) {
+            $server = $this->getVirtualServerInfo();
+            return "{$server->url_schema}://{$this->domain}.{$server->url_host}". ($server->url_port == 80 ? '' : ":{$server->url_port}");
+        } else {
+            return '#';
+        }
+    }
+
+    public function getVirtualServerRoot()
+    {
+        
+    }
+
+    public function needVirtualServer()
+    {
+        if (isset($this->type) && in_array($this->type, array('php-web'))) {
+            return true;
+        }
+        return false;
     }
 
     public function getRepositoryServerInfo($id = null)
@@ -197,7 +221,7 @@ EOD;
 EOT;
 	$stream = ssh2_exec($ssh, $command);
     	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
-         //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
+             //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
     	stream_set_blocking($stream, true);
     	$result = stream_get_contents($stream);
     	if (empty($result)) {
@@ -301,7 +325,7 @@ $result = stream_get_contents($stream);
     /**
      * Clone Repository
      */
-    private function cloneRepository()
+    private function cloneRepository($domain)
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
@@ -310,11 +334,12 @@ $result = stream_get_contents($stream);
     	$command =<<<"EOD"
     	htdocs={$server->htdocs_path}
     	origin={$this->remote_url}
+             location={$domain}
 EOD;
  	$command  .= PHP_EOL;
  	$command .=<<<'EOT'
     	cd ${htdocs} ||  error_exit "Cannot change directory"
-    	git clone ${origin}
+    	git clone ${origin} ${location}
 EOT;
 	$stream = ssh2_exec($ssh, $command);
     	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
@@ -337,7 +362,7 @@ EOT;
     /**
      * Create Virtual Host
      */
-    private function createVirtualServer()
+    private function createVirtualServer($domain)
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
@@ -348,8 +373,8 @@ EOT;
         {
                 listen 80;
                 server_name {$this->domain}.{$server->url_host};
-                root {$server->htdocs_path}{$this->domain}/;
-                access_log  /var/web-logs/{$this->domain}.{$server->url_host}-access.log  access;
+                root {$server->htdocs_path}{$domain}/;
+                access_log  /var/web-logs/{$domain}.{$server->url_host}-access.log  access;
 EOD;
 	$config .= PHP_EOL;
 	$config .=<<<'EOT'
@@ -430,16 +455,16 @@ EOD;
     /**
      * Create Repository
      */
-    private function createRepository()
+    private function createRepository($id)
     {
     	$server = $this -> getRepositoryServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
     	//append .git to domain
-    	$domain = strpos($this->domain, '.git') ? $this -> domain : $this->domain . '.git';
+    	$domain = strpos($this->id, '.git') ? $this->id : $this->id . '.git';
 
                 $config  =<<<"EOD"
-        <Directory "{$server->root_path}{$this->domain}.git/">
+        <Directory "{$server->root_path}{$this->id}.git/">
             Allow from all
             Order Allow,Deny
             <Limit GET PUT POST DELETE PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
@@ -453,14 +478,14 @@ EOD;
 
         $result = ssh2_scp_send($ssh, $tmp, $filename, 0777);
 
-            $this -> addGroup($this->domain);
+            $this -> addGroup($this->id);
             $usr = Yii::app() -> user -> name;
             $psw = Admin::decrypt(Yii::app() ->user -> encrypt);
-            $this -> addMember($usr, $psw, $this->domain);
+            $this -> addMember($usr, $psw, $this->id);
 
     	//create Project Command
     	$command =<<<"EOD"
-    	domain={$domain}
+    	domain={$id}
     	repositoriesRoot={$server->root_path}
                 apache2={$server->apache_bin}
 EOD;
@@ -484,19 +509,19 @@ EOT;
     	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
     	stream_set_blocking($stream, true);
     	$result = stream_get_contents($stream);
-    	$this -> remote_url = "http://{$server->ipper}:{$server->url_port}/git/{$this ->domain}.git";
+    	$this -> remote_url = "http://{$server->ipper}:{$server->url_port}/git/{$this ->id}.git";
 
     	return true;
     }
 
-    public function destroyRepository()
+    public function destroyRepository($id)
     {
         $server = $this -> getRepositoryServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
         ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
-                $domain = strpos($this->domain, '.git') ? $this -> domain : $this->domain . '.git';
-        $filename = $server->git_config_path . $this ->domain . '.conf';
+                $domain = strpos($this->id, '.git') ? $this->id : $this->id . '.git';
+        $filename = $server->git_config_path . $this ->id . '.conf';
         $command =<<<"EOD"
         apache_config_file={$filename}
         domain={$domain}
@@ -517,12 +542,14 @@ EOT;
      */
     public function create()
     {
-    	if ($this -> createRepository()) {
+    	if (is_numeric($this->id) && $this -> createRepository($this->id)) {
     		$usr = Yii::app() -> user -> name;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
     		$this -> htpasswd($usr, $psw);
-    		$this  -> createVirtualServer();
-    		$this -> cloneRepository();
+                          if ($this->needVirtualServer()) {
+                            $this  -> createVirtualServer();
+                            $this -> cloneRepository();
+                          }
     		return true;
     	} else {
     		$this -> addError('domain', 'exception when create repository');
@@ -533,7 +560,9 @@ EOT;
     {
         $this->destroyRepository();
         $this->destroyGroup($this->name);
-        $this->destroyVirtualServer();
+        if ($this->needVirtualServer()) {
+            $this->destroyVirtualServer();
+        }
     }
 
     public function test()

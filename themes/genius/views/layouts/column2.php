@@ -26,11 +26,28 @@
 						
 			<!-- start: Content -->
 			<div id="content" class="col-lg-10 col-sm-11 ">
-			<?php echo $content;?>	
-			</div>
-			<!-- end: Content -->
-				
-				</div><!--/row-->		
-		
-	</div><!--/container-->
+
+				<?php 
+				$this->widget('bootstrap.widgets.TbAlert', array(
+				'block'=>true, // display a larger alert block?
+				'fade'=>true, // use transitions?
+				'closeText'=>'&times;', // close link text - if set to false, no close link is displayed
+  'htmlOptions'=>array('displayTime'=>0),
+				'alerts'=>array( // configurations per alert type
+					'success'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), // success, info, warning, error or danger
+   					'info'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), // success, info, warning, error or danger
+   					'warning'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), // success, info, warning, error or danger
+   					'error'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), // success, info, warning, error or danger
+   					'danger'=>array('block'=>true, 'fade'=>true, 'closeText'=>'&times;'), // success, info, warning, error or danger
+   					)
+				)
+				);
+				?>
+        <?php echo $content;?>	
+    </div>
+    <!-- end: Content -->
+
+</div><!--/row-->		
+
+</div><!--/container-->
 <?php $this->endContent(); ?>

@@ -15,4 +15,10 @@ class WebUser extends CWebUser
 		$model = Admin::model() -> findByPk(Yii::app()->user->id);
 		return $model ? $model ->  username : null;
 	}
+
+	public function getIs_super_admin()
+	{
+		$model = Admin::model() -> findByPk(Yii::app()->user->id);
+		return $model ? $model->is_super_admin  : null;
+	}
 }
