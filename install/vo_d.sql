@@ -5973,6 +5973,7 @@ INSERT INTO `pt_s_config` (`id`, `cfg_name`, `cfg_value`, `cfg_order`, `cfg_pid`
 (28, 'ICONS', '用户管理', 0, 0, 0, 'USER', 'fa-users'),
 (29, 'ICONS', '插件管理', 0, 0, 0, 'USER', 'fa-flask'),
 (102, 'SUBMENU', '/admin/system/view', 0, 17, 0, 'USER', '系统设置'),
+(103, 'SUBMENU', '/srbac/authitem/frontpage', 0, 17, 0, 'USER', '权限设置'),
 (123, 'SYSTEM_CDN_CONFIG', '{"add":"your_add.ypyun.com","user":"user.ypyun.com","psw":"psw","path":"img.ypyun.com"}', 0, 17, 0, 'USER', NULL),
 (107, 'SYSTEM_TOKEN_KEY', '2287502e830700edd2a2829b8e7c1404', 0, 17, 0, 'USER', '系统授权码'),
 (108, 'SYSTEM_DOMAIN', 'vo.tuziv.com.cn', 0, 17, 0, 'USER', '系统域名'),
