@@ -43,7 +43,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     array(
       'class'=>'bootstrap.widgets.TbButtonColumn',
       'htmlOptions' => array('class' => 'col-md-2'),
-      'template'=>'{publish} {manage} {visit} {delete}',
+      'template'=>'{manage} {publish} {visit} {delete}',
       'header'=>'操作',
       'buttons'=>array(
         'delete'=>array(
