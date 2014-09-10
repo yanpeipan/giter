@@ -11,9 +11,9 @@ return array(
 //插件类型 ADMIN|API
 	'type' => 'ADMIN',
 //开发者
-	'author' => 'yanpeipan',
+	'author' => 'yanpeipan,hanguangzu',
 //邮箱
-	'email' => 'yanpeipan_82@qq.com',
+	'email' => 'yanpeipan82@gmail.com',
 //版本
 	'version' => '0.1',
 //依赖插件
@@ -32,7 +32,7 @@ return array(
 
 		//主菜单
 		'MAINMENU' => array(
-			'icon' => 'fa-heart',
+			'icon' => 'fa-github',
 			'cfg_value' => '/plugin/git/index',
 			'cfg_pid' => 0,
 			'cfg_comment' => '项目管理',

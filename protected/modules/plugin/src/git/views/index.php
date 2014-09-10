@@ -3,9 +3,7 @@
   <h2><i class="fa fa-edit"></i>项目列表</h2>
     <div class="box-icon">
       <a href="<?php echo Yii::app()->createUrl("plugin/git/createProject");?>" class="btn-adding"><i class="fa fa-plus"></i></a>
-      <a href="form-dropzone.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
       <a href="form-dropzone.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-      <a href="form-dropzone.html#" class="btn-close"><i class="fa fa-times"></i></a>
     </div>
   </div>
   <div class="box-content">
@@ -82,10 +80,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
   <div class="box-header">
     <h2><i class="fa fa-edit"></i>参与的项目</h2>
     <div class="box-icon">
-      <a href="<?php echo Yii::app()->createUrl("plugin/git/createProject");?>" class="btn-adding"><i class="fa fa-plus"></i></a>
-      <a href="form-dropzone.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
       <a href="form-dropzone.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-      <a href="form-dropzone.html#" class="btn-close"><i class="fa fa-times"></i></a>
     </div>
   </div>
   <div class="box-content">
