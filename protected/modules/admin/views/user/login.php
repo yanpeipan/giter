@@ -5,7 +5,7 @@
 				<div class="login-box">
 					
 					<div class="header">
-						视频管理系统
+						<?php echo Yii::app()->name;?>	
 					</div>
 					<?php /** @var BootActiveForm $form */
 					$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
@@ -37,7 +37,6 @@
 							</div>
 						</fieldset>	
 					<?php $this->endWidget(); ?>
-					<a class="pull-left" href="page-login.html#">忘记密码?</a>
 					<div class="clearfix"></div>				
 				</div>
 			</div><!--/row-->
