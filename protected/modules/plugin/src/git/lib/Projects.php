@@ -169,7 +169,7 @@ class Projects extends CActiveRecord
 
     public function needVirtualServer()
     {
-        if (isset($this->type) && in_array($this->type, array('php-web'))) {
+        if (isset($this->type) && in_array($this->type, $this->hasDomainTypes)) {
             return true;
         }
         return false;
