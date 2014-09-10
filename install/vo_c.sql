@@ -169,7 +169,7 @@ CREATE TABLE IF NOT EXISTS `tbl_migration` (
 --
 -- 表的结构 `AuthItem`
 --
-CREATE TABLE IF EXISTS `AuthItem` (
+CREATE TABLE IF NOT EXISTS `AuthItem` (
   `name` varchar(64) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text,
@@ -182,7 +182,7 @@ CREATE TABLE IF EXISTS `AuthItem` (
 --
 -- 表的结构 `AuthAssignment`
 --
-CREATE TABLE IF EXISTS  `AuthAssignment` (
+CREATE TABLE IF NOT EXISTS `AuthAssignment` (
   `itemname` varchar(64) NOT NULL,
   `userid` varchar(64) NOT NULL,
   `bizrule` text,
@@ -196,7 +196,7 @@ CREATE TABLE IF EXISTS  `AuthAssignment` (
 --
 -- 表的结构 `AuthItemChild`
 --
-CREATE TABLE IF EXISTS `AuthItemChild` (
+CREATE TABLE IF NOT EXISTS `AuthItemChild` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`child`),
