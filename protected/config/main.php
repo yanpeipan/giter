@@ -5,7 +5,7 @@ $common_config = array(
   'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
   'name'=>'开发者面板',
   'language'=>'zh_cn',
-  'defaultController'=>'plugin/git',
+  'defaultController'=>'admin/user',
   'theme'=>'genius',
 
   // preloading 'log' component
