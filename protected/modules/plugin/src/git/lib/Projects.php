@@ -133,6 +133,16 @@ class Projects extends CActiveRecord
     	return parent::model($className);
     }
 
+    public function getTypes()
+    {
+	return array('Android' => 'Android', 'iOS' => 'iOS', 'PHP-web' => 'PHP-web');
+    }
+
+    public function gethasDomainTypes()
+    {
+	return array('PHP-web' => 'PHP-web');
+    }
+
     public function getDomainButtonStyle()
     {
         return $this->domain ? '' : 'display:none';
@@ -273,6 +283,7 @@ $result = stream_get_contents($stream);
         $command  =<<<"EOD"
         sed -i "/^{$project}:/{s/ $usr / /g;s/$/&$usr /g;s/[ ]\{2,\}/ /g}"  {$server->apache_group_file}
 EOD;
+	echo $command;
        $stream = ssh2_exec($ssh, $command);
 $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
          //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
@@ -460,31 +471,31 @@ EOD;
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
     	//append .git to domain
-    	$domain = strpos($this->id, '.git') ? $this->id : $this->id . '.git';
+    	$domain = strpos($id, '.git') ? $id : $id . '.git';
 
                 $config  =<<<"EOD"
-        <Directory "{$server->root_path}{$this->id}.git/">
+        <Directory "{$server->root_path}{$domain}/">
             Allow from all
             Order Allow,Deny
             <Limit GET PUT POST DELETE PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
-                Require group {$this->domain}
+                Require group {$id}
             </Limit>
         </Directory> 
 EOD;
         $tmp = tempnam(sys_get_temp_dir(), '');
         file_put_contents($tmp, $config);
-        $filename = $server->git_config_path . $this ->domain . '.conf';
+        $filename = $server->git_config_path . $id . '.conf';
 
         $result = ssh2_scp_send($ssh, $tmp, $filename, 0777);
 
             $this -> addGroup($this->id);
             $usr = Yii::app() -> user -> name;
             $psw = Admin::decrypt(Yii::app() ->user -> encrypt);
-            $this -> addMember($usr, $psw, $this->id);
+            $this -> addMember($usr, $psw, $id);
 
     	//create Project Command
     	$command =<<<"EOD"
-    	domain={$id}
+    	domain={$domain}
     	repositoriesRoot={$server->root_path}
                 apache2={$server->apache_bin}
 EOD;
@@ -558,7 +569,7 @@ EOT;
     public function destory()
     {
         $this->destroyRepository($this->id);
-        $this->destroyGroup($this->name);
+        $this->destroyGroup($this->id);
         if ($this->needVirtualServer()) {
             $this->destroyVirtualServer();
         }

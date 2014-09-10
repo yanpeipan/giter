@@ -25,6 +25,10 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     ),
     array(
       'type'=>'raw', 
+      'name' => 'type',
+    ),
+    array(
+      'type'=>'raw', 
       'name' => 'remote_url',
     ),
     array(
@@ -41,14 +45,14 @@ $this->widget('bootstrap.widgets.TbGridView', array(
           'label'=>"发布",
           'icon'=>'success',
           'url'=>'Yii::app()->createUrl("plugin/git/publish/id/$data->id/domain/$data->domain")',
+	  'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
         ),
         'visit'=>array(
-          'options' => array(
-            'title' => '访问',
-          ),
+	  'visible' => false,
           'label'=>'访问',
           'icon'=>'',
-          'url'=>'$data->domainurl'
+          'url'=>'$data->domainurl',
+	  'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
         ),
 
       ),

@@ -25,6 +25,11 @@ $this->widget('bootstrap.widgets.TbGridView', array(
       'name' => 'name',
       //'header' => 'Project Name',
     ),
+    array(
+      'type'=>'raw', 
+      'name' => 'type',
+      //'header' => 'Project Name',
+    ),
 
     array(
       'type'=>'raw', 
@@ -51,6 +56,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'publish'=>array(
           'label'=>"发布",
           'icon'=>'success',
+	  'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
           'url'=>'Yii::app()->createUrl("plugin/git/publish/id/$data->id/domain/$data->domain")',
         ),	
         'manage'=>array(
@@ -62,6 +68,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
           'options' => array(
             'title' => '访问',
           ),
+	  'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
           'label'=>'访问',
           'icon'=>'',
           'url'=>'$data->domainurl'

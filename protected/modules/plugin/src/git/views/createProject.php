@@ -12,7 +12,11 @@
 			'id'=>'create_project_form',
 			'enableAjaxValidation'=>true,
 			'enableClientValidation'=>true,
+			'clientOptions'=>array(
+				'validateOnType'=>true,
+				),
 			'action' =>  '#',
+			'focus' => array($model, 'name'),
 			'type'=>'horizontal',
 			'htmlOptions'=>array(
 				'class' => 'form-horizontal',
@@ -28,10 +32,10 @@
 		echo $form->dropDownListRow(
 			$model,
 			'type',
-			array( 'local' => 'local', 'php-web' => 'php-web',),
+			$model->types,
 			array(
 				'select' => 'local',
-				'onChange' => 'js:$("#Projects_domain_group").toggle()',
+				'onChange' => 'js:var types='.json_encode($model->hasDomainTypes). ';var switcher=types.hasOwnProperty($(this).val());$("#Projects_domain_group").toggle(switcher)',
 				'class' => 'form-control',
 				
 				)

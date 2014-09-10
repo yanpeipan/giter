@@ -167,7 +167,7 @@ class GitController extends PluginBaseController
 			if ($members -> save()) {
 				$project = Projects::model()->findByPk($members->pid);
 				$user = Admin::model()->findByPk($members->uid);
-				$project -> addMember($user->username, Admin::decrypt($user->encrypt), $project->name);
+				$project -> addMember($user->username, Admin::decrypt($user->encrypt), $project->id);
 				$this->redirect(Yii::app() -> createUrl('/plugin/git/members/', array('id' => $members->pid)));
 			} 
 		} 
@@ -190,7 +190,7 @@ class GitController extends PluginBaseController
 				if ($project && $project->uid == Yii::app()->user->id) {
 					$member->delete();
 					if ($admin->username != Yii::app()->user->username) {
-						$project -> deleteMember($admin->username, $project->name);
+						$project -> deleteMember($admin->username, $project->id);
 					}
 				}
 			}
