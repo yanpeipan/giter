@@ -2989,4 +2989,4 @@ INSERT INTO `pt_s_config` (`id`, `cfg_name`, `cfg_value`, `cfg_order`, `cfg_pid`
 (147, 'THIRDMENU', '/admin/pluginManager/local/tab/all', 0, 145, 0, 'USER', '全部'),
 (145, 'SUBMENU', '/admin/pluginManager/local', 0, 23, 0, 'USER', '本地插件'),
 (146, 'SUBMENU', '/admin/pluginManager/shop', 0, 23, 0, 'USER', '插件商城'),
-(149, 'THIRDMENU', '/admin/pluginManager/local/tab/new', 2, 145, 0, 'USER', '未安装'),
+(149, 'THIRDMENU', '/admin/pluginManager/local/tab/new', 2, 145, 0, 'USER', '未安装');
