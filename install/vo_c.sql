@@ -165,6 +165,18 @@ CREATE TABLE IF NOT EXISTS `tbl_migration` (
   PRIMARY KEY (`version`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+--
+-- 表的结构 `AuthItem`
+--
+CREATE TABLE IF EXISTS `AuthItem` (
+  `name` varchar(64) NOT NULL,
+  `type` int(11) NOT NULL,
+  `description` text,
+  `bizrule` text,
+  `data` text,
+  PRIMARY KEY (`name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 --
@@ -179,18 +191,6 @@ CREATE TABLE IF EXISTS  `AuthAssignment` (
   CONSTRAINT `AuthAssignment_ibfk_1` FOREIGN KEY (`itemname`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
--- --------------------------------------------------------
---
--- 表的结构 `AuthItem`
---
-CREATE TABLE IF EXISTS `AuthItem` (
-  `name` varchar(64) NOT NULL,
-  `type` int(11) NOT NULL,
-  `description` text,
-  `bizrule` text,
-  `data` text,
-  PRIMARY KEY (`name`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 --
