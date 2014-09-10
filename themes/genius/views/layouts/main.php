@@ -157,7 +157,7 @@ window.jQuery || document.write("<script src='<?php echo Yii::app()->theme->base
       </div><!--/.col-->
 
       <div class="col-sm-7 text-right">
-        <a href="http://tuziv.tv"> Virtual Operation System </a> by Tuzi Team
+        <?php echo Yii::app()->name;?> by Tuzi Team
       </div><!--/.col-->	
 
     </div><!--/.row-->	
