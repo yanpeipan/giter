@@ -183,7 +183,7 @@ CREATE TABLE IF EXISTS  `AuthAssignment` (
 --
 -- 表的结构 `AuthItem`
 --
-CREATE TABLE `AuthItem` (
+CREATE TABLE IF EXISTS `AuthItem` (
   `name` varchar(64) NOT NULL,
   `type` int(11) NOT NULL,
   `description` text,
@@ -196,7 +196,7 @@ CREATE TABLE `AuthItem` (
 --
 -- 表的结构 `AuthItemChild`
 --
-CREATE TABLE `AuthItemChild` (
+CREATE TABLE IF EXISTS `AuthItemChild` (
   `parent` varchar(64) NOT NULL,
   `child` varchar(64) NOT NULL,
   PRIMARY KEY (`parent`,`child`),
