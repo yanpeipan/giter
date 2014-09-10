@@ -81,6 +81,7 @@ return array(
 	`ssh_port` smallint(5) unsigned NOT NULL,
 	`apache_bin` varchar(4096) NOT NULL,
 	`url_port` smallint(5) unsigned NOT NULL,
+	`url_schema` varchar(45) NOT NULL,
 	`htpasswd_bin` varchar(4096) NOT NULL,
 	`git_config_path` varchar(45) NOT NULL,
 	PRIMARY KEY (`id`)
