@@ -37,7 +37,9 @@ class GitController extends PluginBaseController
 		$projects = new Projects();
 		$contributedProject = new Projects();
 
-		$projects->uid = Yii::app() ->user->id;
+		if(Yii::app()->user->is_super_admin < 3) {
+			$projects->uid = Yii::app() ->user->id;
+		}
 		$contributedProject->mid = Yii::app()->user->id;
 
 
@@ -118,7 +120,7 @@ class GitController extends PluginBaseController
 		$id = Yii::app() -> request -> getparam('id', null);
 		if (is_numeric($id)) {
 			$project = Projects::model()->findByPk($id);
-			if (isset($project->uid) && $project->uid == Yii::app()->user->id) {
+			if ((Yii::app()->user->is_super_admin == 3) || (isset($project->uid) && $project->uid == Yii::app()->user->id)) {
 				$project->deleteByPk($id);
 				$project->destory();
 			}
