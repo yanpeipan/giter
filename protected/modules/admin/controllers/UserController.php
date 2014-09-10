@@ -68,7 +68,7 @@ class UserController extends AdminBaseController
                 Yii::app()->request->cookies[sha1('vo_auth')]=$cookie;
                 
                 $cookie = Yii::app()->request->getCookies();
-                $this->redirect(Yii::app()->createUrl('/plugin/git/index'));
+                $this->redirect(Yii::app()->createUrl('srbac'));
                 Yii::app()->end();
             }
         }
