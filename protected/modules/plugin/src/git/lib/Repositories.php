@@ -36,7 +36,7 @@ class Repositories extends CActiveRecord
 		return array(
 			array('name, description, root_path, apache_group_file, apache_user_file, ip, ipper, apache_bin, ssh_port, url_port, htpasswd_bin, git_config_path', 'required'),
 			array('ssh_port, url_port', 'numerical', 'integerOnly'=>true),
-			array('name', 'length', 'max'=>45),
+			array('name, url_schema', 'length', 'max'=>45),
 			array('root_path', 'length', 'max'=>3841),
 			array('apache_group_file, apache_user_file, apache_bin, htpasswd_bin', 'length', 'max'=>4096),
 			array('ip', 'length', 'max'=>10),
@@ -78,6 +78,7 @@ class Repositories extends CActiveRecord
 			'ssh_port' => 'Ssh端口',
 			'url_port' => 'HTTP(s)端口',
 			'htpasswd_bin' => 'Htpasswd命令文件',
+			'url_schema' => 'HTTP/HTTPS',
 		);
 	}
 

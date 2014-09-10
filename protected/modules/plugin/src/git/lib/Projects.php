@@ -102,7 +102,7 @@ class Projects extends CActiveRecord
         // @todo Please modify the following code to remove attributes that should not be searched.
 
     	$criteria=new CDbCriteria;
-                $criteria->alias = 'projects';
+	$criteria->alias = 'projects';
 
     	$criteria->compare('projects.id',$this->id,true);
     	$criteria->compare('name',$this->name,true);
@@ -519,7 +519,7 @@ EOT;
     	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
     	stream_set_blocking($stream, true);
     	$result = stream_get_contents($stream);
-    	$this -> remote_url = "http://{$server->ipper}:{$server->url_port}/git/{$this ->id}.git";
+    	$this -> remote_url = "{$server->url_schema}://{$server->ipper}/git/{$this ->id}.git";
 
     	return true;
     }

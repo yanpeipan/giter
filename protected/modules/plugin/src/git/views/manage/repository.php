@@ -3,9 +3,7 @@
 		<h2><i class="fa fa-edit"></i>版本服务器配置</h2>
 		<div class="box-icon">
 			<a href="<?php echo Yii::app()->createUrl("plugin/git/");?>" class="btn-adding"><i class="fa fa-chevron-left"></i></a>
-			<a href="form-dropzone.html#" class="btn-setting"><i class="fa fa-wrench"></i></a>
 			<a href="form-dropzone.html#" class="btn-minimize"><i class="fa fa-chevron-up"></i></a>
-			<a href="form-dropzone.html#" class="btn-close"><i class="fa fa-times"></i></a>
 		</div>
 	</div>
 	<div class="box-content">
@@ -31,7 +29,16 @@
 		echo $form->textFieldRow($repository, 'ipper', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'apache_bin', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'ssh_port', array('class' => 'form-control'));
-		echo $form->textFieldRow($repository, 'url_port', array('class' => 'form-control'));
+		echo $form->dropDownListRow(
+				$repository,
+				'url_schema',
+				array(
+					'http' => 'http', 'https' => 'https'
+				     ),
+				array('class' => 'form-control')
+
+				);
+
 		echo $form->textFieldRow($repository, 'htpasswd_bin', array('class' => 'form-control'));
 		?>
 		<div class="form-actions" style="margin-top:20px">
@@ -46,5 +53,5 @@
 		$this->endWidget();
 		unset($form);
 		?>
-	</div>
-</div>
+		</div>
+		</div>

@@ -25,7 +25,7 @@ return array(
 		//嵌套子菜单
 		'SUBMENU'=>array(
 				'cfg_value' => '/plugin/git/manage',
-				'cfg_comment' => '项目设置',
+				'cfg_comment' => '系统设置',
 				'cfg_order' => 1,
 				'cfg_pid' => 17,
 			),
