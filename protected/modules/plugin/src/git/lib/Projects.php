@@ -203,7 +203,7 @@ class Projects extends CActiveRecord
                 }
     }
 
-    private function htpasswd($usr, $psw)
+    public function htpasswd($usr, $psw)
     {
     	$server = $this -> getRepositoryServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
