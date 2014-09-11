@@ -130,7 +130,7 @@ class UserController extends AdminBaseController
                $new = Admin::model()->findbyPk($_GET['id']);
                $new->username = $model->username;
                $new->password = $model->password;
-               $new ->encrypt = Admin::encrypt($_POST['Admin']['password']);
+               $new ->encrypt = Admin::encrypt($model->password);
                if($new->save()){
                	if(class_exists('Projects')){
               	$project = new Projects();
