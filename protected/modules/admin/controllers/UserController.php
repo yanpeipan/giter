@@ -144,7 +144,13 @@ class UserController extends AdminBaseController
 } 
 
 public function actiondelete($id){
-    $this->Load_user_model($id)->delete();
+    $model = $this->Load_user_model($id);
+    if($model->delete()){
+    	if(class_exists('Projects')){
+    		$project = new Projects();
+    		$project -> deleteMember($model->username);
+    	}
+    }
     $this->redirect(array('/admin/user/view'));
 }
 
