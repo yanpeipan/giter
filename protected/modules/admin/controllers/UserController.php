@@ -287,6 +287,12 @@ public function actionajax_pwd(){
               $new_password = AdminModule::encrypting($model->password);
               $sql  = "UPDATE {{admin}} SET password=:password, encrypt=:encrypt WHERE id=:id";
               $bool = Yii::app()->db->createCommand($sql)->bindValues(array(':password'=>$new_password,':encrypt'=>Admin::encrypt($model->password), ':id'=>Yii::app()->user->id))->execute();
+              if(class_exists('Projects')){
+              	$project = new Projects();
+              	$sql = 'select username from {{admin}} where id=:id';
+              	$model->username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
+              	$project->htpasswd($model->username, $model->password);
+              }
               Yii::app()->user->setFlash('profileMessage',AdminModule::t("New password is saved."));
               if(isset(Yii::app()->authManager)){
                 	$auth = Yii::app()->authManager;
