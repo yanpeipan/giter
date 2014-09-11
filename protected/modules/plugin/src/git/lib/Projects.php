@@ -292,12 +292,16 @@ $result = stream_get_contents($stream);
 $this -> htpasswd($usr, $psw);
     }
 
-    public function deleteMember($usr, $project)
+    public function deleteMember($usr, $project = null)
     {
                     $server = $this -> getRepositoryServerInfo();
                     $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
                     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-                    $command = "sed -i \"/^{$project}:/s/ $usr / /g\" {$server->apache_group_file}";
+                    if ($project) {
+                    	$command = "sed -i \"/^{$project}:/s/ $usr / /g\" {$server->apache_group_file}";
+                    }else{
+                    	$command = "sed -i \"s/ $usr / /g\" {$server->apache_group_file}";
+                    }
                     $stream = ssh2_exec($ssh, $command);
                     $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
          //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
