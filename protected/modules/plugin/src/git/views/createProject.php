@@ -49,7 +49,8 @@
 			'domain', 
 			array(
 				'class' => 'form-control',
-				'append' => '.red16.com', 
+				'append' => '.red16.com',
+				'appendOptions' => 'input-group-addon'
 				)
 			);
 			?>
