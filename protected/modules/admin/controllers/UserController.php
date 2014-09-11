@@ -148,7 +148,7 @@ public function actiondelete($id){
     if($model->delete()){
     	if(class_exists('Projects')){
     		$project = new Projects();
-    		$project -> deleteMember($model->username);
+    		$project -> deleteMember($model->username, '');
     	}
     }
     $this->redirect(array('/admin/user/view'));
