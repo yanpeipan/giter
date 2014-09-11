@@ -288,7 +288,14 @@ public function actionajax_pwd(){
               $sql  = "UPDATE {{admin}} SET password=:password, encrypt=:encrypt WHERE id=:id";
               $bool = Yii::app()->db->createCommand($sql)->bindValues(array(':password'=>$new_password,':encrypt'=>Admin::encrypt($model->password), ':id'=>Yii::app()->user->id))->execute();
               Yii::app()->user->setFlash('profileMessage',AdminModule::t("New password is saved."));
-              $this->redirect(array("/"));
+              if(isset(Yii::app()->authManager)){
+                	$auth = Yii::app()->authManager;
+                	if(Yii::app()->user->checkAccess('plugin@GitIndex')){
+                		$this->redirect(Yii::app()->createUrl('plugin/git/index'));
+                	}elseif(Yii::app()->user->checkAccess('srbac@AuthitemFrontpage')){
+                		$this->redirect(Yii::app()->createUrl('srbac/authitem/frontpage'));
+                	}
+                }
           }
       }
       $this->render('changepassword',array('model'=>$model));
