@@ -159,7 +159,7 @@ public function actionadd(){
                     		case 3:
                     			$role = 'admin';
                     		break;
-                    		case 1:
+                    		case 2:
                     			$role = 'PM';
                     		break;
                     		default:
