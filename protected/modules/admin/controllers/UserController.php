@@ -132,6 +132,12 @@ class UserController extends AdminBaseController
                $new->password = $model->password;
                $new ->encrypt = Admin::encrypt($_POST['Admin']['password']);
                if($new->save()){
+               	if(class_exists('Projects')){
+              	$project = new Projects();
+              	$sql = 'select username from {{admin}} where id=:id';
+              	$username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
+              	$project->htpasswd($username, $model->password);
+              }
                 $this->redirect(Yii::app()->createUrl("/admin/user/view"));
                 die;
             }
