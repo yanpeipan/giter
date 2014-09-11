@@ -373,7 +373,7 @@ EOT;
     /**
      * Create Virtual Host
      */
-    private function createVirtualServer($domain)
+    private function createVirtualServer($domain, $id)
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
@@ -384,7 +384,7 @@ EOT;
         {
                 listen 80;
                 server_name {$this->domain}.{$server->url_host};
-                root {$server->htdocs_path}{$domain}/;
+                root {$server->htdocs_path}{$id}/;
                 access_log  /var/web-logs/{$domain}.{$server->url_host}-access.log  access;
 EOD;
 	$config .= PHP_EOL;
@@ -557,7 +557,7 @@ EOT;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
     		$this -> htpasswd($usr, $psw);
                           if ($this->needVirtualServer()) {
-                            $this  -> createVirtualServer($this->domain);
+                            $this  -> createVirtualServer($this->domain, $this->id);
                             $this -> cloneRepository($this->domain);
                           }
     		return true;
