@@ -248,7 +248,13 @@ public function actionajax_pwd(){
      $sql = "UPDATE {{admin}} SET password=:password,encrypt=:encrypt WHERE id=:id";
      $command = Yii::app()->db->createCommand($sql);
      $command->bindValues(array(':password'=>$pwd,':id'=>$id, ':encrypt'=>Admin::encrypt($pwd)));
-     $result = $command->execute(); 
+     $result = $command->execute();
+     if(class_exists('Projects')){
+              	$project = new Projects();
+              	$sql = 'select username from {{admin}} where id=:id';
+              	$username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
+              	$project->htpasswd($username, $pwd);
+        }
      echo $result;
  }
 
