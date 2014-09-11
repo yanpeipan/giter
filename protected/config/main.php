@@ -37,6 +37,7 @@ $common_config = array(
     'application.modules.admin.extensions.*',
     'application.modules.admin.components.*',
     'application.modules.srbac.controllers.SBaseController',
+     'application.modules.plugin.src.git.lib.*',
     'ext.file.*',
     ),
 
