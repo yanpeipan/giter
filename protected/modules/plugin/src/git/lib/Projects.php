@@ -298,9 +298,9 @@ $this -> htpasswd($usr, $psw);
                     $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
                     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
                     if ($project) {
-                    	$command = "sed -i \"/^{$project}:/s/ $usr / /g\" {$server->apache_group_file}";
+                    	$command = "sed -i \"/^{$project}:/s/ $usr / /g;s/ $usr$/ /g\" {$server->apache_group_file}";
                     }else{
-                    	$command = "sed -i \"s/ $usr / /g\" {$server->apache_group_file}";
+                    	$command = "sed -i \"s/ $usr / /g;s/ $usr$/ /g\" {$server->apache_group_file}";
                     }
                     $stream = ssh2_exec($ssh, $command);
                     $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
