@@ -288,7 +288,7 @@ public function actionajax_pwd(){
               $sql  = "UPDATE {{admin}} SET password=:password, encrypt=:encrypt WHERE id=:id";
               $bool = Yii::app()->db->createCommand($sql)->bindValues(array(':password'=>$new_password,':encrypt'=>Admin::encrypt($model->password), ':id'=>Yii::app()->user->id))->execute();
               Yii::app()->user->setFlash('profileMessage',AdminModule::t("New password is saved."));
-              $this->redirect(array("/admin"));
+              $this->redirect(array("/"));
           }
       }
       $this->render('changepassword',array('model'=>$model));
