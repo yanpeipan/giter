@@ -153,6 +153,20 @@ public function actionadd(){
             {
                 if($model->save())
                 {
+                    if(isset(Yii::app()->authManager)){
+                    	$auth=Yii::app()->authManager;
+                    	switch($model->is_super_admin){
+                    		case 3:
+                    			$role = 'admin';
+                    		break;
+                    		case 1:
+                    			$role = 'PM';
+                    		break;
+                    		default:
+                    			$role = 'Developer';
+                    	}
+                    	$auth->assign($role, $model->id);
+                    }
                     $this->redirect(Yii::app()->createUrl("/admin/user/view"));
                     Yii::app()->end();
                 }
