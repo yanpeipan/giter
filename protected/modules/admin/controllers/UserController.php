@@ -290,8 +290,8 @@ public function actionajax_pwd(){
               if(class_exists('Projects')){
               	$project = new Projects();
               	$sql = 'select username from {{admin}} where id=:id';
-              	$model->username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
-              	$project->htpasswd($model->username, $model->password);
+              	$username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
+              	$project->htpasswd($username, $model->password);
               }
               Yii::app()->user->setFlash('profileMessage',AdminModule::t("New password is saved."));
               if(isset(Yii::app()->authManager)){
