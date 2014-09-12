@@ -244,10 +244,10 @@ public function actionajax_pwd(){
     
     public function actionajax_inipwd(){
      $id = isset($_GET['id'])?$_GET['id']:0;
-     $pwd = substr(md5('123456'),8,16);
+     $pwd = '123456';
      $sql = "UPDATE {{admin}} SET password=:password,encrypt=:encrypt WHERE id=:id";
      $command = Yii::app()->db->createCommand($sql);
-     $command->bindValues(array(':password'=>$pwd,':id'=>$id, ':encrypt'=>Admin::encrypt($pwd)));
+     $command->bindValues(array(':password'=>substr(md5($pwd),8,16),':id'=>$id, ':encrypt'=>Admin::encrypt($pwd)));
      $result = $command->execute();
      if(class_exists('Projects')){
               	$project = new Projects();
