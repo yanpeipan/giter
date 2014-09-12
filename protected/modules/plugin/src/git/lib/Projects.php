@@ -478,13 +478,13 @@ EOD;
     	$domain = strpos($id, '.git') ? $id : $id . '.git';
 
                 $config  =<<<"EOD"
-        <Directory "{$server->root_path}{$domain}/">
-            Allow from all
-            Order Allow,Deny
-            <Limit GET PUT POST DELETE PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
-                Require group {$id}
-            </Limit>
-        </Directory> 
+	<Location /git/$id.git>
+	Allow from all
+	Order Allow,Deny
+	<Limit GET PUT POST DELETE PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
+	Require group $id
+	</Limit>
+	</Location>
 EOD;
         $tmp = tempnam(sys_get_temp_dir(), '');
         file_put_contents($tmp, $config);
