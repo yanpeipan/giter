@@ -43,9 +43,15 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     array(
       'class'=>'bootstrap.widgets.TbButtonColumn',
       'htmlOptions' => array('class' => 'col-md-2'),
-      'template'=>'{manage} {publish} {visit} {delete}',
+      'template'=>'{manage} {member} {publish} {visit} {delete}',
       'header'=>'操作',
       'buttons'=>array(
+      	'manage'=>array(
+          'label'=>'配置',
+          'icon' => 'success',
+          'url' =>'Yii::app()->createUrl("plugin/git/manage/id/$data->id")',
+
+        ),
         'delete'=>array(
           'label'=>'删除',
           'icon' => 'danger',
@@ -59,7 +65,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
 	  'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
           'url'=>'Yii::app()->createUrl("plugin/git/publish/id/$data->id/domain/$data->domain")',
         ),	
-        'manage'=>array(
+        'member'=>array(
           'label'=>'成员',
           'icon'=>'info',
           'url'=>'Yii::app()->createUrl("plugin/git/members/id/$data->id")'
