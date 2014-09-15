@@ -150,6 +150,18 @@ class GitController extends PluginBaseController
 		} else {
 		}
 	}
+	
+	/**
+	 * Members
+	 */
+	public function actionConfig()
+	{
+		$id = Yii::app() -> request -> getParam('id', null);
+		if (is_numeric($id)) {
+			$project = Projects::model()->findByPk($id);
+			$this -> render('project/config',  array('project' => $project));
+		}
+	}
 
 	public function actionAddMember()
 	{
