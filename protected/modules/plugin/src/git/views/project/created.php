@@ -49,7 +49,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
       	'manage'=>array(
           'label'=>'配置',
           'icon' => 'success',
-          'url' =>'Yii::app()->createUrl("plugin/git/manage/id/$data->id")',
+          'url' =>'Yii::app()->createUrl("plugin/git/config/id/$data->id")',
 
         ),
         'delete'=>array(
