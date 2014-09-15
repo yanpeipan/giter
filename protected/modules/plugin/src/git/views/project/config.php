@@ -37,7 +37,7 @@
 				'select' => 'local',
 				'onChange' => 'js:var types='.json_encode($project->hasDomainTypes). ';var switcher=types.hasOwnProperty($(this).val());$("#Projects_domain_group").toggle(switcher)',
 				'class' => 'form-control',
-				
+				'disabled' => 'disabled',
 				)
 		);
 		?>
