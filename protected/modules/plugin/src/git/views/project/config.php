@@ -30,9 +30,9 @@
 		<!-- Project type -->
 		<?php 
 		echo $form->dropDownListRow(
-			$model,
+			$project,
 			'type',
-			$model->types,
+			$project->types,
 			array(
 				'select' => 'local',
 				'onChange' => 'js:var types='.json_encode($project->hasDomainTypes). ';var switcher=types.hasOwnProperty($(this).val());$("#Projects_domain_group").toggle(switcher)',
@@ -45,7 +45,7 @@
 		<div id='Projects_domain_group' style="display:none;">
 		<?php
 		echo $form->textFieldRow(
-			$model, 
+			$project, 
 			'domain', 
 			array(
 				'class' => 'form-control',
