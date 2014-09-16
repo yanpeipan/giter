@@ -384,54 +384,22 @@ EOT;
     /**
      * Create Virtual Host
      */
-    private function createVirtualServer($domain, $id, $relatePath='')
+    private function createVirtualServer($secondLevelDomain, $id, $relatePath='', $index='index.php')
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
-    	$config =<<<"EOD"
-    server
-        {
-                listen 80;
-                server_name {$this->domain}.{$server->url_host};
-                root {$server->htdocs_path}{$domain}/{$relatePath};
-                access_log  /var/web-logs/{$domain}.{$server->url_host}-access.log  access;
-EOD;
-	$config .= PHP_EOL;
-	$config .=<<<'EOT'
-                location ~ .*\.(php|php5)?$
-                        {
-                                try_files $uri =404;
-                                fastcgi_pass  127.0.0.1:9000;
-                                #fastcgi_pass  unix:/tmp/php-fpm.socket;
-                                fastcgi_index index.php;
-                                include fastcgi_params;
-                                fastcgi_param  SCRIPT_FILENAME $document_root/$fastcgi_script_name;
-                        }
+        $config = $this->renderPartial('server/nginx.yii.php', array(
+            'server_name' => "{secondLevelDomain}.{$server->url_host}",
+            'root' => "{$server->htdocs_path}{$domain}/{$relatePath}",
+            'access_log' => "/var/web-logs/{$domain}.{$server->url_host}-access.log",
+            'fastcgi_pass' => '127.0.0.1:9000',
+            'index' => $index,
+            ),
+            True
+        );
 
-                location / {
-                        if (-f $request_filename/index.html){
-                        rewrite (.*) $1/index.html break;
-                        }
-                        if (-f $request_filename/index.php){
-                        rewrite (.*) $1/index.php;
-                        }
-                        if (!-f $request_filename){
-                        rewrite (.*) /index.php;
-                        }
-                        index index.php;
-                }
-                location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
-                        {
-                                expires      30d;
-                        }
-location ~ .*\.(js|css)?$
-                        {
-                                expires      12h;
-                        }
-}	
-EOT;
 	$tmp = tempnam(sys_get_temp_dir(), '');
 	file_put_contents($tmp, $config);
 	$filename = $server->nginx_config_path . $this ->domain . '.conf';
@@ -568,7 +536,7 @@ EOT;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
     		$this -> htpasswd($usr, $psw);
                           if ($this->needVirtualServer()) {
-                            $this  -> createVirtualServer($this->domain, $this->id);
+                            $this  -> createVirtualServer($this->domain, $this->id, $this->root, $this->index);
                             $this -> cloneRepository($this->domain);
                           }
     		return true;

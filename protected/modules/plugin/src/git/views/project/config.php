@@ -82,9 +82,10 @@
 			);
 			?>
 		</div>
-
+		<?php echo $form->hiddenField($project, 'id', array('value'=>$project->id)); ?>
 		<div class="form-actions" style="margin-top:20px">
 			<?php 
+
 			$this->widget(
 				'bootstrap.widgets.TbButton',
 				array('buttonType' => 'submit', 'label' => '创建', 'type' => 'primary')
