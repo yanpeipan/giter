@@ -16,7 +16,7 @@
 				'validateOnType'=>true,
 				),
 			'action' =>  '#',
-			'focus' => array($model, 'name'),
+			'focus' => array($project, 'name'),
 			'type'=>'horizontal',
 			'htmlOptions'=>array(
 				'class' => 'form-horizontal',
@@ -26,16 +26,16 @@
 		); 
 		?>
 		<!--  Project Name Input-->
-		<?php echo $form->textFieldRow($model, 'name', array('class' => 'form-control'));?>
+		<?php echo $form->textFieldRow($project, 'name', array('class' => 'form-control'));?>
 		<!-- Project type -->
 		<?php 
 		echo $form->dropDownListRow(
-			$model,
+			$project,
 			'type',
-			$model->types,
+			$project->types,
 			array(
 				'select' => 'local',
-				'onChange' => 'js:var types='.json_encode($model->hasDomainTypes). ';var switcher=types.hasOwnProperty($(this).val());$("#Projects_domain_group").toggle(switcher)',
+				'onChange' => 'js:var types='.json_encode($project->hasDomainTypes). ';var switcher=types.hasOwnProperty($(this).val());$("#Projects_domain_group").toggle(switcher)',
 				'class' => 'form-control',
 				
 				)
@@ -45,7 +45,7 @@
 		<div id='Projects_domain_group' style="display:none;">
 		<?php
 		echo $form->textFieldRow(
-			$model, 
+			$project, 
 			'domain', 
 			array(
 				'class' => 'form-control',
@@ -58,7 +58,7 @@
 			?>
 		<?php
 		echo $form->textFieldRow(
-			$model, 
+			$project, 
 			'root', 
 			array(
 				'class' => 'form-control',
@@ -71,7 +71,7 @@
 			?>
 		<?php
 		echo $form->textFieldRow(
-			$model, 
+			$project, 
 			'index', 
 			array(
 				'class' => 'form-control',
