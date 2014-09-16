@@ -399,6 +399,47 @@ EOT;
             ),
             True
         );
+            $config =<<<"EOD"
+            server
+{
+    listen 80;
+    server_name  $server_name;
+    root  $root;
+    access_log  $access_log access;
+
+    location ~ .*\.(php|php5)?$
+    {
+        try_files $uri =404;
+        fastcgi_pass  $fastcgi_pass;
+        fastcgi_index $index;
+        include fastcgi_params;
+        fastcgi_param  SCRIPT_FILENAME $document_root/$fastcgi_script_name;
+    }
+
+    location / {
+        if (-f $request_filename/index.html){
+            rewrite (.*) $1/index.html break;
+        }
+        if (-f $request_filename/index.php){
+            rewrite (.*) $1/index.php;
+        }
+        if (!-f $request_filename){
+            rewrite (.*) /$index;
+        }
+        index $index;
+    }
+
+    location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
+    {
+        expires      30d;
+    }
+
+    location ~ .*\.(js|css)?$
+    {
+        expires      12h;
+    }
+}
+EOD;
 
 	$tmp = tempnam(sys_get_temp_dir(), '');
 	file_put_contents($tmp, $config);
