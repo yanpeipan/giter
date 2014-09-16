@@ -392,8 +392,8 @@ EOT;
 
         $config = $this->renderPartial('server/nginx.yii.php', array(
             'server_name' => "{secondLevelDomain}.{$server->url_host}",
-            'root' => "{$server->htdocs_path}{$domain}/{$relatePath}",
-            'access_log' => "/var/web-logs/{$domain}.{$server->url_host}-access.log",
+            'root' => "{$server->htdocs_path}{$secondLevelDomain}/{$relatePath}",
+            'access_log' => "/var/web-logs/{$secondLevelDomain}.{$server->url_host}-access.log",
             'fastcgi_pass' => '127.0.0.1:9000',
             'index' => $index,
             ),
@@ -402,7 +402,7 @@ EOT;
 
 	$tmp = tempnam(sys_get_temp_dir(), '');
 	file_put_contents($tmp, $config);
-	$filename = $server->nginx_config_path . $this ->domain . '.conf';
+	$filename = $server->nginx_config_path . "{secondLevelDomain}.{$server->url_host}" . '.conf';
 	$result = ssh2_scp_send($ssh, $tmp, $filename, 0777);
 
 	$command =<<<"EOD"
