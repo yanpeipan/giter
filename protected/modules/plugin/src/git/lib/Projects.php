@@ -400,7 +400,7 @@ EOT;
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
         
-       $server_name = "{secondLevelDomain}.{$server->url_host}";
+       $server_name = "{$secondLevelDomain}.{$server->url_host}";
        $root = "{$server->htdocs_path}{$secondLevelDomain}/{$relatePath}";
        $access_log = "/var/web-logs/{$secondLevelDomain}.{$server->url_host}-access.log";
        $fastcgi_pass = '127.0.0.1:9000';
@@ -450,7 +450,7 @@ EOT;
 
 	$tmp = tempnam(sys_get_temp_dir(), '');
 	file_put_contents($tmp, $config);
-	$filename = $server->nginx_config_path . "{secondLevelDomain}.{$server->url_host}" . '.conf';
+	$filename = $server->nginx_config_path . "{$secondLevelDomain}.{$server->url_host}" . '.conf';
 	$result = ssh2_scp_send($ssh, $tmp, $filename, 0777);
 
 	$command =<<<"EOD"
