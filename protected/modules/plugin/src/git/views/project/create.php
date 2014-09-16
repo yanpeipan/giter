@@ -56,6 +56,31 @@
 				)
 			);
 			?>
+		<?php
+		echo $form->textFieldRow(
+			$model, 
+			'root', 
+			array(
+				'class' => 'form-control',
+				'prepend' => '.red16.com',
+				'appendOptions' => array(
+					'class' => 'input-group-addon'
+					)
+				)
+			);
+			?>
+		<?php
+		echo $form->textFieldRow(
+			$model, 
+			'index', 
+			array(
+				'class' => 'form-control',
+				'appendOptions' => array(
+					'class' => 'input-group-addon'
+					)
+				)
+			);
+			?>
 		</div>
 
 		<div class="form-actions" style="margin-top:20px">
