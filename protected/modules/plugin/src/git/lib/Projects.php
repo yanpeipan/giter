@@ -40,6 +40,8 @@ class Projects extends CActiveRecord
     		array('uid', 'numerical', 'integerOnly'=>true),
     		array('name, domain, status', 'length', 'max'=>45),
     		array('remote_url', 'length', 'max'=>255),
+    		array('root', 'length', 'max'=>4096),
+    		array('index', 'length', 'max'=>255, 'default'=>'index.php'),
             // The following rule is used by search().
             // @todo Please remove those attributes that should not be searched.
     		array('id, name, type, uid, ctime, remote_url, domain, status', 'safe', 'on'=>'search'),
@@ -147,6 +149,12 @@ class Projects extends CActiveRecord
     {
         return $this->domain ? '' : 'display:none';
     }
+    
+    public function getRootPrepend()
+    {
+    	$virtualServer = $this->getVirtualServerInfo();
+    	return $virtualServer['htdocs_path'];
+    }
 
     /**
      * Returns the url of domain, for example: http://yourname.test.com
@@ -162,10 +170,6 @@ class Projects extends CActiveRecord
         }
     }
 
-    public function getVirtualServerRoot()
-    {
-        
-    }
 
     public function needVirtualServer()
     {
