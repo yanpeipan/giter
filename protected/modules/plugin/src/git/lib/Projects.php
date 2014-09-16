@@ -384,7 +384,7 @@ EOT;
     /**
      * Create Virtual Host
      */
-    private function createVirtualServer($domain, $id)
+    private function createVirtualServer($domain, $id, $relatePath='')
     {
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
@@ -395,7 +395,7 @@ EOT;
         {
                 listen 80;
                 server_name {$this->domain}.{$server->url_host};
-                root {$server->htdocs_path}{$domain}/;
+                root {$server->htdocs_path}{$domain}/{$relatePath};
                 access_log  /var/web-logs/{$domain}.{$server->url_host}-access.log  access;
 EOD;
 	$config .= PHP_EOL;
