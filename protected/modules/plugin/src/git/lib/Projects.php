@@ -84,7 +84,9 @@ class Projects extends CActiveRecord
     		'remote_url' => '访问地址',
     		'domain' => '域名',
     		'status' => '状态',
-        'type' => '类型',
+    		'root' => '相对根目录'，
+    		'index' => 'Index文件',
+    		'type' => '类型',
     		);
     }
 
