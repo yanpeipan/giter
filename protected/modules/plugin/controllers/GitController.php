@@ -157,6 +157,20 @@ class GitController extends PluginBaseController
 	public function actionConfig()
 	{
 		$id = Yii::app() -> request -> getParam('id', null);
+		$model = new Projects;
+
+		// Ajax Validate
+		if(isset($_POST['ajax']) && $_POST['ajax']==='config_project_form')
+		{
+			echo CActiveForm::validate($model);
+			Yii::app()->end();
+		} 
+
+		if (isset($_POST['Projects'])) {
+			$params = Yii::app()->request->getParam('Projects');
+			$model -> create();
+			Yii::app() -> end();
+		}
 		if (is_numeric($id)) {
 			$project = Projects::model()->findByPk($id);
 			$this -> render('project/config',  array('project' => $project));

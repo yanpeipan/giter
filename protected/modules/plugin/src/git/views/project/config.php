@@ -9,7 +9,7 @@
 	<div class="box-content">
 		<?php 
 		$form=$this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-			'id'=>'create_project_form',
+			'id'=>'config_project_form',
 			'enableAjaxValidation'=>true,
 			'enableClientValidation'=>true,
 			'clientOptions'=>array(
