@@ -490,31 +490,11 @@ EOD;
     	//append .git to domain
     	$domain = strpos($id, '.git') ? $id : $id . '.git';
 
-                $config  =<<<"EOD"
-	<Location /git/$id.git>
-	Allow from all
-	Order Allow,Deny
-	<Limit GET PUT POST DELETE PROPPATCH MKCOL COPY MOVE LOCK UNLOCK>
-	Require group $id
-	</Limit>
-	</Location>
-EOD;
-        $tmp = tempnam(sys_get_temp_dir(), '');
-        file_put_contents($tmp, $config);
-        $filename = $server->git_config_path . $id . '.conf';
-
-        $result = ssh2_scp_send($ssh, $tmp, $filename, 0777);
-
-            $this -> addGroup($this->id);
-            $usr = Yii::app() -> user -> name;
-            $psw = Admin::decrypt(Yii::app() ->user -> encrypt);
-            $this -> addMember($usr, $psw, $id);
-
     	//create Project Command
     	$command =<<<"EOD"
     	domain={$domain}
     	repositoriesRoot={$server->root_path}
-                apache2={$server->apache_bin}
+             apache2={$server->apache_bin}
 EOD;
 
     	$command .= PHP_EOL;
@@ -529,7 +509,7 @@ EOD;
     	git init --bare ${domain} && cd ${dir} && git update-server-info
     	cp ${dir}/hooks/post-update.sample  ${dir}/hooks/post-update
     	chown -R www-data. ${dir}
-                apache2 restart
+              server nginx restart
 EOT;
 
     	$stream = ssh2_exec($ssh, $command);
