@@ -173,6 +173,16 @@ class Projects extends CActiveRecord
         }
     }
 
+    /**
+     * git clone url
+     * @return string
+     */
+    public function getCloneUrl()
+    {
+        $server = $this->getRepositoryServerInfo();
+        return "{$server->url_schema}://{$server->ipper}" . $server->url_port == 80 ? '' : ":{$server->url_port}" . "/{$this ->id}.git"; 
+    }
+
 
     public function needVirtualServer()
     {
@@ -355,7 +365,7 @@ $result = stream_get_contents($stream);
 
     	$command =<<<"EOD"
     	htdocs={$server->htdocs_path}
-    	origin={$this->remote_url}
+    	origin={$this->CloneUrl}
              location={$domain}
 EOD;
  	$command  .= PHP_EOL;
@@ -517,7 +527,7 @@ EOT;
     	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
     	stream_set_blocking($stream, true);
     	$result = stream_get_contents($stream);
-    	$this -> remote_url = "{$server->url_schema}://{$server->ipper}/git/{$this ->id}.git";
+    	$this -> remote_url = $this->CloneUrl;
 
     	return true;
     }
