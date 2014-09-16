@@ -91,7 +91,7 @@ class GitController extends PluginBaseController
 		}
 
 		//render view
-		$this -> render('project/create', array('model' => $model));
+		$this -> render('project/create', array('project' => $model));
 	}
 
 	/**
