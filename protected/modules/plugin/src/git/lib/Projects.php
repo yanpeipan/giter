@@ -180,7 +180,7 @@ class Projects extends CActiveRecord
     public function getCloneUrl()
     {
         $server = $this->getRepositoryServerInfo();
-        return "{$server->url_schema}://{$server->ipper}" . $server->url_port == 80 ? '' : ":{$server->url_port}" . "/{$this ->id}.git"; 
+        return "{$server->url_schema}://{$server->ipper}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->id}.git"; 
     }
 
 
