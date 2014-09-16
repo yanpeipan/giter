@@ -42,7 +42,6 @@
 		);
 		?>
 		<!--  Project Domain Input-->
-		<?php var_dump($project->type); var_dump($project->hasDomainTypes);?>
 		<div id='Projects_domain_group' <?php echo in_array($project->type, $project->hasDomainTypes) ? '' : 'style="display:none;"'?>>
 		<?php
 		echo $form->textFieldRow(
