@@ -389,16 +389,13 @@ EOT;
     	$server = $this -> getVirtualServerInfo();
     	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
+        
+       $server_name = "{secondLevelDomain}.{$server->url_host}";
+       $root = "{$server->htdocs_path}{$secondLevelDomain}/{$relatePath}";
+       $access_log = "/var/web-logs/{$secondLevelDomain}.{$server->url_host}-access.log";
+       $fastcgi_pass = '127.0.0.1:9000';
+       $index = $index;
 
-        $config = Yii::app()->Controller->renderPartial('server/nginx.yii.php', array(
-            'server_name' => "{secondLevelDomain}.{$server->url_host}",
-            'root' => "{$server->htdocs_path}{$secondLevelDomain}/{$relatePath}",
-            'access_log' => "/var/web-logs/{$secondLevelDomain}.{$server->url_host}-access.log",
-            'fastcgi_pass' => '127.0.0.1:9000',
-            'index' => $index,
-            ),
-            True
-        );
             $config =<<<"EOD"
             server
 {
