@@ -42,7 +42,7 @@
 		);
 		?>
 		<!--  Project Domain Input-->
-		<div id='Projects_domain_group' style="display:none;">
+		<div id='Projects_domain_group' <?php echo in_array($project->type, $project->hasDomainTypes) ? '' : 'style="display:none;"'?>>
 		<?php
 		echo $form->textFieldRow(
 			$project, 
@@ -50,6 +50,31 @@
 			array(
 				'class' => 'form-control',
 				'append' => '.red16.com',
+				'appendOptions' => array(
+					'class' => 'input-group-addon'
+					)
+				)
+			);
+			?>
+		<?php
+		echo $form->textFieldRow(
+			$project, 
+			'root', 
+			array(
+				'class' => 'form-control',
+				//'prepend' => $project->rootPrepend,
+				'appendOptions' => array(
+					'class' => 'input-group-addon'
+					)
+				)
+			);
+			?>
+		<?php
+		echo $form->textFieldRow(
+			$project, 
+			'index', 
+			array(
+				'class' => 'form-control',
 				'appendOptions' => array(
 					'class' => 'input-group-addon'
 					)
