@@ -62,7 +62,7 @@
 			'root', 
 			array(
 				'class' => 'form-control',
-				'prepend' => '.red16.com',
+				'prepend' => $project->rootPrepend,
 				'appendOptions' => array(
 					'class' => 'input-group-addon'
 					)
