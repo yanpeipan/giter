@@ -575,7 +575,7 @@ EOT;
     	}
     }
 
-    public function update()
+    public function modify()
     {
         if ($this->needVirtualServer()) {
                             $this  -> createVirtualServer($this->domain, $this->id, $this->root, $this->index);
