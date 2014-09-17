@@ -36,7 +36,9 @@ class Projects extends CActiveRecord
     	return array(
     		array('name, type', 'required'),
     		array('name', 'unique'),
+    		array('name', 'match', 'pattern'=>'/^[\d\w]+$/'),
     		array('domain',  'domainValidator'),
+    		array('description', 'type', 'type'=> 'string'),
     		array('uid', 'numerical', 'integerOnly'=>true),
     		array('name, domain, status', 'length', 'max'=>45),
     		array('remote_url', 'length', 'max'=>255),
