@@ -26,7 +26,7 @@
 		); 
 		?>
 		<!--  Project Name Input-->
-		<?php echo $form->textFieldRow($project, 'name', array('class' => 'form-control'));?>
+		<?php echo $form->textFieldRow($project, 'name', array('class' => 'form-control', 'disabled' => 'disabled'));?>
 		<!-- Project type -->
 		<?php 
 		echo $form->dropDownListRow(
@@ -48,6 +48,7 @@
 			$project, 
 			'domain', 
 			array(
+				'disabled' => 'disabled',
 				'class' => 'form-control',
 				'append' => '.red16.com',
 				'appendOptions' => array(
