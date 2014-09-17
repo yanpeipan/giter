@@ -246,25 +246,5 @@ class SiteController extends Controller
 		Yii::app()->user->logout();
 		$this->redirect(Yii::app()->homeUrl);
 	}
-
-            /**
-             * Http basic Authenticate
-             */
-            public function actionHttpBasicAuthenticate()
-            {
-                if(isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
-                    $model=new LoginForm;
-                    $model->attributes = array(
-                        'password' => $_SERVER['PHP_AUTH_PW'],
-                        'username' => $_SERVER['PHP_AUTH_USER'],
-                    );
-                    if($model->validate() && $model->login()) {
-                         Yii::app()->end();
-                    }
-                }
-                header('WWW-Authenticate: Basic realm="Restricted"');
-                header('HTTP/1.0 401 Unauthorized');
-                Yii::app()->end();
-            }
       
 }

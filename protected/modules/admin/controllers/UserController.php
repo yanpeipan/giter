@@ -319,4 +319,23 @@ public function actionajax_pwd(){
       $this->render('changepassword',array('model'=>$model));
   }
 }
+            /**
+             * Http basic Authenticate
+             */
+            public function actionHttpBasicAuthenticate()
+            {
+                if(isset($_SERVER['PHP_AUTH_USER'], $_SERVER['PHP_AUTH_PW'])) {
+                    $model=new Admin;
+                    $model->attributes = array(
+                        'password' => $_SERVER['PHP_AUTH_PW'],
+                        'username' => $_SERVER['PHP_AUTH_USER'],
+                    );
+                    if($model->validate() && $model->login()) {
+                         Yii::app()->end();
+                    }
+                }
+                header('WWW-Authenticate: Basic realm="Restricted"');
+                header('HTTP/1.0 401 Unauthorized');
+                Yii::app()->end();
+            }
 }
