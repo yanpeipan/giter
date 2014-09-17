@@ -168,7 +168,7 @@ class GitController extends PluginBaseController
 
 		if (isset($_POST['Projects'])) {
 			$params = Yii::app()->request->getParam('Projects');
-			$model -> create();
+			$model -> update();
 			Yii::app() -> end();
 		}
 		if (is_numeric($id)) {
