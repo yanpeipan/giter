@@ -380,6 +380,7 @@ EOT;
     	if (empty($result)) {
     		return true;
     	}
+        
 
     	return false;
     }
@@ -417,7 +418,7 @@ EOT;
         location ~ .*\.(php|php5)?$
         {
             try_files \$uri =404;
-            fastcgi_pass  \$fastcgi_pass;
+            fastcgi_pass  $fastcgi_pass;
             fastcgi_index $index;
             include fastcgi_params;
             fastcgi_param  SCRIPT_FILENAME \$document_root/\$fastcgi_script_name;
