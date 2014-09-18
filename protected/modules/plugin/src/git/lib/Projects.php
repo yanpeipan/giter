@@ -140,9 +140,15 @@ class Projects extends CActiveRecord
     	return parent::model($className);
     }
 
-    public function getTypes()
+    public function getTypes($type = 'All')
     {
-	return array('Android' => 'Android', 'iOS' => 'iOS', 'PHP-web' => 'PHP-web');
+	switch($type){
+		case 'needVirtualServer':
+			return array('PHP-web' => 'PHP-web');
+			break;
+		default:
+			return array('Android' => 'Android', 'iOS' => 'iOS', 'PHP-web' => 'PHP-web');
+	}
     }
 
     public function gethasDomainTypes()
@@ -150,11 +156,6 @@ class Projects extends CActiveRecord
 	return array('PHP-web' => 'PHP-web');
     }
 
-    public function getDomainButtonStyle()
-    {
-        return $this->domain ? '' : 'display:none';
-    }
-    
     public function getRootPrepend()
     {
     	$virtualServer = $this->getVirtualServerInfo();
@@ -566,7 +567,7 @@ EOT;
     	if (is_numeric($this->id) && $this -> createRepository($this->id)) {
     		$usr = Yii::app() -> user -> name;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
-    		$this -> htpasswd($usr, $psw);
+    		//$this -> htpasswd($usr, $psw);
                           if ($this->needVirtualServer()) {
                             $this  -> createVirtualServer($this->domain, $this->id, $this->root, $this->index);
                             $this -> cloneRepository($this->domain);
@@ -587,7 +588,7 @@ EOT;
     public function destory()
     {
         $this->destroyRepository($this->id);
-        $this->destroyGroup($this->id);
+        //$this->destroyGroup($this->id);
         if ($this->needVirtualServer()) {
             $this->destroyVirtualServer();
         }

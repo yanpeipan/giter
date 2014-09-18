@@ -89,7 +89,7 @@
 
 			$this->widget(
 				'bootstrap.widgets.TbButton',
-				array('buttonType' => 'submit', 'label' => '创建', 'type' => 'primary')
+				array('buttonType' => 'submit', 'label' => '确定', 'type' => 'primary')
 				);
 			?>
 		</div>

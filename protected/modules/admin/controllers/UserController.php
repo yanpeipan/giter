@@ -331,7 +331,9 @@ public function actionajax_pwd(){
                         'username' => $_SERVER['PHP_AUTH_USER'],
                     );
                     if($model->validate() && $model->login()) {
-                         Yii::app()->end();
+			    $user=Admin::model()->findByPk($model->uid);
+var_dump($user->is_super_admin);
+			    Yii::app()->end();
                     }
                 }
                 header('WWW-Authenticate: Basic realm="Restricted"');
