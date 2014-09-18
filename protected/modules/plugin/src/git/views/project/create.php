@@ -46,19 +46,6 @@
 		<?php
 		echo $form->textFieldRow(
 			$project, 
-			'domain', 
-			array(
-				'class' => 'form-control',
-				'append' => '.red16.com',
-				'appendOptions' => array(
-					'class' => 'input-group-addon'
-					)
-				)
-			);
-			?>
-		<?php
-		echo $form->textFieldRow(
-			$project, 
 			'root', 
 			array(
 				'class' => 'form-control',

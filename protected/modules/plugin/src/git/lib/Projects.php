@@ -37,7 +37,7 @@ class Projects extends CActiveRecord
     		array('name, type', 'required'),
     		array('name', 'unique'),
     		array('name', 'match', 'pattern'=>'/^[\d\w]+$/'),
-    		array('domain',  'domainValidator'),
+    		//array('domain',  'domainValidator'),
     		array('description', 'type', 'type'=> 'string'),
     		array('uid', 'numerical', 'integerOnly'=>true),
     		array('name, domain, status', 'length', 'max'=>45),
@@ -170,7 +170,7 @@ class Projects extends CActiveRecord
     {
         if ($this->needVirtualServer()) {
             $server = $this->getVirtualServerInfo();
-            return "{$server->url_schema}://{$this->domain}.{$server->url_host}". ($server->url_port == 80 ? '' : ":{$server->url_port}");
+            return "{$server->url_schema}://{$this->name}.{$server->url_host}". ($server->url_port == 80 ? '' : ":{$server->url_port}");
         } else {
             return '#';
         }
@@ -183,7 +183,7 @@ class Projects extends CActiveRecord
     public function getCloneUrl()
     {
         $server = $this->getRepositoryServerInfo();
-        return "{$server->url_schema}://{$server->ipper}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->id}.git"; 
+        return "{$server->url_schema}://{$server->ipper}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->name}.git"; 
     }
 
 
@@ -471,11 +471,11 @@ EOD;
         $server = $this -> getVirtualServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
         ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-        $filename = $server->nginx_config_path . $this ->domain . '.conf';
+        $filename = $server->nginx_config_path . $this ->name . '.conf';
         $sftp = ssh2_sftp($ssh);
         ssh2_sftp_unlink ($sftp, $filename);
         $command =<<<"EOD"
-        domain={$this->domain}
+        domain={$this->name}
         htdocs={$server->htdocs_path}
 EOD;
         $command .= PHP_EOL;
@@ -564,13 +564,13 @@ EOT;
      */
     public function create()
     {
-    	if (is_numeric($this->id) && $this -> createRepository($this->id)) {
+    	if (is_numeric($this->id) && $this -> createRepository($this->name)) {
     		$usr = Yii::app() -> user -> name;
     		$psw = Admin::decrypt(Yii::app() ->user -> encrypt);
     		//$this -> htpasswd($usr, $psw);
                           if ($this->needVirtualServer()) {
-                            $this  -> createVirtualServer($this->domain, $this->id, $this->root, $this->index);
-                            $this -> cloneRepository($this->domain);
+                            $this  -> createVirtualServer($this->name, $this->id, $this->root, $this->index);
+                            $this -> cloneRepository($this->name);
                           }
     		return true;
     	} else {
@@ -581,14 +581,13 @@ EOT;
     public function modify()
     {
         if ($this->needVirtualServer()) {
-                            $this  -> createVirtualServer($this->domain, $this->id, $this->root, $this->index);
+                            $this  -> createVirtualServer($this->name, $this->id, $this->root, $this->index);
             } 
     }
 
     public function destory()
     {
-        $this->destroyRepository($this->id);
-        //$this->destroyGroup($this->id);
+        $this->destroyRepository($this->name);
         if ($this->needVirtualServer()) {
             $this->destroyVirtualServer();
         }

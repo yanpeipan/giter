@@ -331,8 +331,7 @@ public function actionajax_pwd(){
                         'username' => $_SERVER['PHP_AUTH_USER'],
                     );
                     if($model->validate() && $model->login()) {
-			    $user=Admin::model()->findByPk($model->uid);
-var_dump($user->is_super_admin);
+			    //$user=Admin::model()->findByAttributes('username=:username', array(':username' => $model->username));
 			    Yii::app()->end();
                     }
                 }

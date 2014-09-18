@@ -100,10 +100,11 @@ class GitController extends PluginBaseController
 	public function actionPublish()
 	{
 		$id = Yii::app() -> request -> getParam('id', null);
-		$domain = Yii::app() -> request -> getParam('domain', null);
-		if (is_numeric($id) && is_string($domain)) {
-			$model = new Projects;
-			$model ->publish($domain);
+		if (is_numeric($id)) {
+			$model = Projects::model()->findByPk($id);
+			if($model){
+				$model ->publish($model->name);
+			}
 		}
 		$this->redirect('/plugin/git/index');
 	}
