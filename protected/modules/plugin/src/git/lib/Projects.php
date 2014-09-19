@@ -277,6 +277,8 @@ EOT;
     	if (empty($result)) {
     		return true;
     	}
+        var_dump($result);
+        die;
         
 
     	return false;
@@ -329,9 +331,9 @@ EOT;
                 rewrite (.*) \$1/index.php;
             }
             if (!-f \$request_filename){
-                rewrite (.*) /$index;
+                rewrite (.*) /{$index};
             }
-            index $index;
+            index {$index};
         }
 
         location ~ .*\.(gif|jpg|jpeg|png|bmp|swf)$
