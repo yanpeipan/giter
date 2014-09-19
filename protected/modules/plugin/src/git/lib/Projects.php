@@ -223,112 +223,6 @@ class Projects extends CActiveRecord
                 }
     }
 
-    public function htpasswd($usr, $psw)
-    {
-    	$server = $this -> getRepositoryServerInfo();
-    	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-    	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-
-
-    	if (!$psw) {
-    		return false;
-    	}
-    	$command =<<<"EOD"
-                htpasswd={$server->htpasswd_bin}
-                git={$server->apache_user_file}
-                usr={$usr}
-                psw={$psw}
-                apache={$server->apache_bin}
-EOD;
-                $command .= PHP_EOL;
-                $command.=<<<'EOT'
-    	if [ -f  ${git} ];then
-	    	/usr/bin/htpasswd -b ${git} ${usr} ${psw}
-	 else
-	    	/usr/bin/htpasswd -c ${git} ${usr} ${psw}
-    	fi
-                ${apache} restart
-EOT;
-	$stream = ssh2_exec($ssh, $command);
-    	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
-             //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
-    	stream_set_blocking($stream, true);
-    	$result = stream_get_contents($stream);
-    	if (empty($result)) {
-    		return true;
-    	}
-
-    	return false;
-    }
-
-    public function addGroup($group)
-    {
-        $server = $this -> getRepositoryServerInfo();
-        $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-       $command =<<<"EOD"
-       group_file={$server->apache_group_file}
-       group_name={$group}
-EOD;
-        $command .= PHP_EOL;
-        $command .=<<<'EOT'
-       if [ -f ${group_file} -a -s ${group_file} ];then
-            sed -i "$ a\\${group_name}: admin " ${group_file}
-        else
-            echo "${group_name}: admin "> ${group_file} ||  error_exit "Cannot create file"
-       fi
-EOT;
-    $stream = ssh2_exec($ssh, $command);
-$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
-         //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
-stream_set_blocking($stream, true);
-$result = stream_get_contents($stream);
-    }
-
-    public function destroyGroup($group)
-    {
-        $server = $this -> getRepositoryServerInfo();
-        $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-        $command = "sed -i \"/^${group}:/d\" {$server->apache_group_file}";
-        $stream = ssh2_exec($ssh, $command);
-    }
-
-    public function addMember($usr, $psw, $project)
-    {
-        $server = $this -> getRepositoryServerInfo();
-        $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-
-        $command  =<<<"EOD"
-        sed -i "/^{$project}:/{s/ $usr / /g;s/$/&$usr /g;s/[ ]\{2,\}/ /g}"  {$server->apache_group_file}
-EOD;
-	echo $command;
-       $stream = ssh2_exec($ssh, $command);
-$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
-         //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
-stream_set_blocking($stream, true);
-$result = stream_get_contents($stream);
-$this -> htpasswd($usr, $psw);
-    }
-
-    public function deleteMember($usr, $project = null)
-    {
-                    $server = $this -> getRepositoryServerInfo();
-                    $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
-                    ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-                    if ($project) {
-                    	$command = "sed -i \"/^{$project}:/s/ $usr / /g;s/ $usr$/ /g\" {$server->apache_group_file}";
-                    }else{
-                    	$command = "sed -i \"s/ $usr / /g;s/ $usr$/ /g\" {$server->apache_group_file}";
-                    }
-                    $stream = ssh2_exec($ssh, $command);
-                    $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
-         //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
-stream_set_blocking($stream, true);
-$result = stream_get_contents($stream);
-    }
-
     public function publish($domain, $id = null)
     {
 
@@ -346,7 +240,7 @@ EOD;
         if [ ! -d ${project_dir} ];then
             error_exit "Cannot found htdocs"
         fi
-        cd ${htdocs}/${domain} && git pull origin master
+        cd ${htdocs}/${domain} && git fetch origin master
 EOT;
 
 $stream = ssh2_exec($ssh, $command);
