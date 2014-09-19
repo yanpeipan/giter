@@ -73,11 +73,12 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'visit'=>array(
           'options' => array(
             'title' => '访问',
+	    'target'=>'_blank',
           ),
 	  'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
           'label'=>'访问',
           'icon'=>'',
-          'url'=>'$data->domainurl'
+          'url'=>'$data->domainurl',
         ),
       ),
     )

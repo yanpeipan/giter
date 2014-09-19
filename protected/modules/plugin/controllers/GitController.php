@@ -100,10 +100,11 @@ class GitController extends PluginBaseController
 	public function actionPublish()
 	{
 		$id = Yii::app() -> request -> getParam('id', null);
-		$domain = Yii::app() -> request -> getParam('domain', null);
-		if (is_numeric($id) && is_string($domain)) {
-			$model = new Projects;
-			$model ->publish($domain);
+		if (is_numeric($id)) {
+			$model = Projects::model()->findByPk($id);
+			if($model){
+				$model ->publish($model->name);
+			}
 		}
 		$this->redirect('/plugin/git/index');
 	}
@@ -157,20 +158,28 @@ class GitController extends PluginBaseController
 	public function actionConfig()
 	{
 		$id = Yii::app() -> request -> getParam('id', null);
-		$model = new Projects;
 
 		// Ajax Validate
 		if(isset($_POST['ajax']) && $_POST['ajax']==='config_project_form')
 		{
+			$model = new Projects;
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		} 
 
-		if (isset($_POST['Projects'])) {
+		if (isset($_POST['Projects'], $_POST['Projects']['id'])) {
 			$params = Yii::app()->request->getParam('Projects');
-			$model -> modify();
-			Yii::app() -> end();
-		}
+			$model = Projects::model()->findByPk($params['id']);
+			$model -> attributes = $params;
+			if($model->save()){
+				$model -> modify();
+				$this->redirect('/plugin/git/');
+				Yii::app()->end();
+			}else{
+				$this -> render('project/config',  array('project' => $model));
+			}
+
+			}
 		if (is_numeric($id)) {
 			$project = Projects::model()->findByPk($id);
 			$this -> render('project/config',  array('project' => $project));

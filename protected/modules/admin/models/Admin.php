@@ -112,10 +112,10 @@ class Admin extends CActiveRecord
         }
     }
 
-    public function setEncrypt($value='')
+
+    public function getDecrypt($value='')
     {
-            var_dump($value);
-            die;
+	return self::decrypt($this->encrypt);
     }
     
     

@@ -49,6 +49,10 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         ),
         'visit'=>array(
 	  'visible' => false,
+	  'options' => array(
+		  'title' => '访问',
+		  'target'=>'_blank',
+		  ),
           'label'=>'访问',
           'icon'=>'',
           'url'=>'$data->domainurl',

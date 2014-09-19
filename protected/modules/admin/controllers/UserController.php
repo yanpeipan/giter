@@ -117,37 +117,20 @@ class UserController extends AdminBaseController
      * 更新播放源信息
      * @param id
      */
-     public function actionUpdate($id)
-     {
-       $this->layout = "//layouts/column2";
-       $model = new UserUpdate;
-       $model->username = Admin::model()->findbyPk($_GET['id'])->username;
-       if(isset($_REQUEST['UserUpdate']))
-       {
-           $model->attributes=$_POST['UserUpdate'];
-           if($model->validate())
-           {
-               $new = Admin::model()->findbyPk($_GET['id']);
-               $new->username = $model->username;
-               $new->password = $model->password;
-               $new ->encrypt = Admin::encrypt($model->password);
-               if($new->save()){
-               	if(class_exists('Projects')){
-              	$project = new Projects();
-              	$sql = 'select username from {{admin}} where id=:id';
-              	$username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
-              	$project->htpasswd($username, $model->password);
-              }
-                $this->redirect(Yii::app()->createUrl("/admin/user/view"));
-                die;
-            }
-        }
-    }
-
-    $this->render('update', array(
-        'model'=>$model,
-        ));
-} 
+    public function actionUpdate($id)
+    {
+	    $this->layout = "//layouts/column2";
+	    $model = Admin::model()->findbyPk($id);
+	    if(isset($_POST['Admin']) && $model) {
+		    $model->attributes=$_POST['Admin'];
+		    $model->encrypt = Admin::encrypt($model->password);
+		    if($model->save()) {
+			    $this->redirect(Yii::app()->createUrl("/admin/user/view"));
+			    Yii::app()->end();
+		    }
+	    }
+	    $this->render('update', array('model'=>$model));
+    } 
 
 public function actiondelete($id){
     $model = $this->Load_user_model($id);
@@ -249,12 +232,6 @@ public function actionajax_pwd(){
      $command = Yii::app()->db->createCommand($sql);
      $command->bindValues(array(':password'=>substr(md5($pwd),8,16),':id'=>$id, ':encrypt'=>Admin::encrypt($pwd)));
      $result = $command->execute();
-     if(class_exists('Projects')){
-              	$project = new Projects();
-              	$sql = 'select username from {{admin}} where id=:id';
-              	$username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
-              	$project->htpasswd($username, $pwd);
-        }
      echo $result;
  }
 
@@ -299,12 +276,6 @@ public function actionajax_pwd(){
               $new_password = AdminModule::encrypting($model->password);
               $sql  = "UPDATE {{admin}} SET password=:password, encrypt=:encrypt WHERE id=:id";
               $bool = Yii::app()->db->createCommand($sql)->bindValues(array(':password'=>$new_password,':encrypt'=>Admin::encrypt($model->password), ':id'=>Yii::app()->user->id))->execute();
-              if(class_exists('Projects')){
-              	$project = new Projects();
-              	$sql = 'select username from {{admin}} where id=:id';
-              	$username = Yii::app()->db->createCommand($sql)->bindValues(array(':id'=>Yii::app()->user->id))->queryScalar();
-              	$project->htpasswd($username, $model->password);
-              }
               Yii::app()->user->setFlash('profileMessage',AdminModule::t("New password is saved."));
               if(isset(Yii::app()->authManager)){
                 	$auth = Yii::app()->authManager;
@@ -331,7 +302,8 @@ public function actionajax_pwd(){
                         'username' => $_SERVER['PHP_AUTH_USER'],
                     );
                     if($model->validate() && $model->login()) {
-                         Yii::app()->end();
+			    //$user=Admin::model()->findByAttributes('username=:username', array(':username' => $model->username));
+			    Yii::app()->end();
                     }
                 }
                 header('WWW-Authenticate: Basic realm="Restricted"');
