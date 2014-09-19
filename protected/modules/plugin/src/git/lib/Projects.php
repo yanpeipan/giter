@@ -240,7 +240,8 @@ EOD;
         if [ ! -d ${project_dir} ];then
             error_exit "Cannot found htdocs"
         fi
-        cd ${htdocs}/${domain} && git fetch origin
+        cd ${project_dir}
+	git pull
 EOT;
 
 $stream = ssh2_exec($ssh, $command);
