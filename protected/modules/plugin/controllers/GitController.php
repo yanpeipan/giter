@@ -121,7 +121,7 @@ class GitController extends PluginBaseController
 		$id = Yii::app() -> request -> getparam('id', null);
 		if (is_numeric($id)) {
 			$project = Projects::model()->findByPk($id);
-			if ((Yii::app()->user->is_super_admin == 3) || (isset($project->uid) && $project->uid == Yii::app()->user->id)) {
+			if ($project && (Yii::app()->user->is_super_admin == 3) || (isset($project->uid) && $project->uid == Yii::app()->user->id)) {
 				$project->deleteByPk($id);
 				$project->destory();
 			}
@@ -171,7 +171,7 @@ class GitController extends PluginBaseController
 			$params = Yii::app()->request->getParam('Projects');
 			$model = Projects::model()->findByPk($params['id']);
 			$model -> attributes = $params;
-			if($model->save()){
+			if($model && $model->save()){
 				$model -> modify();
 				$this->redirect('/plugin/git/');
 				Yii::app()->end();

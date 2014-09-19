@@ -240,7 +240,7 @@ EOD;
         if [ ! -d ${project_dir} ];then
             error_exit "Cannot found htdocs"
         fi
-        cd ${htdocs}/${domain} && git fetch origin master
+        cd ${htdocs}/${domain} && git fetch origin
 EOT;
 
 $stream = ssh2_exec($ssh, $command);
@@ -277,10 +277,6 @@ EOT;
     	if (empty($result)) {
     		return true;
     	}
-        var_dump($result);
-        die;
-        
-
     	return false;
     }
 
@@ -364,10 +360,10 @@ EOD;
 
     public function destroyVirtualServer()
     {
-        $server = $this -> getVirtualServerInfo();
+        $server = $this->getVirtualServerInfo();
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
         ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
-        $filename = $server->nginx_config_path . $this ->name . '.conf';
+	$filename = $server->nginx_config_path . "{$this->name}.{$server->url_host}" . '.conf';
         $sftp = ssh2_sftp($ssh);
         ssh2_sftp_unlink ($sftp, $filename);
         $command =<<<"EOD"
@@ -404,7 +400,7 @@ EOD;
     	$command =<<<"EOD"
     	domain={$domain}
     	repositoriesRoot={$server->root_path}
-             apache2={$server->apache_bin}
+	apache2={$server->apache_bin}
 EOD;
 
 
@@ -420,7 +416,7 @@ EOD;
         git init --bare ${domain} && cd ${dir} && git update-server-info
         cp ${dir}/hooks/post-update.sample  ${dir}/hooks/post-update
         chown -R www-data. ${dir}
-              server nginx restart
+	server nginx restart
 EOT;
 
     	$stream = ssh2_exec($ssh, $command);
@@ -438,20 +434,15 @@ EOT;
         $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
         ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
-                $domain = strpos($this->id, '.git') ? $this->id : $this->id . '.git';
-        $filename = $server->git_config_path . $this ->id . '.conf';
+    	$domain = strpos($id, '.git') ? $id : $id . '.git';
         $command =<<<"EOD"
-        apache_config_file={$filename}
         domain={$domain}
         repositoriesRoot={$server->root_path}
-        apache2={$server->apache_bin}
 EOD;
         $command .= PHP_EOL;
         $command .=<<<'EOT'
-            rm -rf ${apache_config_file}
             cd ${repositoriesRoot} && rm -rf  ${domain}
 EOT;
-        echo $command;
         ssh2_exec($ssh, $command);
     }
 
