@@ -242,6 +242,7 @@ EOD;
         fi
         cd ${project_dir}
 	git pull
+	chown -R www-data. ${project_dir}
 EOT;
 
 $stream = ssh2_exec($ssh, $command);
