@@ -103,7 +103,7 @@ table td {
 .nav li {
 	height: 36px;
 	line-height: 36px;
-	padding-left: 0px, 28px;
+	padding: 0px 28px;
 	color: #757575;
 	text-shadow: 0 0 3px #000;
 }
