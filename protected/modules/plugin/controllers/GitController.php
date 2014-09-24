@@ -318,7 +318,7 @@ class GitController extends PluginBaseController
 				$project->online();
 			}
 		}
-		$this->redirect('/');
+		$this->redirect('/plugin/git/');
 	}
 
 	public function actionTest()
