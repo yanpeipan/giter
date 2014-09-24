@@ -55,6 +55,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'online'=>array(
           'label'=>'上线',
           'icon' => 'success',
+          'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
           'url' =>'Yii::app()->createUrl("plugin/git/online/id/$data->id")',
 
         ),
