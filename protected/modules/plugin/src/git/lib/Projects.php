@@ -491,6 +491,9 @@ EOT;
     		ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
         	$command = "git_upload {$this->name}";
         	$stream = ssh2_exec($ssh, $command);
+        	$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
+        	stream_set_blocking($stream, true);
+        	$result = stream_get_contents($stream);
     	}
     }
 
