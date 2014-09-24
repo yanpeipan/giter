@@ -43,13 +43,19 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     array(
       'class'=>'bootstrap.widgets.TbButtonColumn',
       'htmlOptions' => array('class' => 'col-md-2'),
-      'template'=>'{manage} {member} {publish} {visit} {delete}',
+      'template'=>'{manage} {member} {publish} {visit} {online} {delete}',
       'header'=>'操作',
       'buttons'=>array(
       	'manage'=>array(
           'label'=>'配置',
           'icon' => 'success',
           'url' =>'Yii::app()->createUrl("plugin/git/config/id/$data->id")',
+
+        ),
+        'online'=>array(
+          'label'=>'上线',
+          'icon' => 'success',
+          'url' =>'Yii::app()->createUrl("plugin/git/online/id/$data->id")',
 
         ),
         'delete'=>array(
