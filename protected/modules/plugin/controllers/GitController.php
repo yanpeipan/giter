@@ -308,6 +308,17 @@ class GitController extends PluginBaseController
 			} 
 		}	
 	}
+	
+	public function actionOnline()
+	{
+		$id = Yii::app()->request->getParam('id');
+		if(is_numeric($id)) {
+			$project = Projects::model()->findByPk($id);
+			if ($project && ($project->uid == Yii::app()->user->id || Yii::app()->user->is_super_admin == 3)) {
+				$project->online();
+			}
+		}
+	}
 
 	public function actionTest()
 	{
