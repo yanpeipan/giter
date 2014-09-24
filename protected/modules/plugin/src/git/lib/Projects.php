@@ -481,6 +481,18 @@ EOT;
             $this->destroyVirtualServer();
         }
     }
+    
+    public function online()
+    {
+    	if($this->needVirtualServer()) {
+    		
+		$server = $this -> getVirtualServerInfo();
+    		$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    		ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
+        	$command = "git_upload {$this->name}";
+        	$stream = ssh2_exec($ssh, $command);
+    	}
+    }
 
     public function test()
     {
