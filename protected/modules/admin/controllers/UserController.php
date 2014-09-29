@@ -123,8 +123,8 @@ class UserController extends AdminBaseController
 		$model = Admin::model()->findbyPk($id);
 		if(isset($_POST['Admin']) && $model) {
 			$model->attributes=$_POST['Admin'];
-			$model->password = UserIdentity::encrypt($model->password);
 			$model->encrypt = Admin::encrypt($model->password);
+			$model->password = UserIdentity::encrypt($model->password);
 			if($model->save()) {
 				$this->redirect(Yii::app()->createUrl("/admin/user/view"));
 				Yii::app()->end();
