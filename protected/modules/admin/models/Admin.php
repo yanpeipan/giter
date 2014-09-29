@@ -72,6 +72,10 @@ class Admin extends CActiveRecord
                 );
         }
     }
+    
+    public function setPassword($password) {
+    	$this->password=substr(md5($password),8,16);
+    }
 
     /**
      * @return array relational rules.
