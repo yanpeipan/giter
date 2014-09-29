@@ -21,6 +21,11 @@ class UserIdentity extends CUserIdentity
         return $this->uid;
     }
     
+    public static function encrypt($password)
+    {
+	return substr(md5($password),8,16);
+    }
+    
     public function authenticate()
     {
         $model = new Admin;
@@ -28,7 +33,7 @@ class UserIdentity extends CUserIdentity
         if($model)
         {
             $this->uid = $model->id;
-            $password = substr(md5($this->password),8,16);
+            $password = self::encrypt($this->password);
             if($password !== $model->password)
             {
                 $this->errorCode=self::ERROR_PASSWORD_INVALID;
