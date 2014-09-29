@@ -34,13 +34,14 @@ class Repositories extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, root_path, apache_group_file, apache_user_file, ip, ipper, apache_bin, ssh_port, url_port, htpasswd_bin, git_config_path', 'required'),
+			array('name, description, root_path, apache_group_file, apache_user_file, url_host, apache_bin, ssh_port, url_port, htpasswd_bin, git_config_path', 'required'),
 			array('ssh_port, url_port', 'numerical', 'integerOnly'=>true),
 			array('name, url_schema', 'length', 'max'=>45),
 			array('root_path', 'length', 'max'=>3841),
 			array('apache_group_file, apache_user_file, apache_bin, htpasswd_bin', 'length', 'max'=>4096),
 			array('ip', 'length', 'max'=>10),
 			array('ipper', 'length', 'max'=>15),
+			array('url_host', 'length', 'max'=>15),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, name, description, root_path, apache_group_file, apache_user_file, ip, apache_bin, ssh_port, url_port, htpasswd_bin', 'safe', 'on'=>'search'),

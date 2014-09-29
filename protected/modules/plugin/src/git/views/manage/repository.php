@@ -26,7 +26,7 @@
 		echo $form->textFieldRow($repository, 'git_config_path', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'apache_group_file', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'apache_user_file', array('class' => 'form-control'));
-		echo $form->textFieldRow($repository, 'ipper', array('class' => 'form-control'));
+		echo $form->textFieldRow($repository, 'url_host', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'apache_bin', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'ssh_port', array('class' => 'form-control'));
 		echo $form->textFieldRow($repository, 'url_port', array('class' => 'form-control'));

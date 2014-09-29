@@ -202,8 +202,10 @@ class GitController extends PluginBaseController
 			if ($members -> save()) {
 				$project = Projects::model()->findByPk($members->pid);
 				$user = Admin::model()->findByPk($members->uid);
-				$project -> addMember($user->username, Admin::decrypt($user->encrypt), $project->id);
-				$this->redirect(Yii::app() -> createUrl('/plugin/git/members/', array('id' => $members->pid)));
+				if($project) {
+					$project -> addMember($user->username, Admin::decrypt($user->encrypt), $project->id);
+					$this->redirect(Yii::app() -> createUrl('/plugin/git/members/', array('id' => $members->pid)));
+				}
 			} 
 		} 
 		$usernames = CHtml::listData(Admin::model()->findAll(), 'id', 'username');

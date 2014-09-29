@@ -29,7 +29,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     ),
     array(
       'type'=>'raw', 
-      'name' => 'remote_url',
+      'name' => 'cloneUrl',
     ),
     array(
       'type'=>'raw', 

@@ -183,7 +183,7 @@ class Projects extends CActiveRecord
     public function getCloneUrl()
     {
         $server = $this->getRepositoryServerInfo();
-        return "{$server->url_schema}://{$server->ipper}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->name}.git"; 
+        return "{$server->url_schema}://{$server->url_host}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->name}.git"; 
     }
 
 
@@ -393,7 +393,7 @@ EOD;
     private function createRepository($id)
     {
     	$server = $this -> getRepositoryServerInfo();
-    	$ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    	$ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     	ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
     	//append .git to domain
     	$domain = strpos($id, '.git') ? $id : $id . '.git';
@@ -433,7 +433,7 @@ EOT;
     public function destroyRepository($id)
     {
         $server = $this -> getRepositoryServerInfo();
-        $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+        $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
         ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
     	$domain = strpos($id, '.git') ? $id : $id . '.git';
