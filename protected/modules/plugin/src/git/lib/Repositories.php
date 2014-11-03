@@ -39,7 +39,7 @@ class Repositories extends CActiveRecord
 			array('name, url_schema', 'length', 'max'=>45),
 			array('root_path', 'length', 'max'=>3841),
 			array('apache_group_file, apache_user_file, apache_bin, htpasswd_bin', 'length', 'max'=>4096),
-			array('ip', 'length', 'max'=>10),
+			array('ip', 'length', 'max'=>255),
 			array('ipper', 'length', 'max'=>15),
 			array('url_host', 'length', 'max'=>15),
 			// The following rule is used by search().
