@@ -91,6 +91,7 @@ class Projects extends CActiveRecord
       'root' => '相对根目录',
       'index' => 'Index文件',
       'type' => '类型',
+      'repository' => '版本库',
     );
   }
 
@@ -431,7 +432,9 @@ return true;
 
   private function createGithubRepository($id) {
     $client = new \Github\Client();
-    $client->authenticate('', AUTH_URL_TOKEN);
+    $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', AUTH_URL_TOKEN);
+    $repo = $client->api('repo')->create($id, '', '', true);
+    var_dump($repo);
   }
   /**
    * Create Repository
