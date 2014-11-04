@@ -326,6 +326,8 @@ class GitController extends PluginBaseController
 	public function actionTest()
 	{
 		var_dump($this->getModule());
+		$project = new Projects;
+		$project->createGithubRepository('test');
 	}
 }
 ?>

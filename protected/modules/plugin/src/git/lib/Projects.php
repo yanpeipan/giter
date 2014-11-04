@@ -430,10 +430,12 @@ return true;
 
   } 
 
-  private function createGithubRepository($id) {
+  public function createGithubRepository($id) {
     $client = new \Github\Client();
-    $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', AUTH_URL_TOKEN);
+    $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', \Github\Client::AUTH_URL_TOKEN);
+    //$client->api('repo')->remove('inmi-panel', $id); 
     $repo = $client->api('repo')->create($id, '', '', true);
+    $client->api('repo')->remove('inmi-panel', $id); 
     var_dump($repo);
   }
   /**
@@ -446,6 +448,7 @@ return true;
     } else {
       $this->createLocalRepository($id);
     }
+    return true;
   }
 
   public function destroyRepository($id)
