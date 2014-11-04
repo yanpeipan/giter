@@ -325,14 +325,7 @@ class GitController extends PluginBaseController
 
 	public function actionTest()
 	{
-		$project = new Shell();
-
-		$project -> test();
-		return;
-		$new =new  Admin();
-		$new->username = 'test';
-		$new->password =  '123456';
-		$new ->encrypt = Admin::encrypt(123456);
+		var_dump($this->getModule());
 	}
 }
 ?>
