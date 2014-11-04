@@ -4,3 +4,4 @@ css/*
 runtime/*
 config.php
 protected/config/db.php
+vendor/
