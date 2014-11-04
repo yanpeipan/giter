@@ -17,8 +17,7 @@ class Projects extends CActiveRecord
 
   public $mid;
   public $type;
-  public $repository;
-  public $repositories = ['local', 'github'];
+  public $repositories = ['local' => 'local', 'github' => 'github'];
 
   /**
    * @return string the associated database table name
@@ -42,7 +41,7 @@ class Projects extends CActiveRecord
       //array('domain',  'domainValidator'),
       array('description', 'type', 'type'=> 'string'),
       array('uid', 'numerical', 'integerOnly'=>true),
-      array('name, domain, status', 'length', 'max'=>45),
+      array('name, domain, status, repository', 'length', 'max'=>45),
       array('remote_url', 'length', 'max'=>255),
       array('root', 'length', 'max'=>4096),
       array('index', 'length', 'max'=>255,),
@@ -185,8 +184,12 @@ class Projects extends CActiveRecord
    */
   public function getCloneUrl()
   {
-    $server = $this->getRepositoryServerInfo();
-    return "{$server->url_schema}://{$server->url_host}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->name}.git"; 
+    if ($this->repository == 'local' ) {
+	    $server = $this->getRepositoryServerInfo();
+	    return "{$server->url_schema}://{$server->url_host}" . ($server->url_port == 80 ? '' : ":{$server->url_port}") . "/{$this ->name}.git"; 
+    } else {
+	return $this->remote_url;
+    }
   }
 
 
@@ -430,13 +433,17 @@ return true;
 
   } 
 
-  public function createGithubRepository($id) {
+  private function deleteGithubRepository($id) {
     $client = new \Github\Client();
     $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', \Github\Client::AUTH_URL_TOKEN);
-    //$client->api('repo')->remove('inmi-panel', $id); 
-    $repo = $client->api('repo')->create($id, '', '', true);
     $client->api('repo')->remove('inmi-panel', $id); 
-    var_dump($repo);
+  }
+
+  private function createGithubRepository($id) {
+    $client = new \Github\Client();
+    $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', \Github\Client::AUTH_URL_TOKEN);
+    $repo = $client->api('repo')->create($id, '', '', true);
+    $this-> remote_url = $repo['clone_url'];
   }
   /**
    * Create Repository
@@ -451,7 +458,15 @@ return true;
     return true;
   }
 
-  public function destroyRepository($id)
+  public function destroyRepository($id) {
+	if ($this->repository == 'local') {
+		$this->destroyLocalRepository($id);
+	}elseif($this->repository == 'github'){
+		$this->deleteGithubRepository($id);
+	}
+  }
+
+  public function destroyLocalRepository($id)
   {
     $server = $this -> getRepositoryServerInfo();
     $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
@@ -497,10 +512,10 @@ ssh2_exec($ssh, $command);
 
   public function destory()
   {
-    $this->destroyRepository($this->name);
-    if ($this->needVirtualServer()) {
-      $this->destroyVirtualServer();
-    }
+	  $this->destroyRepository($this->name);
+	  if ($this->needVirtualServer()) {
+		  $this->destroyVirtualServer();
+	  }
   }
 
   public function online()
