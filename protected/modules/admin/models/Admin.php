@@ -50,6 +50,7 @@ class Admin extends CActiveRecord
 					array('username','unique'),
 					array('username, password', 'length', 'max'=>255),
 					array('is_super_admin', 'length', 'max' => 11),
+					array('tencent_exmail,github_name', 'length', 'max' => 256),
 					// The following rule is used by search().
 					// Please remove those attributes that should not be searched.
 					array('id, username, password, encrypt', 'safe', 'on'=>'search'),

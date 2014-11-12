@@ -21,4 +21,10 @@ class WebUser extends CWebUser
 		$model = Admin::model() -> findByPk(Yii::app()->user->id);
 		return $model ? $model->is_super_admin  : null;
 	}
+
+	public function getGithub_name()
+	{
+		$model = Admin::model() -> findByPk(Yii::app()->user->id);
+		return $model ? $model->github_name : null;
+	}
 }

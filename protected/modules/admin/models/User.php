@@ -51,6 +51,7 @@ class User extends CActiveRecord
 		return (array(
 			array('username', 'length', 'max'=>20, 'min' => 3,'message' => AdminModule::t("Incorrect username (length between 3 and 20 characters).")),
 			array('password', 'length', 'max'=>128, 'min' => 4,'message' => AdminModule::t("Incorrect password (minimal length 4 symbols).")),
+			array('github_name, tencent_exmail', 'length', 'max'=>225),
 			array('username', 'unique', 'message' => AdminModule::t("This user's name already exists.")),
 			array('username', 'match', 'pattern' => '/^[A-Za-z0-9_]+$/u','message' => AdminModule::t("Incorrect symbols (A-z0-9).")),
 			array('is_super_admin', 'in', 'range'=>array(0,1)),
