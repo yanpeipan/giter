@@ -14,6 +14,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 	<?php echo $form->textFieldRow($model, 'username', array('class'=>'form-control focused','readonly'=>"readonly")); ?><br />
 	<?php echo $form->passwordFieldRow($model, 'password', array('class'=>'form-control focused', 'value'=>$model->decrypt)); ?><br />
 	<?php echo $form->dropDownListRow($model, 'is_super_admin', $model->adminLevel, array('class'=>'form-control focused')); ?><br />
+	<?php echo $form->textFieldRow($model, 'tencent_exmail', array('class'=>'form-control focused')); ?><br />
+	<?php echo $form->textFieldRow($model, 'github_name', array('class'=>'form-control focused')); ?><br />
 	<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType'=>'submit','type'=>'primary','htmlOptions'=>array('class'=>'form-control','style'=>'margin-top:20px'),'label'=>AdminModule::t("Save"))); ?>
 	<?php $this->endWidget(); ?>
 </div>

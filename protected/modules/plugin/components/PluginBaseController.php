@@ -12,6 +12,9 @@ class PluginBaseController extends AdminBaseController
 	{
 		parent::init();
 		$this->getPluginName();
+		if (Yii::app()->user->isGuest) {
+			$this->redirect('/');
+		}
 	}
 	
 	public function getViewPath()
