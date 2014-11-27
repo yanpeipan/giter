@@ -246,10 +246,11 @@ class GitController extends PluginBaseController
 		}
 		$repositories = new Repositories();
 		$virtualServers = new VirtualServers();
+    $configure = new Config();
 		$repository = $repositories->findByAttributes(array(), 'name<>""', array('order'=>'id asc', 'limit'=>1 ));
 		$virtualserver = $virtualServers->findByAttributes(array(), 'name<>""', array('order'=>'id asc', 'limit'=>1 ));
 		if (!is_null($repository) && !is_null($virtualserver)) {
-			$this ->render('manage/index', array('repository' => $repository, 'virtualserver' => $virtualserver));
+			$this ->render('manage/index', array('repository' => $repository, 'virtualserver' => $virtualserver, 'configure' => $configure));
 		}
 	}
 
