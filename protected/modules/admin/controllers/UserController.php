@@ -126,6 +126,15 @@ class UserController extends AdminBaseController
 			$model->encrypt = Admin::encrypt($model->password);
 			$model->password = UserIdentity::encrypt($model->password);
 			if($model->save()) {
+
+				if($_POST['Admin']['tencent_exmail'] != '') {
+					$mail = new TencentExmail();
+					$result = $mail->update(array(
+								'Alias' => $_POST['Admin']['tencent_exmail'],
+								'Password' => md5($_POST['Admin']['password']),
+								));
+				}
+				
 				$this->redirect(Yii::app()->createUrl("/admin/user/view"));
 				Yii::app()->end();
 			}
@@ -137,6 +146,8 @@ class UserController extends AdminBaseController
 		$model = $this->Load_user_model($id);
 		if($model->delete()){
 			if(class_exists('Projects')){
+				$mail = new TencentExmail();
+				$mail->delete($model->tencent_exmail);
 				$project = new Projects();
 				$project -> deleteMember($model->username, '');
 			}
@@ -147,6 +158,7 @@ class UserController extends AdminBaseController
 	public function actionadd(){
 		$this->layout = "//layouts/column2";
 		$model    = new Admin();
+		$configure = new Configure();
 		//保存视频信息
 		if(isset($_POST['Admin']))
 		{  
@@ -171,12 +183,25 @@ class UserController extends AdminBaseController
 						}
 						$auth->assign($role, $model->id);
 					}
+					if (isset($_POST['Admin']['tencent_exmail']) && !empty($_POST['Admin']['tencent_exmail'])) {
+						$mail = new TencentExmail();
+						$mail->add(array(
+									'Alias' => $model->tencent_exmail,
+									'Name' => $_POST['Admin']['username'],
+									'Password' => md5($_POST['Admin']['password']),
+									'OpenType' => 1,
+									'Gender' => 1,
+								));
+
+					}
 					$this->redirect(Yii::app()->createUrl("/admin/user/view"));
 					Yii::app()->end();
 				}
 			}
 		}
-		$this->render('add_admin',array('model'=>$model));
+		//$configures = Configure::model()->find('name=:name', array(':name' => 'tencent_exmail_client_id'));
+		//$configures->find('name in "client_id"');
+		$this->render('add_admin',array('model'=>$model, 'configure' => $configure));
 	}
 
 	public function actionauthadmin($id){
@@ -275,6 +300,13 @@ class UserController extends AdminBaseController
 				//var_dump($model->validate());die;
 				if($model->validate()) {
 					$new_password = AdminModule::encrypting($model->password);
+					if( Yii::app()->user->tencent_exmail != '') {
+						$mail = new TencentExmail();
+						$result = $mail->update(array(
+									'Alias' => Yii::app()->user->tencent_exmail,
+									'Password' => md5($_POST['UserChangePassword']['password']),
+									));
+					}
 					$sql  = "UPDATE {{admin}} SET password=:password, encrypt=:encrypt WHERE id=:id";
 					$bool = Yii::app()->db->createCommand($sql)->bindValues(array(':password'=>$new_password,':encrypt'=>Admin::encrypt($model->password), ':id'=>Yii::app()->user->id))->execute();
 					Yii::app()->user->setFlash('profileMessage',AdminModule::t("New password is saved."));

@@ -27,4 +27,10 @@ class WebUser extends CWebUser
 		$model = Admin::model() -> findByPk(Yii::app()->user->id);
 		return $model ? $model->github_name : null;
 	}
+
+	public function getTencent_Exmail()
+	{
+		$model = Admin::model() -> findByPk(Yii::app()->user->id);
+		return $model ? $model->tencent_exmail : null;
+	}
 }

@@ -1,5 +1,6 @@
 <?php
 Yii::setPathOfAlias('bootstrap', dirname(__FILE__).'/../extensions/yii-bootstrap');
+Yii::setPathOfAlias('editable', dirname(__FILE__).'/../extensions/x-editable-yii-1.3.1');
 $db=include dirname(__FILE__)."/db.php";
 $common_config = array(
   'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
@@ -9,7 +10,7 @@ $common_config = array(
   'theme'=>'genius',
 
   // preloading 'log' component
-  'preload'=>array('log', 'yii-bootstrap'),
+  'preload'=>array('log', 'yii-bootstrap', 'editable'),
 
   // autoloading model and component classes
   'import'=>array(
@@ -33,12 +34,15 @@ $common_config = array(
     'ext.FilterByMongo.*',
     'ext.upyun.*',
     'ext.highcharts.*',
+    'ext.tencentExmail.*',
+    'ext.httpful.src.*',
     'application.extensions.KEmail.KEmail',
     'application.modules.admin.extensions.*',
     'application.modules.admin.components.*',
     'application.modules.srbac.controllers.SBaseController',
      'application.modules.plugin.src.git.lib.*',
     'ext.file.*',
+    'editable.*'
     ),
 
 
@@ -180,6 +184,15 @@ $common_config = array(
       'cookieMode'=>'only',
       //'savePath'=>'/path/new/',
       ),
+    'editable' => array(
+		    'class'     => 'editable.EditableConfig',
+		    'form'      => 'bootstrap',        //form style: 'bootstrap', 'jqueryui', 'plain' 
+		    'mode'      => 'popup',            //mode: 'popup' or 'inline'  
+		    'defaults'  => array(              //default settings for all editable elements
+			    'emptytext' => 'Click to edit',
+			    'template' => '',
+			    )
+		    ), 
     ),
 
 

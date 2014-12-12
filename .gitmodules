@@ -1,3 +1,6 @@
 [submodule "yii"]
 	path = yii
 	url = https://github.com/yiisoft/yii.git
+[submodule "protected/extensions/httpful"]
+	path = protected/extensions/httpful
+	url = https://github.com/nategood/httpful.git

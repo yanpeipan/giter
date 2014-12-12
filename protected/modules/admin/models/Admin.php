@@ -44,10 +44,26 @@ class Admin extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		$scenario = Yii::app()->controller->action->id;
-		if($scenario=='update'||$scenario=='add'){
+		if ($scenario == 'update') {
+				return array(
+					array('username, password, encrypt', 'required'),
+					array('username','unique'),
+					array('username, password', 'length', 'max'=>255),
+					array('is_super_admin', 'length', 'max' => 11),
+					array('tencent_exmail,github_name', 'length', 'max' => 256, 'allowEmpty' => true),
+					// The following rule is used by search().
+					// Please remove those attributes that should not be searched.
+					array('id, username, password, encrypt', 'safe', 'on'=>'search'),
+					array('rememberMe', 'boolean',),
+					// password needs to be authenticated
+					//array('password', 'authenticate', 'on'=>'login'),
+				    );
+		
+		} elseif($scenario == 'add'){
 			return array(
 					array('username, password, encrypt', 'required'),
 					array('username','unique'),
+					array('tencent_exmail', 'tencentExmailCheck', 'allowEmpty' => true),
 					array('username, password', 'length', 'max'=>255),
 					array('is_super_admin', 'length', 'max' => 11),
 					array('tencent_exmail,github_name', 'length', 'max' => 256),
@@ -74,6 +90,16 @@ class Admin extends CActiveRecord
 		}
 	}
 
+	public function tencentExmailCheck($param) {
+		if (empty($this->$param)) {
+			return true;
+		}
+		$mail = new TencentExmail();
+		$code = $mail->check($this->$param);
+		if ($code !== 0 ) {
+			$this->addError($param, '账号已被占用');
+		}
+	}
 
 	/**
 	 * @return array relational rules.

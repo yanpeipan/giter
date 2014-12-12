@@ -200,12 +200,13 @@ class GitController extends PluginBaseController
 		if (!empty($params)) {
 			$members -> attributes = $params;
 			if ($members -> save()) {
-				$project = Projects::model()->findByPk($members->pid);
-				$user = Admin::model()->findByPk($members->uid);
-				if($project) {
-					$project -> addMember($user->username, Admin::decrypt($user->encrypt), $project->id);
-					$this->redirect(Yii::app() -> createUrl('/plugin/git/members/', array('id' => $members->pid)));
-				}
+				//$project = Projects::model()->findByPk($members->pid);
+				//$user = Admin::model()->findByPk($members->uid);
+				//if($project) {
+					//$project -> addMember($user->username, Admin::decrypt($user->encrypt), $project->id);
+					//$this->redirect(Yii::app() -> createUrl('/plugin/git/members/', array('id' => $members->pid)));
+				//}
+				$this->redirect(Yii::app() -> createUrl('/plugin/git/members/', array('id' => $members->pid)));
 			} 
 		} 
 		$usernames = CHtml::listData(Admin::model()->findAll(), 'id', 'username');
@@ -227,10 +228,13 @@ class GitController extends PluginBaseController
 				if ($project && $project->uid == Yii::app()->user->id) {
 					$member->delete();
 					if ($admin->username != Yii::app()->user->username) {
-						$project -> deleteMember($admin->username, $project->id);
+						//$project -> deleteMember($admin->username, $project->id);
 					}
 				}
 			}
+		}
+		if (isset($_GET['ajax'])) {
+			Yii::app()->end();
 		}
 		$this->redirect('/plugin/git/index');
 	}
@@ -246,7 +250,7 @@ class GitController extends PluginBaseController
 		}
 		$repositories = new Repositories();
 		$virtualServers = new VirtualServers();
-    $configure = new Config();
+		$configure = new TencentExmailConfigure();
 		$repository = $repositories->findByAttributes(array(), 'name<>""', array('order'=>'id asc', 'limit'=>1 ));
 		$virtualserver = $virtualServers->findByAttributes(array(), 'name<>""', array('order'=>'id asc', 'limit'=>1 ));
 		if (!is_null($repository) && !is_null($virtualserver)) {
@@ -328,6 +332,9 @@ class GitController extends PluginBaseController
 	{
 		$project = new Projects;
 		$project->createGithubRepository('test');
+	}
+	
+	public function actionTencentExmailConfigure() {
 	}
 }
 ?>

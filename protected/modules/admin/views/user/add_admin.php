@@ -27,21 +27,3 @@
 </div>
 </div>
 </div>
-<script>
-    function user_ok(dom){
-       var name = $(dom).val();
-       var id = $("input[name='user_id']").val();
-       $.ajax({
-            url:"<?php echo Yii::app()->createUrl('admin/user/ajax_username');?>",
-            type:'GET',
-            data:'name='+name+'&id='+id,
-            success:function(result){
-                if(result==1){
-                    alert("用户名已存在！");
-                }
-            }
-        });
-    }
-    
-    
-</script>

@@ -233,7 +233,7 @@ class Projects extends CActiveRecord
   {
 
     $server = $this -> getVirtualServerInfo($id); 
-    $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
     $domain =  escapeshellarg($domain);
@@ -265,7 +265,7 @@ $result = stream_get_contents($stream);
   private function cloneRepository($domain)
   {
     $server = $this -> getVirtualServerInfo();
-    $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
     $command =<<<"EOD"
@@ -291,7 +291,7 @@ return false;
   public function gitRemoteShow()
   {
     $server = $this -> getVirtualServerInfo();
-    $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);	
   }
 
@@ -301,7 +301,7 @@ return false;
   private function createVirtualServer($secondLevelDomain, $id, $relatePath='', $index='index.php')
   {
     $server = $this -> getVirtualServerInfo();
-    $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
 
     $server_name = "{$secondLevelDomain}.{$server->url_host}";
@@ -369,7 +369,7 @@ $result = stream_get_contents($stream);
   public function destroyVirtualServer()
   {
     $server = $this->getVirtualServerInfo();
-    $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+    $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
     ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
     $filename = $server->nginx_config_path . "{$this->name}.{$server->url_host}" . '.conf';
     $sftp = ssh2_sftp($ssh);
@@ -534,7 +534,7 @@ ssh2_exec($ssh, $command);
     if($this->needVirtualServer()) {
 
       $server = $this -> getVirtualServerInfo();
-      $ssh = ssh2_connect($server->ipper, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+      $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
       ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
       $command = "git_upload {$this->name}";
       $stream = ssh2_exec($ssh, $command);
@@ -543,6 +543,39 @@ ssh2_exec($ssh, $command);
       $result = stream_get_contents($stream);
     }
   }
+    public function deleteMember($usr, $project = null)
+    {
+                    $server = $this -> getRepositoryServerInfo();
+                    $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+                    ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
+                    if ($project) {
+                    	$command = "sed -i \"/^{$project}:/s/ $usr / /g;s/ $usr$/ /g\" {$server->apache_group_file}";
+                    }else{
+                    	$command = "sed -i \"s/ $usr / /g;s/ $usr$/ /g\" {$server->apache_group_file}";
+                    }
+                    $stream = ssh2_exec($ssh, $command);
+                    $stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
+         //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
+stream_set_blocking($stream, true);
+$result = stream_get_contents($stream);
+    }
+
+    public function addMember($usr, $psw, $project)
+    {
+        $server = $this -> getRepositoryServerInfo();
+        $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));
+        ssh2_auth_pubkey_file($ssh, Yii::app()->params['user'], Yii::app()->params['pubkeyfile'],  Yii::app()->params['pemkeyfile']);
+        $command  =<<<"EOD"
+        sed -i "/^{$project}:/{s/ $usr / /g;s/$/&$usr /g;s/[ ]\{2,\}/ /g}"  {$server->apache_group_file}
+EOD;
+	echo $command;
+       $stream = ssh2_exec($ssh, $command);
+$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDERR);
+         //$stream = ssh2_fetch_stream($stream, SSH2_STREAM_STDIO);
+stream_set_blocking($stream, true);
+$result = stream_get_contents($stream);
+//$this -> htpasswd($usr, $psw);
+    }
 
   public function test()
   {

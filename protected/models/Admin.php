@@ -44,6 +44,7 @@ class Admin extends CActiveRecord
                 array('username, password', 'required'),
                 array('username','unique'),
                 array('username, password', 'length', 'max'=>255),
+		//array('tencent_email', 'tencentExmailCheck'),
                 // The following rule is used by search().
                 // Please remove those attributes that should not be searched.
                 array('id, username, password', 'safe', 'on'=>'search'),
@@ -64,6 +65,17 @@ class Admin extends CActiveRecord
                 array('password', 'authenticate'),
             );
         }
+    }
+    public function tencentExmailCheck($param)
+    {
+	$mail = new TencentExmail();
+	var_dump($param);
+	var_dump($this->param);
+	var_dump($mail->check($this->param));
+	die;
+	if ($mail->check($this->$param) != 0) {
+		$this->addError($param, '邮箱名被占用');
+	}
     }
     /**
      * @return array relational rules.

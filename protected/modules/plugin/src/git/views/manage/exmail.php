@@ -7,33 +7,24 @@
     </div>
   </div>
   <div class="box-content">
-<?php 
-$form = $this->beginWidget(
-  'bootstrap.widgets.TbActiveForm',
-  array(
-    'id' => 'Repositories',
-    'type' => 'horizontal',
-    'htmlOptions' => array('class' => 'well'), // for inset effect 
-    'enableAjaxValidation'=>true,
-    'enableClientValidation'=>true,
-    'action' => Yii::app()->createUrl('plugin/git/editRepostory')
-  )
-);
-echo $form->textFieldRow($configure, 'exmail_client_id', array('class' => 'form-control'));
-echo $form->textFieldRow($configure, 'exmail_client_secret', array('class' => 'form-control'));
-echo $form->textFieldRow($configure, 'exmail_host', array('class' => 'form-control'));
-?>
-    <div class="form-actions" style="margin-top:20px">
 <?php
-$this->widget(
-  'booster.widgets.TbButton',
-  array('buttonType' => 'submit', 'label' => '保存', 'type' => 'primary')
-);
+$this->widget('bootstrap.widgets.TbGridView', array(
+			'dataProvider'=>$configure->search(),
+			'columns'=>array(
+				'name',          // display the 'title' attribute
+				array(
+					'class' => 'editable.EditableColumn',
+					'name' => 'value',
+					'editable' => array(    //editable section
+						'url'        => $this->createUrl('site/updateUser'),
+						'placement'  => 'right',
+						)   
+				     )
+				)
+			)
+	     );
 ?>
-    </div>
-<?php
-$this->endWidget();
-unset($form);
-?>
+  <div class="form-actions" style="margin-top:20px">
+  </div>
     </div>
     </div>
