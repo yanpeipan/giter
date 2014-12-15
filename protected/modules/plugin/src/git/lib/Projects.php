@@ -125,6 +125,7 @@ class Projects extends CActiveRecord
       $criteria->compare('{{projects_members}}.uid',$this->mid,true);
       $criteria->join='left join {{projects_members}} on {{projects_members}}.pid=projects.id';
     }
+    $criteria->order = 'ctime desc';
 
     return new CActiveDataProvider($this, array(
       'criteria'=>$criteria,
@@ -532,6 +533,7 @@ ssh2_exec($ssh, $command);
   public function online()
   {
     if($this->needVirtualServer()) {
+      set_time_limit(0);
 
       $server = $this -> getVirtualServerInfo();
       $ssh = ssh2_connect($server->url_host, $server->ssh_port, array('hostkey'=>'ssh-rsa'));

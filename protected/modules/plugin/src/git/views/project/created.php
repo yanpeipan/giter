@@ -9,6 +9,7 @@
   <div class="box-content">
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
+  'id' => 'projects-grid',
   'type'=>'striped bordered condensed',
   'dataProvider'=>$projects->search(),	
   'pager' => array('class'=>'bootstrap.widgets.TbPager','displayFirstAndLast'=>true,'htmlOptions'=>array('class'=>'pagination')),
@@ -57,6 +58,17 @@ $this->widget('bootstrap.widgets.TbGridView', array(
           'icon' => 'success',
           'visible' => 'in_array($data->type, ' . var_export($projects->hasDomainTypes, True) . ') ? true : false;',
           'url' =>'Yii::app()->createUrl("plugin/git/online/id/$data->id")',
+	  'click' => "function(){
+	  	$.fn.yiiGridView.update('projects-grid', {  //change my-grid to your grid's name
+		type:'GET',
+		url:$(this).attr('href'),
+		success:function(data) {
+			alert(data);
+			$.fn.yiiGridView.update('projects-grid'); //change my-grid to your grid's name
+		}
+		})
+		return false;
+	  }",
 
         ),
         'delete'=>array(
