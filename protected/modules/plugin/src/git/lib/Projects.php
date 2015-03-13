@@ -436,13 +436,13 @@ return true;
 
   private function deleteGithubRepository($id) {
     $client = new \Github\Client();
-    $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', \Github\Client::AUTH_URL_TOKEN);
+    $client->authenticate('', \Github\Client::AUTH_URL_TOKEN);
     $client->api('repo')->remove('inmi-panel', $id); 
   }
 
   private function createGithubRepository($id) {
     $client = new \Github\Client();
-    $client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', \Github\Client::AUTH_URL_TOKEN);
+    $client->authenticate('', \Github\Client::AUTH_URL_TOKEN);
     $repo = $client->api('repo')->create($id, '', '', true);
     $this-> remote_url = $repo['clone_url'];
     if (isset(Yii::app()->user->github_name) && !empty(Yii::app()->user->github_name)) {
@@ -454,7 +454,7 @@ return true;
 		return false;	
 	}
 	$client = new \Github\Client();
-	$client->authenticate('862ce411fc6c003d18bcf01ebca8472189d2a42a', \Github\Client::AUTH_URL_TOKEN);
+	$client->authenticate('', \Github\Client::AUTH_URL_TOKEN);
 	$client->api('repo')->collaborators()->add('inmi-panel', $id, $username);
   }
   /**
