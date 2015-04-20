@@ -46,7 +46,7 @@ class Projects extends CActiveRecord
       array('root', 'length', 'max'=>4096),
       array('index', 'length', 'max'=>255,),
       array('index', 'default', 'value'=>'index.php'),
-      array('description,remote_url', 'default', 'value'=>''),
+      array('description,remote_url,domain', 'default', 'value'=>''),
       // The following rule is used by search().
       // @todo Please remove those attributes that should not be searched.
       array('id, name, type, uid, ctime, remote_url, domain, status', 'safe', 'on'=>'search'),
