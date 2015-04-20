@@ -263,3 +263,14 @@ CREATE TABLE `pre_projects` (
 ) ENGINE=MyISAM AUTO_INCREMENT=213 DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
+--
+-- 表的结构 `pre_projects`
+--
+CREATE TABLE `pre_configure` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `value` varchar(45) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
