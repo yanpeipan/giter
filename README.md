@@ -10,7 +10,7 @@ git submodule update
 ## 创建keygen ##
 ```
 ssh-keygen -t rsa -C "your_email@example.com"
-openssl rsa -in ~/.ssh/id_rsa -outform pem > protected/config/ssh/id_rsa.pem
+openssl rsa -in ~/.ssh/id_rsa -outform pem > protected/config/.ssh/id_rsa.pem
 ```
 # git仓库server搭建 #
 ## 环境介绍 ##
