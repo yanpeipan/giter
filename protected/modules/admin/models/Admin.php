@@ -244,6 +244,6 @@ class Admin extends CActiveRecord
 		$iv_dec = substr($ciphertext_dec, 0, $iv_size);
 		$ciphertext_dec = substr($ciphertext_dec, $iv_size);
 
-		return rtrim(mcrypt_decrypt(@MCRYPT_RIJNDAEL_128, $key, $ciphertext_dec, MCRYPT_MODE_CBC, $iv_dec));
+		return rtrim(@mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $ciphertext_dec, MCRYPT_MODE_CBC, $iv_dec));
 	}
 } 
