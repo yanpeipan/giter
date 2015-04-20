@@ -1,8 +1,8 @@
 # 安装 #
 
 ## PHP扩展库
-mcrypt
-ssh2
+* mcrypt
+* ssh2
 =====
 ## 克隆代码 ##
 ```
