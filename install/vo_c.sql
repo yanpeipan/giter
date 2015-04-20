@@ -204,3 +204,46 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
   CONSTRAINT `AuthItemChild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `AuthItemChild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pre_projects_members` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `pid` int(10) unsigned NOT NULL,
+  `uid` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `uniqe` (`pid`,`uid`)
+) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pre_repositories` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` text NOT NULL,
+  `root_path` varchar(3841) NOT NULL COMMENT 'The root path of repositorie',
+  `apache_group_file` varchar(4096) NOT NULL,
+  `apache_user_file` varchar(4096) NOT NULL,
+  `ip` varchar(255) NOT NULL,
+  `ssh_port` smallint(5) unsigned NOT NULL,
+  `apache_bin` varchar(4096) NOT NULL,
+  `url_port` smallint(5) unsigned NOT NULL,
+  `url_schema` varchar(45) NOT NULL,
+  `htpasswd_bin` varchar(4096) NOT NULL,
+  `git_config_path` varchar(45) NOT NULL,
+  `url_host` varchar(256) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+CREATE TABLE `pre_projects` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(45) NOT NULL,
+  `description` text NOT NULL,
+  `uid` int(11) NOT NULL,
+  `ctime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `remote_url` varchar(255) NOT NULL,
+  `domain` varchar(45) NOT NULL,
+  `status` varchar(45) DEFAULT NULL,
+  `type` varchar(45) NOT NULL,
+  `root` varchar(4096) NOT NULL,
+  `index` varchar(255) NOT NULL DEFAULT 'index.php',
+  `repository` varchar(45) NOT NULL DEFAULT 'local' COMMENT '版本库类型:local, github',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `name_UNIQUE` (`name`)
+) ENGINE=MyISAM AUTO_INCREMENT=213 DEFAULT CHARSET=utf8;
