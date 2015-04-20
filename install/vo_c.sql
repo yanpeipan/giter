@@ -261,3 +261,5 @@ CREATE TABLE `pre_projects` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=MyISAM AUTO_INCREMENT=213 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
