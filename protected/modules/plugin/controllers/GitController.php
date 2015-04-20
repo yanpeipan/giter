@@ -78,6 +78,7 @@ class GitController extends PluginBaseController
 
 		if (!empty($params)) {
 			$model -> attributes = $params;
+			$model -> uid = Yii::app()->user->getId();
 			if ($model -> save() && $model -> create()) {
 
 				$model -> uid = Yii::app()->user->getId();
