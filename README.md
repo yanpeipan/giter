@@ -6,6 +6,8 @@ git clone https://github.com/yanpeipan/giter.git
 cd giter
 git submodule init
 git submodule update
+curl -sS https://getcomposer.org/installer | php -- --filename=composer
+composer update
 ```
 ## 创建keygen ##
 ```
