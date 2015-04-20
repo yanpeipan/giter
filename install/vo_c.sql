@@ -264,7 +264,7 @@ CREATE TABLE `pre_projects` (
 
 -- --------------------------------------------------------
 --
--- 表的结构 `pre_projects`
+-- 表的结构 `pre_configure`
 --
 CREATE TABLE `pre_configure` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
@@ -273,4 +273,5 @@ CREATE TABLE `pre_configure` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `name_UNIQUE` (`name`)
 ) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
 -- --------------------------------------------------------
