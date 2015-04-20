@@ -35,7 +35,7 @@ class Projects extends CActiveRecord
     // NOTE: you should only define rules for those attributes that
     // will receive user inputs.
     return array(
-      array('name, type', 'required'),
+      array('name, type, uid', 'required'),
       array('name', 'unique'),
       array('name', 'match', 'pattern'=>'/^[\d\w]+$/'),
       //array('domain',  'domainValidator'),
