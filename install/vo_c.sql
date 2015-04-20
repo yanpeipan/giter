@@ -204,7 +204,11 @@ CREATE TABLE IF NOT EXISTS `AuthItemChild` (
   CONSTRAINT `AuthItemChild_ibfk_1` FOREIGN KEY (`parent`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE,
   CONSTRAINT `AuthItemChild_ibfk_2` FOREIGN KEY (`child`) REFERENCES `AuthItem` (`name`) ON DELETE CASCADE ON UPDATE CASCADE
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- --------------------------------------------------------
 
+--
+-- 表的结构 `pre_projects_members`
+--
 CREATE TABLE `pre_projects_members` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `pid` int(10) unsigned NOT NULL,
@@ -213,6 +217,11 @@ CREATE TABLE `pre_projects_members` (
   UNIQUE KEY `uniqe` (`pid`,`uid`)
 ) ENGINE=MyISAM AUTO_INCREMENT=83 DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pre_repositories`
+--
 CREATE TABLE `pre_repositories` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
@@ -231,6 +240,11 @@ CREATE TABLE `pre_repositories` (
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
+-- --------------------------------------------------------
+
+--
+-- 表的结构 `pre_projects`
+--
 CREATE TABLE `pre_projects` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(45) NOT NULL,
