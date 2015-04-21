@@ -318,7 +318,7 @@ return false;
         listen 80;
         server_name  $server_name;
         root  $root;
-        access_log  $access_log access;
+        access_log  $access_log;
 
         location ~ .*\.(php|php5)?$
         {
