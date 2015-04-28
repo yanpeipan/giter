@@ -27,16 +27,19 @@ CREATE TABLE IF NOT EXISTS `pt_action` (
 --
 
 DROP TABLE IF EXISTS `pt_admin`;
-CREATE TABLE IF NOT EXISTS `pt_admin` (
+CREATE TABLE IF NOT EXISTS  `pt_admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(255) NOT NULL COMMENT '用户名',
   `password` varchar(255) NOT NULL COMMENT '密码',
   `is_super_admin` int(1) NOT NULL DEFAULT '0' COMMENT '是否为超级管理员',
   `encrypt` varchar(255) NOT NULL,
+  `tencent_exmail` varchar(255) NOT NULL,
+  `github_name` varchar(255) NOT NULL,
   PRIMARY KEY (`id`),
   KEY `username` (`username`),
   KEY `password` (`password`)
-) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=69 ;
+) ENGINE=MyISAM AUTO_INCREMENT=127 DEFAULT CHARSET=utf8;
+
 
 -- --------------------------------------------------------
 
